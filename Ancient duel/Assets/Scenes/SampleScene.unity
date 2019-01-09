@@ -1231,19 +1231,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4875519037556294, guid: 79182f55f85aff447bf5ea796aad2505, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7
+      value: 7.992
       objectReference: {fileID: 0}
     - target: {fileID: 4875519037556294, guid: 79182f55f85aff447bf5ea796aad2505, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4875519037556294, guid: 79182f55f85aff447bf5ea796aad2505, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4875519037556294, guid: 79182f55f85aff447bf5ea796aad2505, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4875519037556294, guid: 79182f55f85aff447bf5ea796aad2505, type: 2}
       propertyPath: m_LocalRotation.w
@@ -3641,8 +3641,11 @@ MonoBehaviour:
   - {fileID: 869731968}
   - {fileID: 869731968}
   - {fileID: 869731968}
+  SpellsAvailable:
+  - {fileID: 170134, guid: ed061596fe296204f8a604a5f98a23dd, type: 2}
   radius: 20
   coverIndex: 0
+  selectedSpell: 0
 --- !u!195 &608753184
 NavMeshAgent:
   m_ObjectHideFlags: 0

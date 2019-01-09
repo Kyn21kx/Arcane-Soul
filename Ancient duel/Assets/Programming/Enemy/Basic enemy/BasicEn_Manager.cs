@@ -23,8 +23,10 @@ public class BasicEn_Manager : MonoBehaviour {
     public int positionIndex = 0;
     public GameObject[] covers;
     public Transform[] checkPoints;
+    public GameObject[] SpellsAvailable;
     public float radius = 8f;
     public int coverIndex;
+    public int selectedSpell = 0;
     RaycastHit hit;
     #endregion
 
@@ -62,6 +64,7 @@ public class BasicEn_Manager : MonoBehaviour {
             detected = true;
             if (ranged) {
                 ai.SetDestination(covers[coverIndex].transform.position);
+                Attack();
             }
             //If the player is running, the speed will increase
         }
@@ -87,23 +90,6 @@ public class BasicEn_Manager : MonoBehaviour {
         
     }
 
-    private void EvaluateType () {
-        switch (enemyType) {
-            case EnemyType.PatrolOn4:
-                break;
-            case EnemyType.ElitePatrol:
-                break;
-            case EnemyType.EliteSingle:
-                break;
-            case EnemyType.SingleBasic:
-                break;
-            case EnemyType.FireProof:
-                break;
-            default:
-                break;
-        }
-    }
-
     //Get an array of the objects near the AI, compare each one's distance and go to the closest one
     private void CompareCoverDistance () {
         
@@ -121,9 +107,30 @@ public class BasicEn_Manager : MonoBehaviour {
     }
 
     private void Attack () {
+        //Add mana to the enemy and CD for the shot
         if (ranged && detected) {
             //Switch enemyType
-
+            bool ready = true;
+            RaycastHit hit;
+            switch (enemyType) {
+                case EnemyType.PatrolOn4:
+                    Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 30f);
+                    if (ready && hit.transform.CompareTag("Player")) {
+                        Instantiate(SpellsAvailable[selectedSpell], gameObject.transform.position, gameObject.transform.rotation);
+                        ready = false;
+                    }
+                    break;
+                case EnemyType.ElitePatrol:
+                    break;
+                case EnemyType.EliteSingle:
+                    break;
+                case EnemyType.SingleBasic:
+                    break;
+                case EnemyType.FireProof:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
