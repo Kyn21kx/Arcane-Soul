@@ -1,0 +1,29 @@
+using UnityEditor;
+using UnityEngine;
+
+namespace UnityStandardAssets.CinematicEffects
+{
+    [CustomPropertyDrawer(typeof(RFX1_MinAttribute))]
+    internal sealed class RFX1_MinDrawer : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            RFX1_MinAttribute attribute = (RFX1_MinAttribute) base.attribute;
+
+            if (property.propertyType == SerializedPropertyType.Integer)
+            {
+                int v = EditorGUI.IntField(position, label, property.intValue);
+                property.intValue = (int)Mathf.Max(v, attribute.min);
+            }
+            else if (property.propertyType == SerializedPropertyType.Float)
+            {
+                float v = EditorGUI.FloatField(position, label, property.floatValue);
+                property.floatValue = Mathf.Max(v, attribute.min);
+            }
+            else
+            {
+                EditorGUI.LabelField(position, label.text, "Use Min with float or int.");
+            }
+        }
+    }
+}

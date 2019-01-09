@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 45aa69da8d181eb4880242cb9ff4f367
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: MILL_1_cit
+    100002: MILL_1_cop_kutusu
+    100004: MILL_1_degirmen
+    100006: MILL_1_halat
+    100008: MILL_1_kovalar
+    100010: MILL_1_kulube
+    100012: MILL_1_paletler
+    100014: MILL_1_zemin
+    100016: //RootNode
+    400000: MILL_1_cit
+    400002: MILL_1_cop_kutusu
+    400004: MILL_1_degirmen
+    400006: MILL_1_halat
+    400008: MILL_1_kovalar
+    400010: MILL_1_kulube
+    400012: MILL_1_paletler
+    400014: MILL_1_zemin
+    400016: //RootNode
+    2100000: MILL_1_citMat
+    2100002: MILL_1_cop_kutusuMat
+    2100004: MILL_1_degirmenMat
+    2100006: MILL_1_halatMat
+    2100008: MILL_1_kovalarMat
+    2100010: MILL_1_kulubeMat
+    2100012: MILL_1_paletlerMat
+    2100014: MILL_1_zeminMat
+    2300000: MILL_1_cit
+    2300002: MILL_1_cop_kutusu
+    2300004: MILL_1_degirmen
+    2300006: MILL_1_halat
+    2300008: MILL_1_kovalar
+    2300010: MILL_1_kulube
+    2300012: MILL_1_paletler
+    2300014: MILL_1_zemin
+    3300000: MILL_1_cit
+    3300002: MILL_1_cop_kutusu
+    3300004: MILL_1_degirmen
+    3300006: MILL_1_halat
+    3300008: MILL_1_kovalar
+    3300010: MILL_1_kulube
+    3300012: MILL_1_paletler
+    3300014: MILL_1_zemin
+    4300000: MILL_1_cit
+    4300002: MILL_1_cop_kutusu
+    4300004: MILL_1_degirmen
+    4300006: MILL_1_halat
+    4300008: MILL_1_kovalar
+    4300010: MILL_1_kulube
+    4300012: MILL_1_paletler
+    4300014: MILL_1_zemin
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
