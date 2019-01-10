@@ -49,7 +49,6 @@ public class ManaManager : MonoBehaviour {
 
         #region Drenar Maná para ataques fuertes
         if (GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>().readyToCast && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming && Input.GetMouseButton(1) && manaAmount >= 30f) { //Continuar añadiendo todos los hechizos
-            cntr = 1.5f;
             switch (spells.abilitySelector) {
 
                 case Spells.Abilities.Heavy1:
@@ -92,6 +91,7 @@ public class ManaManager : MonoBehaviour {
     private IEnumerator AdjustElectricHeavy1 () {
         yield return new WaitForSecondsRealtime(3f);
         manaAmount -= electricHeavy;
+        cntr = 1.5f;
     }
 
 }
