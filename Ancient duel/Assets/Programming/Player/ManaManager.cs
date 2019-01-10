@@ -89,7 +89,7 @@ public class ManaManager : MonoBehaviour {
     }
 
     private IEnumerator AdjustElectricHeavy1 () {
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSeconds(3f);
         manaAmount -= electricHeavy;
         cntr = 1.5f;
     }

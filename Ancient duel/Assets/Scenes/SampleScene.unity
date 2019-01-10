@@ -3542,7 +3542,7 @@ MonoBehaviour:
   - {fileID: 869731968}
   - {fileID: 869731968}
   SpellsAvailable:
-  - {fileID: 170134, guid: ed061596fe296204f8a604a5f98a23dd, type: 2}
+  - {fileID: 1530998064867462, guid: 191ecdb436a96144fa94c7f2a922c130, type: 2}
   radius: 20
   coverIndex: 0
   selectedSpell: 0

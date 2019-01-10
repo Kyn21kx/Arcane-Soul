@@ -15,7 +15,7 @@ public class Fireball : MonoBehaviour {
     }
 
     IEnumerator ChargeCD () {
-        yield return new WaitForSecondsRealtime(0.45f);
+        yield return new WaitForSeconds(0.45f);
         readytoCast = true;
     }
 

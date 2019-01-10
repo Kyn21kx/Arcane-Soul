@@ -117,7 +117,7 @@ public class BasicEn_Manager : MonoBehaviour {
                     Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 30f);
                     if (ready && hit.transform.CompareTag("Player")) {
                         Instantiate(SpellsAvailable[selectedSpell], gameObject.transform.position, gameObject.transform.rotation);
-                        ready = false;
+                        StartCoroutine(BasicCD(ready));
                     }
                     break;
                 case EnemyType.ElitePatrol:
@@ -132,6 +132,12 @@ public class BasicEn_Manager : MonoBehaviour {
                     break;
             }
         }
+    }
+
+
+    private IEnumerator BasicCD (bool Ready) {
+        yield return new WaitForSeconds(5f);
+        Ready = false;
     }
 
 }
