@@ -99,7 +99,7 @@ public class BasicEn_Manager : MonoBehaviour {
             distanceToCover = Vector3.Distance(ai.transform.position, covers[i].transform.position);
             if (distanceToCover < minorDistance) {
                 minorDistance = distanceToCover;
-                Debug.Log(minorDistance);
+                //Debug.Log(minorDistance);
                 coverIndex = i;
             }
         }

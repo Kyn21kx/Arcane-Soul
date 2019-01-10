@@ -85,6 +85,8 @@ public class ManaManager : MonoBehaviour {
             }
             
         }
+        Debug.Log(manaAmount);
+        //manaBar.fillAmount = 
     }
 
     private IEnumerator AdjustElectricHeavy1 () {
