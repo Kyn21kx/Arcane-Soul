@@ -10073,6 +10073,11 @@ Prefab:
       propertyPath: electShield
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
+        type: 2}
+      propertyPath: manaAmount
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8333a283535484dba8b82b8ef893e0, type: 2}
   m_IsPrefabAsset: 0

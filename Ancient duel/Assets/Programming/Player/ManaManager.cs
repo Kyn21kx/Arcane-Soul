@@ -8,8 +8,11 @@ public class ManaManager : MonoBehaviour {
     Image manaBar;
     Spells spells;
     public int fball = 20, enWhip = 20, electShield = 20, magneticBasic = 20, waterAttack = 20;
-    public int manaAmount = 100;
-    public int manaAux;
+    public float manaAmount = 100f;
+    public float manaAux;
+    public int regenerationAmount = 20;
+    public bool reduced = false;
+    float cntr = 1.5f;
     #endregion
 
     private void Start() {
@@ -20,13 +23,12 @@ public class ManaManager : MonoBehaviour {
 
     private void Update() {
         EvaluateSpells();
-        
     }
 
-    private void EvaluateSpells () {
+    private void EvaluateSpells() {
         #region Drenar Maná para los ataques básicos
-        if (!GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast && Input.GetMouseButtonUp(0) && manaAmount >= 20) {
-
+        if (!GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast && Input.GetMouseButtonUp(0) && (manaAmount >= fball || manaAmount >= waterAttack)) { //Continuar añadiendo todos los hechizos
+            cntr = 1.5f;
             switch (spells.typeSelector) {
                 case Spells.Types.Fire:
                     manaAmount -= fball;
@@ -41,20 +43,25 @@ public class ManaManager : MonoBehaviour {
                     manaAmount -= enWhip;
                     break;
             }
+            reduced = true;
         }
-        else if (manaAmount <= 19) {
-            GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast = false;
-            StartCoroutine(Regenerate_Mana());
+        if (reduced) {
+            if (cntr <= 1.5f && cntr > 0f) {
+                cntr -= Time.fixedDeltaTime;
+                cntr = Mathf.Clamp(cntr, 0f, 1.5f);
+            }
+            if (cntr <= 0f) {
+                if (manaAmount <= manaAux) {
+                    manaAmount += (20f * Time.fixedDeltaTime);
+                    manaAmount = Mathf.Clamp(manaAmount, 0f, manaAux);
+                    System.Convert.ToInt64(manaAmount);
+                }
+            }
         }
+        
         #endregion
     }
 
-    IEnumerator Regenerate_Mana () {
-        yield return new WaitForSecondsRealtime(5f);
-        if (manaAmount < manaAux) {
-            manaAmount++;
-        }
-        yield return new WaitForSecondsRealtime(2f);
-    }
+    
 
 }

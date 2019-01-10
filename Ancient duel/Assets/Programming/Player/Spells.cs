@@ -77,7 +77,8 @@ public class Spells : MonoBehaviour {
         if (aim.aiming) {
             //Si se detecta un control entonces el disparo es con RB o R1
             #region Basic Attack
-            if (Input.GetMouseButton(0)) {
+            //Cambiar la cantidad de maná por cada hechizo
+            if (Input.GetMouseButton(0) && Player.GetComponent<ManaManager>().manaAmount >= 20) {
                 Casted = true;
                 switch (typeSelector) {
                     case Types.Fire:
