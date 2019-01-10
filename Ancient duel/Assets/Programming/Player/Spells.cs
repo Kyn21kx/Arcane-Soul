@@ -19,6 +19,7 @@ public class Spells : MonoBehaviour {
     GameObject Player;
     public TextMeshProUGUI txt;
     public GameObject AbilitySelectorGUI;
+    public bool Casted = false;
     #endregion
 
     //Set the spells as disabled
@@ -77,6 +78,7 @@ public class Spells : MonoBehaviour {
             //Si se detecta un control entonces el disparo es con RB o R1
             #region Basic Attack
             if (Input.GetMouseButton(0)) {
+                Casted = true;
                 switch (typeSelector) {
                     case Types.Fire:
                         if (fireball.readytoCast) {

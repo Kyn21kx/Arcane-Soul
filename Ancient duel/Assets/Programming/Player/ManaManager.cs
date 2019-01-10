@@ -4,39 +4,57 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ManaManager : MonoBehaviour {
-    public enum CAST { FIRE, LIGHTING, SHIELD };
     #region Variables
     Image manaBar;
     Spells spells;
-    CAST selected;
-    public float fball = .1f, enWhip = .2f, electShield = .4f;
+    public int fball = 20, enWhip = 20, electShield = 20, magneticBasic = 20, waterAttack = 20;
+    public int manaAmount = 100;
+    public int manaAux;
     #endregion
 
     private void Start() {
         manaBar = GameObject.FindGameObjectWithTag("Mana").GetComponent<Image>();
         spells = GameObject.FindGameObjectWithTag("Player").GetComponent<Spells>();
+        manaAux = manaAmount;
     }
 
     private void Update() {
         EvaluateSpells();
-        switch (selected) {
-            case CAST.FIRE:
-                break;
-            case CAST.LIGHTING:
-                break;
-            case CAST.SHIELD:
-                break;
-            default:
-                break;
-        }
-
+        
     }
 
     private void EvaluateSpells () {
-        switch (spells.current_spell) {
-            default:
-                break;
+        #region Drenar Maná para los ataques básicos
+        if (!GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast && Input.GetMouseButtonUp(0) && manaAmount >= 20) {
+
+            switch (spells.typeSelector) {
+                case Spells.Types.Fire:
+                    manaAmount -= fball;
+                    break;
+                case Spells.Types.Water:
+                    manaAmount -= waterAttack;
+                    break;
+                case Spells.Types.Magnetic:
+                    manaAmount -= magneticBasic;
+                    break;
+                case Spells.Types.Electric:
+                    manaAmount -= enWhip;
+                    break;
+            }
         }
+        else if (manaAmount <= 19) {
+            GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast = false;
+            StartCoroutine(Regenerate_Mana());
+        }
+        #endregion
+    }
+
+    IEnumerator Regenerate_Mana () {
+        yield return new WaitForSecondsRealtime(5f);
+        if (manaAmount < manaAux) {
+            manaAmount++;
+        }
+        yield return new WaitForSecondsRealtime(2f);
     }
 
 }

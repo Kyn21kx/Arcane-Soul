@@ -10053,6 +10053,26 @@ Prefab:
       propertyPath: AbilitySelectorGUI
       value: 
       objectReference: {fileID: 1404500648}
+    - target: {fileID: 54576715358698406, guid: ac8333a283535484dba8b82b8ef893e0,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
+        type: 2}
+      propertyPath: fball
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
+        type: 2}
+      propertyPath: enWhip
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
+        type: 2}
+      propertyPath: electShield
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8333a283535484dba8b82b8ef893e0, type: 2}
   m_IsPrefabAsset: 0
