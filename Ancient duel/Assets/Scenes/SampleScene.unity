@@ -832,6 +832,16 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 780252930}
+    - target: {fileID: 198185355542681370, guid: ec902ce3385ef7e4ab6a3d26a08c541f,
+        type: 2}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198185355542681370, guid: ec902ce3385ef7e4ab6a3d26a08c541f,
+        type: 2}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec902ce3385ef7e4ab6a3d26a08c541f, type: 2}
   m_IsPrefabAsset: 0
@@ -1210,22 +1220,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &150109879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1353749592071220, guid: ac8333a283535484dba8b82b8ef893e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 2020026795}
---- !u!114 &150109890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 150109879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183f71fb11416eb4fa5ceb617ced1dd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &160810176
 GameObject:
   m_ObjectHideFlags: 0
@@ -9935,15 +9929,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1353749592071220, guid: ac8333a283535484dba8b82b8ef893e0, type: 2}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 114614418226930732, guid: ac8333a283535484dba8b82b8ef893e0,
         type: 2}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 1824448136}
-    - target: {fileID: 1353749592071220, guid: ac8333a283535484dba8b82b8ef893e0, type: 2}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 114931719526822972, guid: ac8333a283535484dba8b82b8ef893e0,
         type: 2}
       propertyPath: HeavyElectric1
@@ -9954,31 +9948,6 @@ Prefab:
       propertyPath: AbilitySelectorGUI
       value: 
       objectReference: {fileID: 1404500648}
-    - target: {fileID: 54576715358698406, guid: ac8333a283535484dba8b82b8ef893e0,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
-        type: 2}
-      propertyPath: fball
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
-        type: 2}
-      propertyPath: enWhip
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
-        type: 2}
-      propertyPath: electShield
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
-        type: 2}
-      propertyPath: manaAmount
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8333a283535484dba8b82b8ef893e0, type: 2}
   m_IsPrefabAsset: 0

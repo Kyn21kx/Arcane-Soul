@@ -8,7 +8,7 @@ public class ManaManager : MonoBehaviour {
     Image manaBar;
     Spells spells;
     public int fball = 20, enWhip = 20, electShield = 20, magneticBasic = 20, waterAttack = 20, electricHeavy = 30;
-    public float manaAmount = 100f;
+    public float manaAmount = 150f;
     public float manaAux;
     public int regenerationAmount = 20;
     public bool reduced = false;
@@ -48,7 +48,7 @@ public class ManaManager : MonoBehaviour {
         #endregion
 
         #region Drenar Maná para ataques fuertes
-        if (!GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>().readyToCast && Input.GetMouseButtonUp(1) && manaAmount >= 30f) { //Continuar añadiendo todos los hechizos
+        if (GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>().readyToCast && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming && Input.GetMouseButton(1) && manaAmount >= 30f) { //Continuar añadiendo todos los hechizos
             cntr = 1.5f;
             switch (spells.abilitySelector) {
 
@@ -62,7 +62,7 @@ public class ManaManager : MonoBehaviour {
 
                     break;
                 case Spells.Abilities.Heavy4:
-                    
+                    StartCoroutine(AdjustElectricHeavy1());
                     break;
                 default:
                     break;
@@ -87,6 +87,9 @@ public class ManaManager : MonoBehaviour {
         }
     }
 
-    
+    private IEnumerator AdjustElectricHeavy1 () {
+        yield return new WaitForSecondsRealtime(3f);
+        manaAmount -= electricHeavy;
+    }
 
 }

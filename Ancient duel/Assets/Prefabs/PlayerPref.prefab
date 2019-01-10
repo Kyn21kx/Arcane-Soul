@@ -1017,6 +1017,7 @@ GameObject:
   - component: {fileID: 114924351439615338}
   - component: {fileID: 114614418226930732}
   - component: {fileID: 114479457955925702}
+  - component: {fileID: 114049040327094882}
   m_Layer: 0
   m_Name: PlayerPref
   m_TagString: Player
@@ -6424,6 +6425,17 @@ MonoBehaviour:
     m_RotationOrder: 0
   AproximatedFlyDistance: 4
   SmoothCurves: 1
+--- !u!114 &114049040327094882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353749592071220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183f71fb11416eb4fa5ceb617ced1dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114073518113562340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6534,9 +6546,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664cf41520f64cc4fac41b26bb762ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fball: 0.1
-  enWhip: 0.2
-  electShield: 0.4
+  fball: 20
+  enWhip: 20
+  electShield: 20
+  magneticBasic: 20
+  waterAttack: 20
+  electricHeavy: 30
+  manaAmount: 150
+  manaAux: 0
+  regenerationAmount: 20
+  reduced: 0
 --- !u!114 &114106676427479004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7315,6 +7334,7 @@ MonoBehaviour:
   HeavyElectric1: {fileID: 0}
   txt: {fileID: 0}
   AbilitySelectorGUI: {fileID: 0}
+  Casted: 0
 --- !u!114 &114968260676048718
 MonoBehaviour:
   m_ObjectHideFlags: 1
