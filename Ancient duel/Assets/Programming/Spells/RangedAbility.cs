@@ -16,7 +16,7 @@ public class RangedAbility : MonoBehaviour {
     }
 
     public IEnumerator CoolDown () {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Spells>().HeavyElectric1.SetActive(false);
         readyToCast = true;
     }

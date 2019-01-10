@@ -7,7 +7,7 @@ public class ManaManager : MonoBehaviour {
     #region Variables
     Image manaBar;
     Spells spells;
-    public int fball = 20, enWhip = 20, electShield = 20, magneticBasic = 20, waterAttack = 20;
+    public int fball = 20, enWhip = 20, electShield = 20, magneticBasic = 20, waterAttack = 20, electricHeavy = 30;
     public float manaAmount = 100f;
     public float manaAux;
     public int regenerationAmount = 20;
@@ -45,6 +45,32 @@ public class ManaManager : MonoBehaviour {
             }
             reduced = true;
         }
+        #endregion
+
+        #region Drenar Maná para ataques fuertes
+        if (!GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>().readyToCast && Input.GetMouseButtonUp(1) && manaAmount >= 30f) { //Continuar añadiendo todos los hechizos
+            cntr = 1.5f;
+            switch (spells.abilitySelector) {
+
+                case Spells.Abilities.Heavy1:
+
+                    break;
+                case Spells.Abilities.Heavy2:
+
+                    break;
+                case Spells.Abilities.Heavy3:
+
+                    break;
+                case Spells.Abilities.Heavy4:
+                    
+                    break;
+                default:
+                    break;
+            }
+            reduced = true;
+        }
+        #endregion
+
         if (reduced) {
             if (cntr <= 1.5f && cntr > 0f) {
                 cntr -= Time.fixedDeltaTime;
@@ -57,9 +83,8 @@ public class ManaManager : MonoBehaviour {
                     System.Convert.ToInt64(manaAmount);
                 }
             }
+            
         }
-        
-        #endregion
     }
 
     
