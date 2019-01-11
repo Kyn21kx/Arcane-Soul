@@ -62,6 +62,7 @@ public class ManaManager : MonoBehaviour {
                     break;
                 case Spells.Abilities.Heavy4:
                     StartCoroutine(AdjustElectricHeavy1());
+                    StartCoroutine(AuxTimer(3f));
                     break;
                 default:
                     break;
@@ -89,9 +90,15 @@ public class ManaManager : MonoBehaviour {
     }
 
     private IEnumerator AdjustElectricHeavy1 () {
+        //Disable the regeneration by going higher than 1.5
+        cntr = 2;
         yield return new WaitForSeconds(0.2f);
         manaAmount -= electricHeavy;
-        yield return new WaitForSeconds(2.8f);
+        
+    }
+
+    private IEnumerator AuxTimer (float time) {
+        yield return new WaitForSeconds(time);
         cntr = 1.5f;
     }
 
