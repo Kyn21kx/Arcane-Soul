@@ -78,32 +78,23 @@ public class Spells : MonoBehaviour {
             //Si se detecta un control entonces el disparo es con RB o R1
             #region Basic Attack
             //Cambiar la cantidad de maná por cada hechizo
-            if (Input.GetMouseButton(0) && Player.GetComponent<ManaManager>().manaAmount >= 20) {
-                Casted = true;
+            if (Input.GetMouseButtonUp(0) && Player.GetComponent<ManaManager>().manaAmount >= Player.GetComponent<ManaManager>().fball && fireball.readytoCast) {
                 switch (typeSelector) {
                     case Types.Fire:
-                        if (fireball.readytoCast) {
                             fireball.Casted();
                             Instantiate(fball, GameObject.Find("Fireball Holder").transform.position, GameObject.Find("Fireball Holder").transform.rotation);
-                        }
                         break;
                     case Types.Water:
-                        if (fireball.readytoCast) {
                             fireball.Casted();
                             Instantiate(waterAttack, GameObject.Find("Fireball Holder").transform.position, GameObject.Find("Fireball Holder").transform.rotation);
-                        }
                         break;
                     case Types.Magnetic:
-                        if (fireball.readytoCast) {
                             fireball.Casted();
                             Instantiate(magneticAttack, GameObject.Find("Fireball Holder").transform.position, GameObject.Find("Fireball Holder").transform.rotation);
-                        }
                         break;
                     case Types.Electric:
-                        if (fireball.readytoCast) {
                             fireball.Casted();
                             Instantiate(electricAttack, GameObject.Find("Fireball Holder").transform.position, GameObject.Find("Fireball Holder").transform.rotation);
-                        }
                         break;
                     default:
                         break;

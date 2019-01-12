@@ -31,7 +31,7 @@ public class ManaManager : MonoBehaviour {
     private void EvaluateSpells() {
 
         #region Drenar Maná para los ataques básicos
-        if (!GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast && Input.GetMouseButtonUp(0) && (manaAmount >= fball || manaAmount >= waterAttack)) { //Continuar añadiendo todos los hechizos
+        if (Input.GetMouseButtonUp(0) && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming && manaAmount > fball) { //Continuar añadiendo todos los hechizos
             cntr = 1.5f;
             switch (spells.typeSelector) {
                 case Spells.Types.Fire:
