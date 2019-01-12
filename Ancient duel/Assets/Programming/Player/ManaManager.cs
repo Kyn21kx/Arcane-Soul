@@ -13,6 +13,7 @@ public class ManaManager : MonoBehaviour {
     public int regenerationAmount = 20;
     public bool reduced = false;
     float cntr = 1.5f;
+    private float proportion;
     #endregion
 
     private void Start() {
@@ -23,9 +24,12 @@ public class ManaManager : MonoBehaviour {
 
     private void Update() {
         EvaluateSpells();
+        proportion = manaAmount / manaAux;
+        manaBar.fillAmount = proportion;
     }
 
     private void EvaluateSpells() {
+
         #region Drenar Maná para los ataques básicos
         if (!GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast && Input.GetMouseButtonUp(0) && (manaAmount >= fball || manaAmount >= waterAttack)) { //Continuar añadiendo todos los hechizos
             cntr = 1.5f;
@@ -80,7 +84,7 @@ public class ManaManager : MonoBehaviour {
                 if (manaAmount <= manaAux) {
                     manaAmount += (20f * Time.fixedDeltaTime);
                     manaAmount = Mathf.Clamp(manaAmount, 0f, manaAux);
-                    System.Convert.ToInt64(manaAmount);
+                    
                 }
             }
             
@@ -101,5 +105,4 @@ public class ManaManager : MonoBehaviour {
         yield return new WaitForSeconds(time);
         cntr = 1.5f;
     }
-
 }
