@@ -2105,7 +2105,7 @@ Transform:
   m_LocalScale: {x: 13.849539, y: 10.129541, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &396620664
 GameObject:
@@ -2561,7 +2561,7 @@ Transform:
   m_LocalScale: {x: 13.849539, y: 10.129541, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &481197324
 Prefab:
@@ -3542,7 +3542,7 @@ MonoBehaviour:
   - {fileID: 869731968}
   - {fileID: 869731968}
   SpellsAvailable:
-  - {fileID: 1530998064867462, guid: 191ecdb436a96144fa94c7f2a922c130, type: 2}
+  - {fileID: 1679276321574454, guid: d9e6bc0f3cd450b4e81d672e1e3957e2, type: 2}
   radius: 20
   coverIndex: 0
   selectedSpell: 0
@@ -6512,7 +6512,7 @@ Prefab:
     - target: {fileID: 224950008286064266, guid: ddf58146b0be1634a89090b70581add7,
         type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 224950008286064266, guid: ddf58146b0be1634a89090b70581add7,
         type: 2}
@@ -9900,7 +9900,7 @@ Transform:
   m_LocalScale: {x: 13.849539, y: 10.129541, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &2015229464
 GameObject:
@@ -9993,6 +9993,11 @@ Prefab:
       propertyPath: AbilitySelectorGUI
       value: 
       objectReference: {fileID: 1404500648}
+    - target: {fileID: 114077716012922366, guid: ac8333a283535484dba8b82b8ef893e0,
+        type: 2}
+      propertyPath: fball
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8333a283535484dba8b82b8ef893e0, type: 2}
   m_IsPrefabAsset: 0

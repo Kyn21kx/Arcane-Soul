@@ -12,6 +12,7 @@ public class ManaManager : MonoBehaviour {
     public float manaAux;
     public int regenerationAmount = 20;
     public bool reduced = false;
+    public bool outOfMana;
     float cntr = 1.5f;
     private float proportion;
     #endregion
@@ -31,7 +32,7 @@ public class ManaManager : MonoBehaviour {
     private void EvaluateSpells() {
 
         #region Drenar Maná para los ataques básicos
-        if (Input.GetMouseButtonUp(0) && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming && manaAmount > fball) { //Continuar añadiendo todos los hechizos
+        if (Input.GetMouseButtonUp(0) && manaAmount >= fball && GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming) { //Continuar añadiendo todos los hechizos
             cntr = 1.5f;
             switch (spells.typeSelector) {
                 case Spells.Types.Fire:
@@ -48,7 +49,13 @@ public class ManaManager : MonoBehaviour {
                     break;
             }
             reduced = true;
+            outOfMana = false;
         }
+
+        else if (manaAmount <= fball) { // Add the other spells here
+            outOfMana = true;
+        }
+
         #endregion
 
         #region Drenar Maná para ataques fuertes
@@ -105,4 +112,5 @@ public class ManaManager : MonoBehaviour {
         yield return new WaitForSeconds(time);
         cntr = 1.5f;
     }
+
 }

@@ -78,9 +78,10 @@ public class Spells : MonoBehaviour {
             //Si se detecta un control entonces el disparo es con RB o R1
             #region Basic Attack
             //Cambiar la cantidad de maná por cada hechizo
-            if (Input.GetMouseButtonUp(0) && Player.GetComponent<ManaManager>().manaAmount >= Player.GetComponent<ManaManager>().fball && fireball.readytoCast) {
+            if (Input.GetMouseButtonUp(0) && fireball.readytoCast && !Player.GetComponent<ManaManager>().outOfMana) {
                 switch (typeSelector) {
                     case Types.Fire:
+                        //Control cast with bool variable
                             fireball.Casted();
                             Instantiate(fball, GameObject.Find("Fireball Holder").transform.position, GameObject.Find("Fireball Holder").transform.rotation);
                         break;
