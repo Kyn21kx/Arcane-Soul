@@ -977,13 +977,14 @@ MonoBehaviour:
   Speed: 30
   selectedSpell: 1
   TimeDelay: 0
+  isEnemySpell: 0
   RandomMoveRadius: 0
   RandomMoveSpeedScale: 0
   damage: 5
   Target: {fileID: 0}
   CollidesWith:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 1591
   EffectsOnCollision:
   - {fileID: 1018893526164950, guid: b93731551ea0e0d44abc5be7573f005c, type: 2}
   CollisionOffset: 0.05

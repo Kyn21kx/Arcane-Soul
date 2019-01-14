@@ -25,9 +25,12 @@ public class BasicEn_Manager : MonoBehaviour {
     public Transform[] checkPoints;
     public GameObject[] SpellsAvailable;
     public float radius = 8f;
+    public GameObject Pivot;
+    public GameObject SpellHolder;
+    public GameObject[] PlayerReference;
     public int coverIndex;
     public int selectedSpell = 0;
-    RaycastHit hit;
+    bool ready = true;
     #endregion
 
     private void Start() {
@@ -92,7 +95,6 @@ public class BasicEn_Manager : MonoBehaviour {
 
     //Get an array of the objects near the AI, compare each one's distance and go to the closest one
     private void CompareCoverDistance () {
-        
         float distanceToCover;
         float minorDistance = float.MaxValue;
         for (int i = 0; i < covers.Length; i++) {
@@ -110,14 +112,16 @@ public class BasicEn_Manager : MonoBehaviour {
         //Add mana to the enemy and CD for the shot
         if (ranged && detected) {
             //Switch enemyType
-            bool ready = true;
-            RaycastHit hit;
+            
+
             switch (enemyType) {
                 case EnemyType.PatrolOn4:
-                    Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 30f);
-                    if (ready && hit.transform.CompareTag("Player")) {
-                        Instantiate(SpellsAvailable[selectedSpell], gameObject.transform.position, gameObject.transform.rotation);
-                        StartCoroutine(BasicCD(ready));
+                    if (ready) {
+                        Vector3 direction = PlayerReference[0].transform.position - Pivot.transform.position;
+                        Quaternion rotation = Quaternion.LookRotation(direction);
+                        Pivot.transform.rotation = Quaternion.Lerp(Pivot.transform.rotation, rotation, 100f);
+                        Instantiate(SpellsAvailable[selectedSpell], Pivot.transform.position, Pivot.transform.rotation);
+                        StartCoroutine(BasicCD());
                     }
                     break;
                 case EnemyType.ElitePatrol:
@@ -135,9 +139,10 @@ public class BasicEn_Manager : MonoBehaviour {
     }
 
 
-    private IEnumerator BasicCD (bool Ready) {
-        yield return new WaitForSeconds(5f);
-        Ready = false;
+    private IEnumerator BasicCD () {
+        ready = false;
+        yield return new WaitForSeconds(2f);
+        ready = true;
     }
 
 }

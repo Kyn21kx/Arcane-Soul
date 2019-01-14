@@ -28,6 +28,7 @@ public class aim : MonoBehaviour {
     void AimMode() {
         AutoAim();
         //Si se conecta un control cambiar el Input
+        //Opción de apuntar en izquierda o derecha
         if (Input.GetKeyUp(KeyCode.Q) && !aiming) {
             mainCam.fieldOfView -= 20f;
             Properties.rightOffset += 0.2f;

@@ -231,10 +231,11 @@ MonoBehaviour:
   Dampeen: 0
   MinSpeed: 1
   TimeDelay: 0
+  level: 1
   damage: 0
   CollidesWith:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 1591
   EffectsOnCollision:
   - {fileID: 145962, guid: 0437f017df5f18f4892ec0d18663edd9, type: 2}
   CollisionOffset: 0

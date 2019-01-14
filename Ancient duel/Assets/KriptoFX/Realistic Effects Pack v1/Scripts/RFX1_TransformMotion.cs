@@ -13,6 +13,7 @@ public class RFX1_TransformMotion : MonoBehaviour
     //public float Dampeen = 0;
     //public float MinSpeed = 1;
     public float TimeDelay = 0;
+    public bool isEnemySpell = false;
     public float RandomMoveRadius = 0;
     public float RandomMoveSpeedScale = 0;
     public float damage;
@@ -53,6 +54,7 @@ public class RFX1_TransformMotion : MonoBehaviour
         startPositionLocal = t.localPosition;
         startPosition = t.position;
         oldPos = t.TransformPoint(startPositionLocal);
+        
         Initialize();
         isInitialized = true;
     }

@@ -751,15 +751,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12403b86450fee944b030460c52681a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedSpell: 0
   Distance: 60
   Speed: 120
   Dampeen: 2.2
   MinSpeed: 90
   TimeDelay: 0
+  level: 1
   damage: 10
   CollidesWith:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 1591
   EffectsOnCollision:
   - {fileID: 132858, guid: dcbbdee2152660b41822b2eb0ccb8767, type: 2}
   CollisionOffset: 0
