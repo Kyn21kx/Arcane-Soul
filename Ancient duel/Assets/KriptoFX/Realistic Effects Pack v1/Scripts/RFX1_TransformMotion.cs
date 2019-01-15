@@ -37,6 +37,7 @@ public class RFX1_TransformMotion : MonoBehaviour
     private Vector3 oldPos;
     private bool isCollided;
     private bool isOutDistance;
+    public bool isFollowing = false;
     private Quaternion startQuaternion;
     //private float currentSpeed;
     private float currentDelay;
@@ -48,7 +49,8 @@ public class RFX1_TransformMotion : MonoBehaviour
 
     void Start()
     {
-
+        //if (isEnemySpell)
+        //Target = GameObject.FindGameObjectWithTag("Player");
         t = transform;
         if (Target != null) targetT = Target.transform;
         startQuaternion = t.rotation;
@@ -89,6 +91,7 @@ public class RFX1_TransformMotion : MonoBehaviour
         if (!dropFirstFrameForFixUnityBugWithParticles)
         {
             UpdateWorldPosition();
+            SetTarget();
         }
         else dropFirstFrameForFixUnityBugWithParticles = false;
     }
@@ -162,6 +165,11 @@ public class RFX1_TransformMotion : MonoBehaviour
                         break;
                     default:
                         break;
+                }
+                #endregion
+                #region Effects On collision with Player
+                if (isEnemySpell && hit.transform.CompareTag("Player")) {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>().Health -= damage;
                 }
                 #endregion
                 return;
@@ -243,6 +251,18 @@ public class RFX1_TransformMotion : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(t.position, t.position + t.forward*Distance);
 
+    }
+
+    void SetTarget() {
+        if (isEnemySpell) {
+            if (Input.GetKeyDown(KeyCode.K)) {
+                Target = GameObject.FindGameObjectWithTag("Player");
+            }
+            else if (Input.GetKeyUp(KeyCode.K)) {
+                Target = null;
+            }
+        }
+        
     }
 
     public enum RFX4_SimulationSpace
