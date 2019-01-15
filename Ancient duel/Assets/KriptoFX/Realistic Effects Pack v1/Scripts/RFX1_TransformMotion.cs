@@ -39,6 +39,8 @@ public class RFX1_TransformMotion : MonoBehaviour
     private bool isOutDistance;
     public bool isFollowing = false;
     private Quaternion startQuaternion;
+    [SerializeField]
+    private float distanceToPlayer;
     //private float currentSpeed;
     private float currentDelay;
     private const float RayCastTolerance = 0.15f;
@@ -254,11 +256,13 @@ public class RFX1_TransformMotion : MonoBehaviour
     }
 
     void SetTarget() {
+        distanceToPlayer = Vector3.Distance(gameObject.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
+        Debug.Log(distanceToPlayer);
         if (isEnemySpell) {
-            if (Input.GetKeyDown(KeyCode.K)) {
+            if (distanceToPlayer >= 5f) {
                 Target = GameObject.FindGameObjectWithTag("Player");
             }
-            else if (Input.GetKeyUp(KeyCode.K)) {
+            else if (distanceToPlayer < 5f) {
                 Target = null;
             }
         }

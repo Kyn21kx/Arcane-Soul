@@ -812,13 +812,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 30
-  Speed: 30
+  Speed: 15
   selectedSpell: 0
   TimeDelay: 0
   isEnemySpell: 1
   RandomMoveRadius: 0.36
   RandomMoveSpeedScale: 0
-  damage: 50
+  damage: 10
   Target: {fileID: 0}
   CollidesWith:
     serializedVersion: 2
@@ -836,6 +836,8 @@ MonoBehaviour:
   - {fileID: 1432293163083906}
   HUE: -1
   CollidedInstances: []
+  isFollowing: 0
+  distanceToPlayer: 0
 --- !u!182 &182909013450765610
 WindZone:
   m_ObjectHideFlags: 1
