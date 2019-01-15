@@ -48,6 +48,7 @@ public class RFX1_TransformMotion : MonoBehaviour
 
     void Start()
     {
+
         t = transform;
         if (Target != null) targetT = Target.transform;
         startQuaternion = t.rotation;
