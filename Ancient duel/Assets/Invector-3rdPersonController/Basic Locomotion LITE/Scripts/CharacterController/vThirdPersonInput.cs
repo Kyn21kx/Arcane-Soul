@@ -12,7 +12,7 @@ namespace Invector.CharacterController
         [Header("Default Inputs")]
         public string horizontalInput = "Horizontal";
         public string verticallInput = "Vertical";
-        public KeyCode jumpInput = KeyCode.Space;
+        public KeyCode dodgeInput = KeyCode.Space;
         public KeyCode strafeInput = KeyCode.Tab;
         public KeyCode sprintInput = KeyCode.LeftShift;
 
@@ -83,7 +83,7 @@ namespace Invector.CharacterController
                 MoveCharacter();
                 SprintInput();
                 StrafeInput();
-                JumpInput();
+                DodgeInput();
             }
         }
 
@@ -109,10 +109,11 @@ namespace Invector.CharacterController
                 cc.Sprint(false);
         }
 
-        protected virtual void JumpInput()
+        protected virtual void DodgeInput()
         {
-            if (Input.GetKeyDown(jumpInput) || Input.GetButtonDown("A"))
-                cc.Jump();
+            if (Input.GetKeyUp(dodgeInput)) {
+                cc.Dodge();
+            }
         }
 
         protected virtual void ExitGameInput()

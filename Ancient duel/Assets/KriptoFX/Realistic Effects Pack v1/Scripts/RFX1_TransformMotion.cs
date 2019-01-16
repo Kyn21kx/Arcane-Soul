@@ -258,11 +258,22 @@ public class RFX1_TransformMotion : MonoBehaviour
     }
 
     void SetTarget () {
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        bool OnDistance = false;
+        float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
         switch (enemySpellType) {
             case EnemySpellType.None:
                 break;
             case EnemySpellType.Follower:
-                Target = GameObject.FindGameObjectWithTag("Spot");
+                if (Player.layer == 11 && distance <= 4f) {
+                    OnDistance = true;
+                }
+                if (OnDistance) {
+                    Target = null;
+                }
+                else if (!OnDistance) {
+                    Target = GameObject.FindGameObjectWithTag("Spot");
+                }
                 break;
             case EnemySpellType.Fixed:
                 break;
