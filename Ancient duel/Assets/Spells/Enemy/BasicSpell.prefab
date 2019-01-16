@@ -813,10 +813,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Distance: 30
   Speed: 15
+  enemySpellType: 1
   selectedSpell: 0
   TimeDelay: 0
   isEnemySpell: 1
-  RandomMoveRadius: 0.36
+  RandomMoveRadius: 0.01
   RandomMoveSpeedScale: 0
   damage: 10
   Target: {fileID: 0}

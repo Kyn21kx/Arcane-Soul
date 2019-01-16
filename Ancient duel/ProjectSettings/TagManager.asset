@@ -15,6 +15,7 @@ TagManager:
   - Food
   - Cover
   - EnemySpellHolder
+  - Spot
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Player
   - BloomMobileEffect
   - Enemy
-  - 
+  - Dodging
   - 
   - 
   - 

@@ -626,6 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c91650af6fcbd4f8702199f71b7398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 100
 --- !u!1 &78695009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,6 +2211,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 396620664}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &410547673 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4067562737760530, guid: ac8333a283535484dba8b82b8ef893e0,
+    type: 2}
+  m_PrefabInternal: {fileID: 2020026795}
 --- !u!4 &441325245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 4773ea875d61bbb4599b0639b610a497,
@@ -6533,7 +6539,7 @@ Prefab:
     - target: {fileID: 224950008286064266, guid: ddf58146b0be1634a89090b70581add7,
         type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224950008286064266, guid: ddf58146b0be1634a89090b70581add7,
         type: 2}
@@ -6676,7 +6682,7 @@ GameObject:
   - component: {fileID: 1188894934}
   m_Layer: 0
   m_Name: HitHolder
-  m_TagString: Untagged
+  m_TagString: Spot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6687,12 +6693,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1188894932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 0.27137, y: 0.27137, z: 0.27137}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.11293425, z: 1.4005849}
+  m_LocalScale: {x: 0.085004196, y: 0.08500421, z: 0.08500421}
   m_Children: []
-  m_Father: {fileID: 780252930}
-  m_RootOrder: 2
+  m_Father: {fileID: 410547673}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1188894934
 BoxCollider:
@@ -6712,7 +6718,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1188894932}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8077,7 +8083,7 @@ Transform:
   m_LocalScale: {x: 13.849539, y: 10.129541, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1506786923
 Prefab:

@@ -9,6 +9,8 @@ public class RFX1_TransformMotion : MonoBehaviour
     public float Distance = 30;
     public float Speed = 1;
     public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, ElectricShield };
+    public enum EnemySpellType {None, Follower, Fixed};
+    public EnemySpellType enemySpellType;
     public ActiveSpell selectedSpell;
     //public float Dampeen = 0;
     //public float MinSpeed = 1;
@@ -255,18 +257,18 @@ public class RFX1_TransformMotion : MonoBehaviour
 
     }
 
-    void SetTarget() {
-        distanceToPlayer = Vector3.Distance(gameObject.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
-        Debug.Log(distanceToPlayer);
-        if (isEnemySpell) {
-            if (distanceToPlayer >= 5f) {
-                Target = GameObject.FindGameObjectWithTag("Player");
-            }
-            else if (distanceToPlayer < 5f) {
-                Target = null;
-            }
+    void SetTarget () {
+        switch (enemySpellType) {
+            case EnemySpellType.None:
+                break;
+            case EnemySpellType.Follower:
+                Target = GameObject.FindGameObjectWithTag("Spot");
+                break;
+            case EnemySpellType.Fixed:
+                break;
+            default:
+                break;
         }
-        
     }
 
     public enum RFX4_SimulationSpace
