@@ -4,12 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
-public class RFX1_TransformMotion : MonoBehaviour
-{
+public class RFX1_TransformMotion : MonoBehaviour {
     public float Distance = 30;
     public float Speed = 1;
     public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, ElectricShield };
-    public enum EnemySpellType {None, Follower, Fixed};
+    public enum EnemySpellType { None, Follower, Fixed };
     public EnemySpellType enemySpellType;
     public ActiveSpell selectedSpell;
     //public float Dampeen = 0;
@@ -20,10 +19,10 @@ public class RFX1_TransformMotion : MonoBehaviour
     public float RandomMoveSpeedScale = 0;
     public float damage;
     public GameObject Target;
- 
+
     public LayerMask CollidesWith = ~0;
-   
-   
+
+
     public GameObject[] EffectsOnCollision;
     public float CollisionOffset = 0;
     public float DestroyTimeDelay = 5;
@@ -46,6 +45,7 @@ public class RFX1_TransformMotion : MonoBehaviour
     //private float currentSpeed;
     private float currentDelay;
     private const float RayCastTolerance = 0.15f;
+    Vector3 VectorAux;
     private bool isInitialized;
     private bool dropFirstFrameForFixUnityBugWithParticles;
     public event EventHandler<RFX1_CollisionInfo> CollisionEnter;
@@ -124,18 +124,15 @@ public class RFX1_TransformMotion : MonoBehaviour
         if (!isCollided && !isOutDistance)
         {
             //currentSpeed = Mathf.Clamp(currentSpeed - Speed*Dampeen*Time.deltaTime, MinSpeed, Speed);
-            if (Target == null)
-            {
-                var currentForwardVector = (Vector3.forward + randomOffset)* Speed * Time.deltaTime;
-                frameMoveOffset = t.localRotation*currentForwardVector;
-                frameMoveOffsetWorld = startQuaternion*currentForwardVector;
-            }
-            else
-            {
-                var forwardVec = (targetT.position - t.position).normalized;
-                var currentForwardVector = (forwardVec + randomOffset) * Speed * Time.deltaTime;
+
+            var currentForwardVector = (Vector3.forward + randomOffset) * Speed * Time.deltaTime;
+            frameMoveOffset = t.localRotation * currentForwardVector;
+            frameMoveOffsetWorld = startQuaternion * currentForwardVector;
+            if (Target != null) {
+                var forwardVec = (targetT.position - t.position).normalized; currentForwardVector = (forwardVec + randomOffset) * Speed * Time.deltaTime;
                 frameMoveOffset = currentForwardVector;
                 frameMoveOffsetWorld = currentForwardVector;
+                VectorAux = forwardVec;
             }
         }
 
@@ -256,24 +253,31 @@ public class RFX1_TransformMotion : MonoBehaviour
         Gizmos.DrawLine(t.position, t.position + t.forward*Distance);
 
     }
-
+    bool Following;
+    bool OneTimeFollow = false;
     void SetTarget () {
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
-        bool OnDistance = false;
         float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
+        Debug.Log(distance);
         switch (enemySpellType) {
             case EnemySpellType.None:
                 break;
             case EnemySpellType.Follower:
-                if (Player.layer == 11 && distance <= 4f) {
-                    OnDistance = true;
+                if (Player.layer == 8 && !OneTimeFollow) {
+                    Following = true;
                 }
-                if (OnDistance) {
-                    Target = null;
+                else if (Player.layer == 11) {
+                    Following = false;
+                    OneTimeFollow = true;
                 }
-                else if (!OnDistance) {
+
+                if (Following) {
                     Target = GameObject.FindGameObjectWithTag("Spot");
                 }
+                else {
+                    Target = null;
+                }
+                
                 break;
             case EnemySpellType.Fixed:
                 break;

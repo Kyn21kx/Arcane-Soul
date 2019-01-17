@@ -47,12 +47,10 @@ namespace Invector.CharacterController
             targetRotation = transform.rotation;
         }
 
-        public virtual void Dodge () {
+        public virtual IEnumerator Dodge () {
             gameObject.layer = 11;
-            cntr -= Time.fixedDeltaTime;
-            if (cntr <= 0f) {
-                gameObject.layer = 8;
-            }
+            yield return new WaitForSeconds(0.4f);
+            gameObject.layer = 8;
         }
 
     }

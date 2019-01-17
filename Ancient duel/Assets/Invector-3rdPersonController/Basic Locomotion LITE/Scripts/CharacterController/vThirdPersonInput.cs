@@ -112,7 +112,7 @@ namespace Invector.CharacterController
         protected virtual void DodgeInput()
         {
             if (Input.GetKeyUp(dodgeInput)) {
-                cc.Dodge();
+                StartCoroutine(cc.Dodge());
             }
         }
 

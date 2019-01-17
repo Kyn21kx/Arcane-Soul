@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4393938325740018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandRing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4542378727928810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4061747343457162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4856506488521460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftForeArmRoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4557933942843990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightArmorStrap_AimLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4883464065162162}
   - component: {fileID: 137783342622310250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_sword_holder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4685027475456102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Jaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4428835270160356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4124890847886564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandMiddle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4562873557278930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RearSword_Strap_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4027168529791340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4078130463217592}
   - component: {fileID: 136477023124856948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4119820986230202}
   - component: {fileID: 136008127309669618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4311797821128816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HandEffectPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4261430686547608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandThumb4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4860923803139248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4007435814502754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4958645377001856}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_upperEyelash_jnt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4124441189749322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4701460042595650}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4683366885047544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_lowerEyelash_jnt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4962854871533184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4281169253958312}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Neck1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4910971844648854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_lowerEyelash_jnt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4104543865969388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4738099021452052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4130664506405724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftArmorStrap02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4617843040525138}
   - component: {fileID: 108842306344884814}
   - component: {fileID: 114915391018505662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4665683422996644}
   - component: {fileID: 137650330752640770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4191217057995388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4027170176618738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4281720434535174}
   - component: {fileID: 136731372356888396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4143942228821172}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4943506454903878}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftShoulderpad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4933488549721518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4341882022232916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightLowerEyelid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4416469135467936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightArmorStrap02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4674423894959250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4796797351379562}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RearSword_Strap_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4050594221487318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4460716001714762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_eyeBrow_jnt04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4056704736434786}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,7 +656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4449719026576296}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4091304585443624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4365992117055488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4632773876634566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_geo_grp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4321968334988998}
   - component: {fileID: 137321281056686290}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_sword_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4168015886257560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RearSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4418691726529048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightArmorStrap_AimNull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4963298533964656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4771895097791614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_lowerEyelash_jnt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4157290740098380}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4042493917840962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RearGorget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4361220754142238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4879514338356436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4387316079499198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightShoulderpad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,7 +867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4916874222360606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4409578161343192}
   - component: {fileID: 137660425266238914}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,7 +898,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4072613618783528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_lowerEyelash_jnt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 108376425218496234}
   - component: {fileID: 114238231020831686}
   - component: {fileID: 114042167630840768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightStart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4840424669066416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_FrontGorget_PntCnstLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4422172796229830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4298324981713114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandRing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -976,7 +976,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974576936561520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,7 +991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4576626602291694}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightArmorStrap01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1018,8 @@ GameObject:
   - component: {fileID: 114614418226930732}
   - component: {fileID: 114479457955925702}
   - component: {fileID: 114049040327094882}
-  m_Layer: 0
+  - component: {fileID: 114943354041293770}
+  m_Layer: 8
   m_Name: PlayerPref
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1033,7 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4809684690812156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4953212524350028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandMiddle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4772814613511134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_eyeBrow_jnt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1079,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4799559247597156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftArmorStrap_AimLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1094,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4012130566661840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1113,7 @@ GameObject:
   - component: {fileID: 199818250966916886}
   - component: {fileID: 114047858454925488}
   - component: {fileID: 114285892730916158}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1127,7 +1128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4932415090992906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_eyeBrow_jnt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1142,7 +1143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4829728319667478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_eyeBrow_jnt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1157,7 +1158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4419113885515410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4352373727715464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_BeltBuckle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1187,7 +1188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711384093829898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1202,7 +1203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4357697686015112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1218,7 +1219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4575817991431612}
   - component: {fileID: 137987745163591656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4424188853920330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1248,7 +1249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4595883201965034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1263,7 +1264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4476409590917356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,7 +1279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4055776254932380}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1293,7 +1294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4508583719726780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1308,7 +1309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4822512501241856}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightForeArmRoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4260977571220684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4975601411270138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,7 +1354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4223913085853504}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,7 +1369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4835682833470176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Gorget_PvLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,7 +1386,7 @@ GameObject:
   - component: {fileID: 4299223415516670}
   - component: {fileID: 114586096997296920}
   - component: {fileID: 114913920457663372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1400,9 +1401,27 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4579511227984318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RearGorget_PntCnstLoc
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1542935568922646
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4739835148621790}
+  - component: {fileID: 33886497936621526}
+  - component: {fileID: 23616778749260830}
+  - component: {fileID: 65461995572036314}
+  m_Layer: 8
+  m_Name: HitHolder
+  m_TagString: Spot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1415,7 +1434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4680823868414962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftUpperEyelid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1430,7 +1449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4411942798495966}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandThumb4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1445,7 +1464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4076663420420114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1481,7 @@ GameObject:
   - component: {fileID: 4097438137475632}
   - component: {fileID: 137697977788406156}
   - component: {fileID: 183682032680395944}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_dress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1481,7 +1500,7 @@ GameObject:
   - component: {fileID: 199568206408273018}
   - component: {fileID: 114073518113562340}
   - component: {fileID: 114912973890669820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1496,7 +1515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4561729201423448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,7 +1530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4580006990408820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1526,7 +1545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4274242548960238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,7 +1561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4250607608561944}
   - component: {fileID: 136423841499581160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1557,7 +1576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4240910927601302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1572,7 +1591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4098823774591026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4326475532340190}
   - component: {fileID: 114035969949990442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LazyLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1603,7 +1622,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586287159590006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1618,7 +1637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4617405363674428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1633,7 +1652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4723301439770908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_eyeBrow_jnt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1649,7 +1668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4009356826024116}
   - component: {fileID: 137499571328223342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_sholders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1664,7 +1683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4023554905588936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1681,7 +1700,7 @@ GameObject:
   - component: {fileID: 4330712715690398}
   - component: {fileID: 82049100864882002}
   - component: {fileID: 114185763730657908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lightning2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4234096502038068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandIndex4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +1732,7 @@ GameObject:
   - component: {fileID: 4360292905451596}
   - component: {fileID: 108492153340059508}
   - component: {fileID: 114847052346309716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1728,7 +1747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4125419155702706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1743,7 +1762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4288983019525526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1758,7 +1777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4493180444247082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RearGorget_OriCnstLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1773,7 +1792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4126293762261200}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1790,7 +1809,7 @@ GameObject:
   - component: {fileID: 4213128426212656}
   - component: {fileID: 198275281639278226}
   - component: {fileID: 199432075952407476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DistortionCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1805,7 +1824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4969268240687116}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandProp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1820,7 +1839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4684332642829922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1835,7 +1854,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4059322598761948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1850,7 +1869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4328593652512420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1865,7 +1884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586775048030604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RearSword_Strap_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1880,7 +1899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4811510376122914}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1895,7 +1914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4659126238681988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1911,7 +1930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4959451099863484}
   - component: {fileID: 137842573063846102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_beard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1926,7 +1945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4645705869061192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1941,7 +1960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4082724759602098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1956,7 +1975,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4808619661978314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_FrontKnife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1971,7 +1990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4368524785445534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Spine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1986,7 +2005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4508081972674674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandPinky4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2001,7 +2020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4361184659534300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_geo_grp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2016,7 +2035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4518341780844940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftArmorStrap_AimNull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,7 +2051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4067083687405974}
   - component: {fileID: 137578939604621156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_pants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2047,7 +2066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4605178232949420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_upperEyelash_jnt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2062,7 +2081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4185937887259816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2077,7 +2096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4590991331549748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandProp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2093,7 +2112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4019398602373232}
   - component: {fileID: 114042873057246286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CamShake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2108,7 +2127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4773471478983042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2123,7 +2142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4033664752077636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2138,7 +2157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4989393030336974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2153,7 +2172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4158623882987740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2168,7 +2187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4329578069104476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RearSword_Strap_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2183,7 +2202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4919737460094194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2198,7 +2217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4512809890533810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2213,7 +2232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4653049338008554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_eyeBrow_jnt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2228,7 +2247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4899157304059608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EffectPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2243,7 +2262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4611604149665382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_eyeBrow_jnt04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2258,7 +2277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4127825738079610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2273,7 +2292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4855860736047394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2288,7 +2307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4027920409909416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2304,7 +2323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4696491141324092}
   - component: {fileID: 137634437034834446}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2322,7 +2341,7 @@ GameObject:
   - component: {fileID: 82152104152990578}
   - component: {fileID: 166221043546500168}
   - component: {fileID: 114106676427479004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PostEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2340,7 +2359,7 @@ GameObject:
   - component: {fileID: 108078693819677206}
   - component: {fileID: 114665480136770818}
   - component: {fileID: 114553174420981668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightStart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2356,7 +2375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4654126710004734}
   - component: {fileID: 137498527698045596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2371,7 +2390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4554571750849894}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_FrontGorget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2386,7 +2405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4253032276178384}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2401,7 +2420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4489138753123644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2416,7 +2435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4468563203056252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandPinky4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2432,7 +2451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4830119386051258}
   - component: {fileID: 137893537273478676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_eyes_refl 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2448,7 +2467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4662963971556382}
   - component: {fileID: 136313947187179796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2463,7 +2482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4313475154444352}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_upperEyelash_jnt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2478,7 +2497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4465288253935868}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftArmorStrap01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2493,7 +2512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4846044963253690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_beard_jnt08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2510,7 +2529,7 @@ GameObject:
   - component: {fileID: 4710989918841196}
   - component: {fileID: 198224810171944670}
   - component: {fileID: 199258045461293368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2525,7 +2544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4116371307974330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_eyeBrow_jnt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2541,7 +2560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4067562737760530}
   - component: {fileID: 137503891393228426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2556,7 +2575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4008877992556918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_Gorget_Ik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2571,7 +2590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4368451135525204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2586,7 +2605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4657574672296170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2601,7 +2620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4004502360194934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2616,7 +2635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4821256961123004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_upperEyelash_jnt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2632,7 +2651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4160478012068428}
   - component: {fileID: 137373483018260268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_hood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2647,7 +2666,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4495937273648722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_lowerEyelash_jnt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2662,7 +2681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4150002743106712}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_lowerEyelash_jnt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2677,7 +2696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4946296204923998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2693,7 +2712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4489066495408252}
   - component: {fileID: 137468773334865176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_boots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2708,7 +2727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4947083404257772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandIndex4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2725,7 +2744,7 @@ GameObject:
   - component: {fileID: 4539606476326280}
   - component: {fileID: 82835391863745904}
   - component: {fileID: 114394796069615712}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lightning1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2740,7 +2759,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4218058039986782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftLowerEyelid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2755,7 +2774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4397281590116628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHemetFlap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2770,7 +2789,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4666160444695684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_upperEyelash_jnt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2787,7 +2806,7 @@ GameObject:
   - component: {fileID: 4899393013556584}
   - component: {fileID: 198707982624081700}
   - component: {fileID: 199495876122233214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightningExplosion (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2802,7 +2821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4756987833364792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_beard_jnt11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2817,7 +2836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4053956802009456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2834,7 +2853,7 @@ GameObject:
   - component: {fileID: 4291684695561420}
   - component: {fileID: 198476960393443878}
   - component: {fileID: 199861249595644684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2853,7 +2872,7 @@ GameObject:
   - component: {fileID: 199891502997445706}
   - component: {fileID: 114843280959133550}
   - component: {fileID: 114290625276010090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2868,7 +2887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4223157891035368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_upperEyelash_jnt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2883,7 +2902,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4155006994413716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2898,7 +2917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4045678919611546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2913,7 +2932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4346579307802344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2928,7 +2947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4504797299140896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2943,7 +2962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4354285268714238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2959,7 +2978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4424872809382956}
   - component: {fileID: 136020927014677260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2974,7 +2993,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4101090743339388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2989,7 +3008,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4145926789832640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_LeftHemetFlap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3004,7 +3023,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4343832613106444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: challenger_RightUpperEyelid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3295,7 +3314,8 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
-  m_Children: []
+  m_Children:
+  - {fileID: 4739835148621790}
   m_Father: {fileID: 4361184659534300}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -5145,6 +5165,19 @@ Transform:
   m_Father: {fileID: 4352373727715464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -5.7058997, y: -19.2029, z: 84.3043}
+--- !u!4 &4739835148621790
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542935568922646}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.11293425, z: 1.4005849}
+  m_LocalScale: {x: 0.085004196, y: 0.08500421, z: 0.08500421}
+  m_Children: []
+  m_Father: {fileID: 4067562737760530}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4756987833364792
 Transform:
   m_ObjectHideFlags: 1
@@ -5748,6 +5781,48 @@ Transform:
   m_Father: {fileID: 4860923803139248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -2.7226, y: 2.2646, z: 38.706398}
+--- !u!23 &23616778749260830
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542935568922646}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33886497936621526
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542935568922646}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54576715358698406
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -5763,6 +5838,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!65 &65461995572036314
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542935568922646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82049100864882002
 AudioSource:
   m_ObjectHideFlags: 1
@@ -6436,6 +6523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183f71fb11416eb4fa5ceb617ced1dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToCover: 0
 --- !u!114 &114073518113562340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6556,6 +6644,7 @@ MonoBehaviour:
   manaAux: 0
   regenerationAmount: 20
   reduced: 0
+  outOfMana: 0
 --- !u!114 &114106676427479004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7335,6 +7424,18 @@ MonoBehaviour:
   txt: {fileID: 0}
   AbilitySelectorGUI: {fileID: 0}
   Casted: 0
+--- !u!114 &114943354041293770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353749592071220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c91650af6fcbd4f8702199f71b7398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
 --- !u!114 &114968260676048718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7348,7 +7449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalInput: Horizontal
   verticallInput: Vertical
-  jumpInput: 32
+  dodgeInput: 32
   strafeInput: 0
   sprintInput: 304
   rotateCameraXInput: Mouse X
