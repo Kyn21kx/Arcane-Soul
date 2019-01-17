@@ -151,8 +151,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4156448214154830}
   m_Layer: 0
-  m_Name: HeavyEl2
-  m_TagString: Untagged
+  m_Name: BasicEL1
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,8 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151e5fb4355af6c4ab88423606b59ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Distance: 30
-  Speed: 10
+  Distance: 40
+  Speed: 80
   enemySpellType: 0
   selectedSpell: 0
   TimeDelay: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   CollidesWith:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1591
   EffectsOnCollision:
   - {fileID: 1606542427775616, guid: 1c98fef7e42fa254b9191fcf255dec16, type: 2}
   CollisionOffset: 0.05

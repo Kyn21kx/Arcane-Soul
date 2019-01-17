@@ -13,6 +13,7 @@ public class ManaManager : MonoBehaviour {
     public int regenerationAmount = 20;
     public bool reduced = false;
     public bool outOfMana;
+    public bool AbilityOutOfMana;
     float cntr = 1.5f;
     private float proportion;
     #endregion
@@ -59,7 +60,7 @@ public class ManaManager : MonoBehaviour {
         #endregion
 
         #region Drenar Maná para ataques fuertes
-        if (GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>().readyToCast && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming && Input.GetMouseButton(1) && manaAmount >= 30f) { //Continuar añadiendo todos los hechizos
+        if (GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>().readyToCast && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming && Input.GetMouseButtonUp(1) && manaAmount >= 30f) { //Continuar añadiendo todos los hechizos
             switch (spells.typeSelector) {
                 case Spells.Types.Fire:
                     break;
@@ -88,8 +89,11 @@ public class ManaManager : MonoBehaviour {
                     }
                     break;
             }
-            
             reduced = true;
+            AbilityOutOfMana = false;
+        }
+        else if (manaAmount <= 30) { // Add the other spells here
+            AbilityOutOfMana = true;
         }
         #endregion
 

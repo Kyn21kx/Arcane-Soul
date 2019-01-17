@@ -103,7 +103,7 @@ public class Spells : MonoBehaviour {
             }
             #endregion
             #region Heavy Attack (Ability)
-            if (Input.GetMouseButtonDown(1) && Player.GetComponent<ManaManager>().manaAmount >= 30f) { //Agregar la cantidad de maná de los hechizos
+            if (Input.GetMouseButtonUp(1) && !Player.GetComponent<ManaManager>().AbilityOutOfMana) { //Agregar la cantidad de maná de los hechizos
                 switch (typeSelector) {
                     case Types.Fire:
                         break;

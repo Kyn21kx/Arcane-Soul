@@ -2275,7 +2275,7 @@ Transform:
   m_Children:
   - {fileID: 1106811599}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &454644427
 GameObject:
@@ -6507,7 +6507,7 @@ Prefab:
     - target: {fileID: 224950008286064266, guid: ddf58146b0be1634a89090b70581add7,
         type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 224950008286064266, guid: ddf58146b0be1634a89090b70581add7,
         type: 2}
@@ -7839,7 +7839,7 @@ Transform:
   m_LocalScale: {x: 13.849539, y: 10.129541, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1491608249
 GameObject:
@@ -9999,6 +9999,17 @@ Prefab:
     - target: {fileID: 114931719526822972, guid: ac8333a283535484dba8b82b8ef893e0,
         type: 2}
       propertyPath: HeavyElectric2
+      value: 
+      objectReference: {fileID: 1815610832327722, guid: 2f88f98cb0fd6004c9027afbb669cda3,
+        type: 2}
+    - target: {fileID: 23616778749260830, guid: ac8333a283535484dba8b82b8ef893e0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931719526822972, guid: ac8333a283535484dba8b82b8ef893e0,
+        type: 2}
+      propertyPath: electricAttack
       value: 
       objectReference: {fileID: 1815610832327722, guid: 2f88f98cb0fd6004c9027afbb669cda3,
         type: 2}

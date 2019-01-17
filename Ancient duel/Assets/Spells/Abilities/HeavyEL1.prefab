@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4875519037556294}
   m_Layer: 0
-  m_Name: LightingHeavy
+  m_Name: HeavyEL1
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
