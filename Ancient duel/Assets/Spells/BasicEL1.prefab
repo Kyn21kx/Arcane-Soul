@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 40
-  Speed: 80
+  Speed: 700
   enemySpellType: 0
   selectedSpell: 0
   TimeDelay: 0
