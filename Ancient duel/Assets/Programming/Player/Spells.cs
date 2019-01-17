@@ -15,7 +15,7 @@ public class Spells : MonoBehaviour {
     public bool heavyCast = false;
     Fireball fireball;
     RangedAbility rangedAbility;
-    public GameObject fball, waterAttack, electricAttack, magneticAttack, fireTornado, HeavyElectric1;
+    public GameObject fball, waterAttack, electricAttack, magneticAttack, fireTornado, HeavyElectric1, HeavyElectric2;
     GameObject Player;
     public TextMeshProUGUI txt;
     public GameObject AbilitySelectorGUI;
@@ -104,26 +104,41 @@ public class Spells : MonoBehaviour {
             #endregion
             #region Heavy Attack (Ability)
             if (Input.GetMouseButtonDown(1) && Player.GetComponent<ManaManager>().manaAmount >= 30f) { //Agregar la cantidad de maná de los hechizos
-                switch (abilitySelector) {
-                    case Abilities.Heavy1:
-                        
+                switch (typeSelector) {
+                    case Types.Fire:
                         break;
-                    case Abilities.Heavy2:
+                    case Types.Water:
+                        break;
+                    case Types.Magnetic:
+                        break;
+                    case Types.Electric:
+                        switch (abilitySelector) {
+                            case Abilities.Heavy1:
+                                if (rangedAbility.readyToCast) {
+                                    rangedAbility.readyToCast = false;
+                                    Instantiate(HeavyElectric2, rangedAbility.gameObject.transform.position, rangedAbility.gameObject.transform.rotation);
+                                    StartCoroutine(rangedAbility.CoolDown(1f, false));
+                                }
+                                break;
+                            case Abilities.Heavy2:
 
-                        break;
-                    case Abilities.Heavy3:
+                                break;
+                            case Abilities.Heavy3:
 
-                        break;
-                    case Abilities.Heavy4:
-                        if (rangedAbility.readyToCast) {
-                            rangedAbility.readyToCast = false;
-                            HeavyElectric1.SetActive(true);
-                            StartCoroutine(rangedAbility.CoolDown());
+                                break;
+                            case Abilities.Heavy4:
+                                if (rangedAbility.readyToCast) {
+                                    rangedAbility.readyToCast = false;
+                                    HeavyElectric1.SetActive(true);
+                                    StartCoroutine(rangedAbility.CoolDown(10f, true));
+                                }
+                                break;
+                            default:
+                                break;
                         }
                         break;
-                    default:
-                        break;
                 }
+                
             }
             #endregion
         }
