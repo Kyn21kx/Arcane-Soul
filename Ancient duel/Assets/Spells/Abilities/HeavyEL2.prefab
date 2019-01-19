@@ -960,7 +960,7 @@ MonoBehaviour:
   isEnemySpell: 0
   RandomMoveRadius: 0.02
   RandomMoveSpeedScale: 2
-  damage: 0
+  damage: 30
   Target: {fileID: 0}
   CollidesWith:
     serializedVersion: 2

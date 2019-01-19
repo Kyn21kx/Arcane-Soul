@@ -405,7 +405,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910756655091028}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.09891987, y: 2.72, z: 5.9513483}
+  m_LocalPosition: {x: -6.2327385, y: 3.8050758e-17, z: 8.286346}
   m_LocalScale: {x: 2.076, y: 2.076, z: 2.076}
   m_Children:
   - {fileID: 4244605764230782}
@@ -614,7 +614,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 99b43755ee131064f99b49ef7134368f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.241
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -709,7 +709,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1c42e75461e94d14481b2c30e43e724e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.155
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -810,7 +810,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 120
   DopplerLevel: 1
   MinDistance: 5
   MaxDistance: 500
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   isEnemySpell: 0
   RandomMoveRadius: 0
   RandomMoveSpeedScale: 0
-  damage: 0
+  damage: 20
   Target: {fileID: 0}
   CollidesWith:
     serializedVersion: 2

@@ -149,28 +149,17 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 OnCollisionBehaviour(hit);
                 OnCollisionDeactivateBehaviour(false);
                 //Applied only with water attack
-                #region Effects on collision with enemy
-                if (hit.transform.tag == "Enemy") {
-                    hit.transform.GetComponent<BasicEn_Manager>().health -= damage;
-                }
-                switch (selectedSpell) {
-                    case ActiveSpell.Fireball:
-                        break;
-                    case ActiveSpell.WaterBall:
-                        break;
-                    case ActiveSpell.MagneticBasic:
-                        break;
-                    case ActiveSpell.ElectricBasic:
-                        break;
-                    case ActiveSpell.ElectricShield:
-                        break;
-                    default:
-                        break;
-                }
-                #endregion
                 #region Effects On collision with Player
                 if (isEnemySpell && hit.transform.CompareTag("Player")) {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>().Health -= damage;
+                }
+                #endregion
+
+                #region Effects on collision with enemy
+                else {
+                    if (hit.transform.CompareTag("Enemy")) {
+                        hit.transform.GetComponent<BasicEn_Manager>().health -= damage;
+                    }
                 }
                 #endregion
                 return;
