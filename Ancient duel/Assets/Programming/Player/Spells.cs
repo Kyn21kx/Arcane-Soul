@@ -15,7 +15,7 @@ public class Spells : MonoBehaviour {
     public bool heavyCast = false;
     Fireball fireball;
     RangedAbility rangedAbility;
-    public GameObject fball, waterAttack, electricAttack, magneticAttack, fireTornado, HeavyElectric1, HeavyElectric2;
+    public GameObject fball, waterAttack, electricAttack, magneticAttack, fireTornado, HeavyElectric1, HeavyElectric2, HeavyFire1, FireShield, HeavyMagnetic1;
     GameObject Player;
     public TextMeshProUGUI txt;
     public GameObject AbilitySelectorGUI;
@@ -106,10 +106,50 @@ public class Spells : MonoBehaviour {
             if (Input.GetMouseButtonUp(1) && !Player.GetComponent<ManaManager>().AbilityOutOfMana) { //Agregar la cantidad de maná de los hechizos
                 switch (typeSelector) {
                     case Types.Fire:
+                        switch (abilitySelector) {
+                            case Abilities.Heavy1:
+                                if (rangedAbility.readyToCast) {
+                                    rangedAbility.readyToCast = false;
+                                    Instantiate(HeavyFire1, rangedAbility.gameObject.transform.position, rangedAbility.gameObject.transform.rotation);
+                                    StartCoroutine(rangedAbility.CoolDown(1f, false));
+                                }
+                                break;
+                            case Abilities.Heavy2:
+                                if (rangedAbility.readyToCast) {
+                                    rangedAbility.readyToCast = false;
+                                    FireShield.SetActive(true);
+                                    StartCoroutine(rangedAbility.CoolDown(10f, true));
+                                }
+                                break;
+                            case Abilities.Heavy3:
+
+                                break;
+                            case Abilities.Heavy4:
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     case Types.Water:
                         break;
                     case Types.Magnetic:
+                        switch (abilitySelector) {
+                            case Abilities.Heavy1:
+                                if (rangedAbility.readyToCast) {
+                                    rangedAbility.readyToCast = false;
+                                    Instantiate(HeavyMagnetic1, rangedAbility.gameObject.transform.position, rangedAbility.gameObject.transform.rotation);
+                                    StartCoroutine(rangedAbility.CoolDown(1f, false));
+                                }
+                                break;
+                            case Abilities.Heavy2:
+                                break;
+                            case Abilities.Heavy3:
+                                break;
+                            case Abilities.Heavy4:
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     case Types.Electric:
                         switch (abilitySelector) {

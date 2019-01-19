@@ -770,13 +770,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Distance: 30
   Speed: 5
+  enemySpellType: 0
+  selectedSpell: 0
   TimeDelay: 0
+  isEnemySpell: 0
   RandomMoveRadius: 1
   RandomMoveSpeedScale: 3
+  damage: 0
   Target: {fileID: 0}
   CollidesWith:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2871
   EffectsOnCollision:
   - {fileID: 1187866334216756, guid: 7ec1056975e6b9b45820dcf4158cf42e, type: 2}
   CollisionOffset: 0
@@ -789,6 +793,8 @@ MonoBehaviour:
   - {fileID: 1219950613199366}
   HUE: -1
   CollidedInstances: []
+  isFollowing: 0
+  distanceToPlayer: 0
 --- !u!119 &119468798973752656
 Projector:
   m_ObjectHideFlags: 1

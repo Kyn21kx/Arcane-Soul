@@ -63,6 +63,22 @@ public class ManaManager : MonoBehaviour {
         if (GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>().readyToCast && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming && Input.GetMouseButtonUp(1) && manaAmount >= 30f) { //Continuar añadiendo todos los hechizos
             switch (spells.typeSelector) {
                 case Spells.Types.Fire:
+                    switch (spells.abilitySelector) {
+                        case Spells.Abilities.Heavy1:
+                            manaAmount -= electricHeavy;
+                            cntr = 1.5f;
+                            break;
+                        case Spells.Abilities.Heavy2:
+
+                            break;
+                        case Spells.Abilities.Heavy3:
+
+                            break;
+                        case Spells.Abilities.Heavy4:
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case Spells.Types.Water:
                     break;
