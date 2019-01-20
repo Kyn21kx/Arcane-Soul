@@ -134,6 +134,7 @@ public class RFX4_TransformMotion : MonoBehaviour {
                                 level = levelManager.waterBall;
                                 #endregion
                                 Enemy.wet = true;
+                                Enemy.cntr = 5f;
                                 break;
                             case ActiveSpell.MagneticBasic:
                                 #region Evaluate Level

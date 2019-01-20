@@ -30,7 +30,7 @@ public class BasicEn_Manager : MonoBehaviour {
     public GameObject[] PlayerReference;
     public int coverIndex;
     //Spell effects variables
-    float cntr;
+    public float cntr;
     public bool wet, burn, stunned;
     public int selectedSpell = 0;
     bool ready = true;
@@ -47,7 +47,7 @@ public class BasicEn_Manager : MonoBehaviour {
         Die();
         CompareCoverDistance();
         if (wet) {
-            StartCoroutine(wetTimer());
+            wetTimer();
         }
     }
 
@@ -146,8 +146,11 @@ public class BasicEn_Manager : MonoBehaviour {
 
     public void wetTimer() {
         //Change time depending on level
-        
-        wet = false;
+        cntr -= Time.deltaTime;
+        cntr = Mathf.Clamp(cntr, 0f, 5f);
+        if (cntr <= 0f) {
+            wet = false;
+        }
     }
 
     private IEnumerator BasicCD () {

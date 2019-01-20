@@ -175,6 +175,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                 level = levelManager.waterBall;
                                 #endregion
                                 Enemy.wet = true;
+                                Enemy.cntr = 5f;
                                 break;
                             case ActiveSpell.MagneticBasic:
                                 #region Evaluate Level
@@ -200,8 +201,12 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                 break;
                             case ActiveSpell.ElectricHeavy1:
                                 #region Evaluate Level
-                                
+
                                 #endregion
+                                if (Enemy.wet) {
+                                    //Increase damage multipler with level
+                                    damage += damage;
+                                }
                                 break;
                         }
                         hit.transform.GetComponent<BasicEn_Manager>().health -= damage;

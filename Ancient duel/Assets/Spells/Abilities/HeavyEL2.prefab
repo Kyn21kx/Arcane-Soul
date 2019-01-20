@@ -968,7 +968,7 @@ MonoBehaviour:
   Distance: 40
   Speed: 15
   enemySpellType: 0
-  selectedSpell: 0
+  selectedSpell: 5
   TimeDelay: 0
   isEnemySpell: 0
   RandomMoveRadius: 0.02
@@ -994,6 +994,7 @@ MonoBehaviour:
   CollidedInstances: []
   isFollowing: 0
   distanceToPlayer: 0
+  level: 0
 --- !u!182 &182910990224007778
 WindZone:
   m_ObjectHideFlags: 1
