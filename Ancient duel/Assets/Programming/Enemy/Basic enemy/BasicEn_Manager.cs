@@ -29,6 +29,8 @@ public class BasicEn_Manager : MonoBehaviour {
     public GameObject SpellHolder;
     public GameObject[] PlayerReference;
     public int coverIndex;
+    //Spell effects variables
+    public bool wet, burn, stunned;
     public int selectedSpell = 0;
     bool ready = true;
     #endregion

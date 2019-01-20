@@ -120,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4810612941238526}
   - component: {fileID: 114009630313843530}
+  - component: {fileID: 114333893510212306}
   m_Layer: 0
   m_Name: HeavyEL2
   m_TagString: Untagged
@@ -745,6 +746,18 @@ MonoBehaviour:
   GraphTimeMultiplier: 2
   GraphPitchMultiplier: 1
   IsLoop: 1
+--- !u!114 &114333893510212306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399342815928196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2641603185492489e5691c9841df44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0.54861575, g: 0.5254902, b: 1, a: 0.5882353}
 --- !u!114 &114531506223711494
 MonoBehaviour:
   m_ObjectHideFlags: 1

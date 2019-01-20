@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class RFX1_TransformMotion : MonoBehaviour {
     public float Distance = 30;
     public float Speed = 1;
-    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, ElectricShield };
+    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, FireMeteor, ElectricHeavy1};
     public enum EnemySpellType { None, Follower, Fixed };
     public EnemySpellType enemySpellType;
     public ActiveSpell selectedSpell;
@@ -24,6 +24,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
 
 
     public GameObject[] EffectsOnCollision;
+    BasicEn_Manager Enemy;
     public float CollisionOffset = 0;
     public float DestroyTimeDelay = 5;
     public bool CollisionEffectInWorldSpace = true;
@@ -44,6 +45,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
     private float distanceToPlayer;
     //private float currentSpeed;
     private float currentDelay;
+    public int level = 1;
     private const float RayCastTolerance = 0.15f;
     Vector3 VectorAux;
     private bool isInitialized;
@@ -61,7 +63,6 @@ public class RFX1_TransformMotion : MonoBehaviour {
         startPositionLocal = t.localPosition;
         startPosition = t.position;
         oldPos = t.TransformPoint(startPositionLocal);
-        
         Initialize();
         isInitialized = true;
     }
@@ -158,6 +159,24 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 #region Effects on collision with enemy
                 else {
                     if (hit.transform.CompareTag("Enemy")) {
+                        Enemy = hit.transform.GetComponent<BasicEn_Manager>();
+                        switch (selectedSpell) {
+                            case ActiveSpell.Fireball:
+                                break;
+                            case ActiveSpell.WaterBall:
+                                break;
+                            case ActiveSpell.MagneticBasic:
+                                break;
+                            case ActiveSpell.ElectricBasic:
+                                if (Enemy.wet) {
+                                    //Increase damage multipler with level
+                                }
+                                break;
+                            case ActiveSpell.FireMeteor:
+                                break;
+                            case ActiveSpell.ElectricHeavy1:
+                                break;
+                        }
                         hit.transform.GetComponent<BasicEn_Manager>().health -= damage;
                     }
                 }

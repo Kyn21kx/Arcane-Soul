@@ -15,10 +15,10 @@ public class RangedAbility : MonoBehaviour {
         mainCamera = Camera.main.GetComponent<vThirdPersonCamera>();
     }
 
-    public IEnumerator CoolDown (float time, bool IsSetActive) {
+    public IEnumerator CoolDown (float time, bool IsSetActive, GameObject @object) {
         yield return new WaitForSeconds(time);
         if (IsSetActive) {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Spells>().HeavyElectric1.SetActive(false);
+            @object.SetActive(false);
         }
         readyToCast = true;
     }

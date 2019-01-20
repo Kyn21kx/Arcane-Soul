@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Invector.CharacterController;
 
 public class Spells : MonoBehaviour {
 
@@ -14,6 +15,8 @@ public class Spells : MonoBehaviour {
     public Abilities abilitySelector;
     public bool heavyCast = false;
     Fireball fireball;
+    Pulse pulse;
+    vThirdPersonCamera cameraProperties;
     RangedAbility rangedAbility;
     public GameObject fball, waterAttack, electricAttack, magneticAttack, fireTornado, HeavyElectric1, HeavyElectric2, HeavyFire1, FireShield, HeavyMagnetic1;
     GameObject Player;
@@ -28,6 +31,7 @@ public class Spells : MonoBehaviour {
         Player = GameObject.FindGameObjectWithTag("Player");
         fireball = GameObject.Find("Fireball Holder").GetComponent<Fireball>();
         rangedAbility = GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>();
+        cameraProperties = Camera.main.GetComponent<vThirdPersonCamera>();
     }
 
     //Tab changes the spell quickly // Shift + Tab Opens a roulette
@@ -111,14 +115,14 @@ public class Spells : MonoBehaviour {
                                 if (rangedAbility.readyToCast) {
                                     rangedAbility.readyToCast = false;
                                     Instantiate(HeavyFire1, rangedAbility.gameObject.transform.position, rangedAbility.gameObject.transform.rotation);
-                                    StartCoroutine(rangedAbility.CoolDown(1f, false));
+                                    StartCoroutine(rangedAbility.CoolDown(1f, false, null));
                                 }
                                 break;
                             case Abilities.Heavy2:
                                 if (rangedAbility.readyToCast) {
                                     rangedAbility.readyToCast = false;
                                     FireShield.SetActive(true);
-                                    StartCoroutine(rangedAbility.CoolDown(10f, true));
+                                    StartCoroutine(rangedAbility.CoolDown(10f, true, FireShield));
                                 }
                                 break;
                             case Abilities.Heavy3:
@@ -137,8 +141,16 @@ public class Spells : MonoBehaviour {
                             case Abilities.Heavy1:
                                 if (rangedAbility.readyToCast) {
                                     rangedAbility.readyToCast = false;
-                                    Instantiate(HeavyMagnetic1, rangedAbility.gameObject.transform.position, rangedAbility.gameObject.transform.rotation);
-                                    StartCoroutine(rangedAbility.CoolDown(1f, false));
+                                    pulse = GetComponent<Pulse>();
+                                    #region Camera Effects
+                                   /* cameraProperties.defaultDistance = 12f;
+                                    cameraProperties.height = 5f;
+                                    cameraProperties.rightOffset = 0f;*/
+                                    #endregion
+                                    HeavyMagnetic1.SetActive(true);
+                                    pulse.Pulsate();
+                                    StartCoroutine(rangedAbility.CoolDown(3f, true, HeavyMagnetic1));
+                                    
                                 }
                                 break;
                             case Abilities.Heavy2:
@@ -157,7 +169,7 @@ public class Spells : MonoBehaviour {
                                 if (rangedAbility.readyToCast) {
                                     rangedAbility.readyToCast = false;
                                     Instantiate(HeavyElectric2, rangedAbility.gameObject.transform.position, rangedAbility.gameObject.transform.rotation);
-                                    StartCoroutine(rangedAbility.CoolDown(1f, false));
+                                    StartCoroutine(rangedAbility.CoolDown(1f, false, null));
                                 }
                                 break;
                             case Abilities.Heavy2:
@@ -169,8 +181,8 @@ public class Spells : MonoBehaviour {
                             case Abilities.Heavy4:
                                 if (rangedAbility.readyToCast) {
                                     rangedAbility.readyToCast = false;
-                                    HeavyElectric1.SetActive(true);
-                                    StartCoroutine(rangedAbility.CoolDown(10f, true));
+                                    HeavyMagnetic1.SetActive(true);
+                                    StartCoroutine(rangedAbility.CoolDown(10f, true,HeavyElectric1));
                                 }
                                 break;
                             default:
