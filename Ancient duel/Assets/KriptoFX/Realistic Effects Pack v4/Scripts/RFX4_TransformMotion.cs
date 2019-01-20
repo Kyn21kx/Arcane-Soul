@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class RFX4_TransformMotion : MonoBehaviour {
-    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, ElectricShield };
+    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, FireMeteor, ElectricHeavy1};
     public ActiveSpell selectedSpell;
     public float Distance = 30;
     public float Speed = 1;
@@ -16,6 +16,8 @@ public class RFX4_TransformMotion : MonoBehaviour {
     public LayerMask CollidesWith = ~0;
    
     public GameObject[] EffectsOnCollision;
+    BasicEn_Manager Enemy;
+    public bool isEnemySpell;
     public float CollisionOffset = 0;
     public float DestroyTimeDelay = 5;
     public bool CollisionEffectInWorldSpace = true;
@@ -107,25 +109,62 @@ public class RFX4_TransformMotion : MonoBehaviour {
                 oldPos = t.position;
                 OnCollisionBehaviour(hit);
                 OnCollisionDeactivateBehaviour(false);
-                #region Effects on collision with enemy
-                if (hit.transform.tag == "Enemy") {
-                    hit.transform.GetComponent<BasicEn_Manager>().health -= damage;
+                #region Effects On collision with Player
+                if (isEnemySpell && hit.transform.CompareTag("Player")) {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>().Health -= damage;
                 }
-                //Unique basic attacks
-                //Manage abilities with a different condition
-                switch (selectedSpell) {
-                    case ActiveSpell.Fireball:
-                        break;
-                    case ActiveSpell.WaterBall:
-                        break;
-                    case ActiveSpell.MagneticBasic:
-                        break;
-                    case ActiveSpell.ElectricBasic:
-                        break;
-                    case ActiveSpell.ElectricShield:
-                        break;
-                    default:
-                        break;
+                #endregion
+
+                #region Effects on collision with enemy
+                else {
+                    if (hit.transform.CompareTag("Enemy")) {
+                        Enemy = hit.transform.GetComponent<BasicEn_Manager>();
+                        LevelManager levelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelManager>();
+                        switch (selectedSpell) {
+                            case ActiveSpell.Fireball:
+                                #region Evaluate Level
+                                level = levelManager.fireBall;
+                                #endregion
+                                if (Enemy.wet) {
+                                    damage = 0;
+                                }
+                                break;
+                            case ActiveSpell.WaterBall:
+                                #region Evaluate Level
+                                level = levelManager.waterBall;
+                                #endregion
+                                Enemy.wet = true;
+                                break;
+                            case ActiveSpell.MagneticBasic:
+                                #region Evaluate Level
+                                level = levelManager.magneticBasic;
+                                #endregion
+                                break;
+                            case ActiveSpell.ElectricBasic:
+                                #region Evaluate Level
+                                level = levelManager.electricBasic;
+                                #endregion
+                                if (Enemy.wet) {
+                                    //Increase damage multipler with level
+                                    damage += damage;
+                                }
+                                break;
+                            case ActiveSpell.FireMeteor:
+                                #region Evaluate Level
+
+                                #endregion
+                                if (Enemy.wet) {
+                                    damage = 0;
+                                }
+                                break;
+                            case ActiveSpell.ElectricHeavy1:
+                                #region Evaluate Level
+
+                                #endregion
+                                break;
+                        }
+                        hit.transform.GetComponent<BasicEn_Manager>().health -= damage;
+                    }
                 }
                 #endregion
                 return;
