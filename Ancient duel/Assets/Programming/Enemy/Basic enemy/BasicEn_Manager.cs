@@ -30,6 +30,7 @@ public class BasicEn_Manager : MonoBehaviour {
     public GameObject[] PlayerReference;
     public int coverIndex;
     //Spell effects variables
+    float cntr;
     public bool wet, burn, stunned;
     public int selectedSpell = 0;
     bool ready = true;
@@ -143,9 +144,9 @@ public class BasicEn_Manager : MonoBehaviour {
         }
     }
 
-    public IEnumerator wetTimer() {
+    public void wetTimer() {
         //Change time depending on level
-        yield return new WaitForSeconds(5f);
+        
         wet = false;
     }
 
