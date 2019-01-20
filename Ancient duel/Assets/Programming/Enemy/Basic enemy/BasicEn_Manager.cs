@@ -45,6 +45,9 @@ public class BasicEn_Manager : MonoBehaviour {
         Detect_Player();
         Die();
         CompareCoverDistance();
+        if (wet) {
+            StartCoroutine(wetTimer());
+        }
     }
 
     private void OnDrawGizmosSelected() {
@@ -140,6 +143,11 @@ public class BasicEn_Manager : MonoBehaviour {
         }
     }
 
+    public IEnumerator wetTimer() {
+        //Change time depending on level
+        yield return new WaitForSeconds(5f);
+        wet = false;
+    }
 
     private IEnumerator BasicCD () {
         ready = false;

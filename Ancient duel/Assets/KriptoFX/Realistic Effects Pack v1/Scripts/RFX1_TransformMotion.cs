@@ -45,7 +45,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
     private float distanceToPlayer;
     //private float currentSpeed;
     private float currentDelay;
-    public int level = 1;
+    public int level;
     private const float RayCastTolerance = 0.15f;
     Vector3 VectorAux;
     private bool isInitialized;
@@ -160,21 +160,48 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 else {
                     if (hit.transform.CompareTag("Enemy")) {
                         Enemy = hit.transform.GetComponent<BasicEn_Manager>();
+                        LevelManager levelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelManager>();
                         switch (selectedSpell) {
                             case ActiveSpell.Fireball:
+                                #region Evaluate Level
+                                level = levelManager.fireBall;
+                                #endregion
+                                if (Enemy.wet) {
+                                    damage = 0;
+                                }
                                 break;
                             case ActiveSpell.WaterBall:
+                                #region Evaluate Level
+                                level = levelManager.waterBall;
+                                #endregion
+                                Enemy.wet = true;
                                 break;
                             case ActiveSpell.MagneticBasic:
+                                #region Evaluate Level
+                                level = levelManager.magneticBasic;
+                                #endregion
                                 break;
                             case ActiveSpell.ElectricBasic:
+                                #region Evaluate Level
+                                level = levelManager.electricBasic;
+                                #endregion
                                 if (Enemy.wet) {
                                     //Increase damage multipler with level
+                                    damage += damage;
                                 }
                                 break;
                             case ActiveSpell.FireMeteor:
+                                #region Evaluate Level
+                                
+                                #endregion
+                                if (Enemy.wet) {
+                                    damage = 0;
+                                }
                                 break;
                             case ActiveSpell.ElectricHeavy1:
+                                #region Evaluate Level
+                                
+                                #endregion
                                 break;
                         }
                         hit.transform.GetComponent<BasicEn_Manager>().health -= damage;
