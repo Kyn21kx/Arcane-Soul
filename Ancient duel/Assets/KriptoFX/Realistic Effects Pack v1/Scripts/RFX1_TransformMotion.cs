@@ -96,7 +96,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
         if (!dropFirstFrameForFixUnityBugWithParticles)
         {
             UpdateWorldPosition();
-            SetTarget();
+            //SetTarget();
         }
         else dropFirstFrameForFixUnityBugWithParticles = false;
     }

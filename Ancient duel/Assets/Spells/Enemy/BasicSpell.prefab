@@ -812,12 +812,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 30
-  Speed: 15
+  Speed: 30
   enemySpellType: 1
   selectedSpell: 0
   TimeDelay: 0
   isEnemySpell: 1
-  RandomMoveRadius: 0.2
+  RandomMoveRadius: 0.00001
   RandomMoveSpeedScale: 0
   damage: 5
   Target: {fileID: 0}
@@ -839,6 +839,7 @@ MonoBehaviour:
   CollidedInstances: []
   isFollowing: 0
   distanceToPlayer: 0
+  level: 0
 --- !u!182 &182909013450765610
 WindZone:
   m_ObjectHideFlags: 1

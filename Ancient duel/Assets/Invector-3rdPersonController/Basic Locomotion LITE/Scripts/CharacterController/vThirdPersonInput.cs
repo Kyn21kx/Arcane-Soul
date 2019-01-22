@@ -111,8 +111,8 @@ namespace Invector.CharacterController
 
         protected virtual void DodgeInput()
         {
-            if (Input.GetKeyUp(dodgeInput)) {
-                StartCoroutine(cc.Dodge());
+            if (Input.GetKey(dodgeInput)) {
+                cc.Jump();
             }
         }
 
