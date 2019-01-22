@@ -57,6 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4307371982832962}
+  - component: {fileID: 114164535437368050}
   m_Layer: 0
   m_Name: LightingHeavy
   m_TagString: Spell
@@ -865,6 +866,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readyToCast: 1
   CD: 0
+--- !u!114 &114164535437368050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155007879089982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23618e2cedb93a4d86960776f387b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0.3066038, g: 0.71608675, b: 1, a: 0.5254902}
 --- !u!114 &114240434709454276
 MonoBehaviour:
   m_ObjectHideFlags: 1
