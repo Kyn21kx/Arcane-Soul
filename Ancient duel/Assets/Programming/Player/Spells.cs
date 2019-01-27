@@ -195,7 +195,14 @@ public class Spells : MonoBehaviour {
             #endregion
         }
     }
-
+    
+    public void ApplyBurn(int dañoPorSegundo, int tiempo)
+    {
+        //Comienza la animación de quemarse
+        for (float i = 0; i < tiempo * Time.deltaTime; i += Time.deltaTime) this.GetComponent<HealthManager>().Health -= dañoPorSegundo;
+        //Acaba la animación de quemarse
+    }
+    
     public void AbilitySelection (int id) {
         switch (id) {
             case 1:
