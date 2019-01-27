@@ -764,6 +764,7 @@ MonoBehaviour:
     m_Bits: 1591
   EffectsOnCollision:
   - {fileID: 132858, guid: dcbbdee2152660b41822b2eb0ccb8767, type: 2}
+  isEnemySpell: 0
   CollisionOffset: 0
   DestroyTimeDelay: 5
   CollisionEffectInWorldSpace: 1

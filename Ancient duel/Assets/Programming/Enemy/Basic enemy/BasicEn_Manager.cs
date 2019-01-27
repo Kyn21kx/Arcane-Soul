@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class BasicEn_Manager : MonoBehaviour {
 
@@ -12,15 +13,19 @@ public class BasicEn_Manager : MonoBehaviour {
     public enum EnemyType {PatrolOn4, ElitePatrol, EliteSingle, SingleBasic, FireProof};
     #region Variables
     public EnemyType enemyType;
+    public float Resistance;
     public float health = 100f;
+    public float healthAux;
     private Transform player;
     private NavMeshAgent ai;
+    public GameObject UISpawner;
     public int level = 0;
     public bool ranged = false;
     bool Detect;
     float distanceToCheckPoint;
     public bool detected = false;
     public int positionIndex = 0;
+    public GameObject DamageTxt;
     public GameObject[] covers;
     public Transform[] checkPoints;
     public GameObject[] SpellsAvailable;
@@ -38,6 +43,7 @@ public class BasicEn_Manager : MonoBehaviour {
 
     private void Start() {
         ai = GetComponent<NavMeshAgent>();
+        healthAux = health;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         covers = GameObject.FindGameObjectsWithTag("Cover");
     }
@@ -48,6 +54,16 @@ public class BasicEn_Manager : MonoBehaviour {
         CompareCoverDistance();
         if (wet) {
             wetTimer();
+        }
+    }
+
+    private void EvaluateHealth () {
+        if (health < healthAux) {
+            Instantiate(DamageTxt, UISpawner.transform);
+            //DamageTxt.GetComponent<TextMeshProUGUI>().SetText((healthAux - health).ToString());
+            //DamageTxt.GetComponent<Animation>().Play();
+            //txt.SetText((healthAux - health).ToString());
+            healthAux = health;
         }
     }
 

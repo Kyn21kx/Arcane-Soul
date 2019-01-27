@@ -157,6 +157,7 @@ public class RFX4_TransformMotion : MonoBehaviour {
                                 if (Enemy.wet) {
                                     damage = 0;
                                 }
+                                AreaExplosion(5f, 5f, hit.transform);
                                 break;
                             case ActiveSpell.ElectricHeavy1:
                                 #region Evaluate Level
@@ -224,7 +225,25 @@ public class RFX4_TransformMotion : MonoBehaviour {
         Gizmos.DrawLine(t.position, t.position + t.forward*Distance);
 
     }
+    #region Additional Effects
+    public void AreaExplosion(float radius, float expDamage, Transform hitEnemy) {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log(enemies);
+        float projectileDistance;
+        int i = 0;
+        foreach (GameObject enemy in enemies) {
+            projectileDistance = Vector3.Distance(gameObject.transform.position, hitEnemy.position);
+            if (projectileDistance <= radius && enemy != hitEnemy.gameObject) {
+                enemy.GetComponent<BasicEn_Manager>().health -= expDamage;
+            }
+            i++;
+        }
+    }
 
+    public void ApplyBurn(BasicEn_Manager Enemy, float damage) {
+
+    }
+    #endregion
     public enum RFX4_SimulationSpace
     {
         Local,

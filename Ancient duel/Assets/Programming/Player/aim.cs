@@ -31,12 +31,12 @@ public class aim : MonoBehaviour {
         //Opción de apuntar en izquierda o derecha
         if (Input.GetKeyUp(KeyCode.Q) && !aiming) {
             mainCam.fieldOfView -= 20f;
-            Properties.rightOffset += 0.2f;
+            Properties.rightOffset += 0.1f;
             Properties.defaultDistance += 3.5f;
             Properties.height += 0.3f;
             //crosshair.enabled = true;
-            thirdPersonController.freeRunningSpeed = thirdPersonController.freeRunningSpeed * (0.67f);
-            thirdPersonController.freeSprintSpeed = thirdPersonController.freeSprintSpeed * (0.67f);
+            thirdPersonController.freeRunningSpeed = thirdPersonController.freeRunningSpeed * (0.45f);
+            thirdPersonController.freeSprintSpeed = thirdPersonController.freeSprintSpeed * (0.45f);
             aiming = true;
             //StartCoroutine(Stick());
         }
@@ -60,18 +60,14 @@ public class aim : MonoBehaviour {
     void AutoAim() {
         RaycastHit hit;
         float distance = 60f;
-        float JoystickValueX = Input.GetAxis("RightJoystickX");
-        float JoystickValueY = Input.GetAxis("RightJoystickY");
-        if (Player.GetComponent<InputManager>().xbox) {
-            if (JoystickValueX != 0 || JoystickValueY != 0) {
-                if ((aiming && Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out hit, distance)) && hit.transform.tag == "Enemy") {
-                    Vector3 direction = hit.transform.position - mainCam.transform.position;
-                    Quaternion rotation = Quaternion.LookRotation(direction);
-                    mainCam.transform.rotation = Quaternion.Lerp(mainCam.transform.rotation, rotation, autoAimSpeed);
-                    
-                }
-            }
-        } 
+        if ((aiming && Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out hit, distance)) && hit.transform.CompareTag("Enemy")) {
+            Properties.xMouseSensitivity = 0.6f;
+            Properties.yMouseSensitivity = 0.6f;
+        }
+        else {
+            Properties.xMouseSensitivity = 3.5f;
+            Properties.yMouseSensitivity = 3.5f;
+        }
     }
 
     IEnumerator Stick () {

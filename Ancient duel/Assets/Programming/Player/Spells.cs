@@ -181,7 +181,7 @@ public class Spells : MonoBehaviour {
                             case Abilities.Heavy4:
                                 if (rangedAbility.readyToCast) {
                                     rangedAbility.readyToCast = false;
-                                    HeavyMagnetic1.SetActive(true);
+                                    HeavyElectric1.SetActive(true);
                                     StartCoroutine(rangedAbility.CoolDown(10f, true,HeavyElectric1));
                                 }
                                 break;

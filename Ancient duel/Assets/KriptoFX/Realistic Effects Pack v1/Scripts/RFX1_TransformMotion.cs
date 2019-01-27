@@ -159,8 +159,11 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 #region Effects on collision with enemy
                 else {
                     if (hit.transform.CompareTag("Enemy")) {
+                        #region Initialize variables
                         Enemy = hit.transform.GetComponent<BasicEn_Manager>();
+                        FireEffects fireEffects = gameObject.GetComponent<FireEffects>();
                         LevelManager levelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelManager>();
+                        #endregion
                         switch (selectedSpell) {
                             case ActiveSpell.Fireball:
                                 #region Evaluate Level
@@ -168,6 +171,9 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                 #endregion
                                 if (Enemy.wet) {
                                     damage = 0;
+                                }
+                                else {
+                                    fireEffects.ApplyBurn(Enemy, 1f);
                                 }
                                 break;
                             case ActiveSpell.WaterBall:
@@ -198,6 +204,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                 if (Enemy.wet) {
                                     damage = 0;
                                 }
+                                AreaExplosion(5f, 5f, hit.transform);
                                 break;
                             case ActiveSpell.ElectricHeavy1:
                                 #region Evaluate Level
@@ -325,7 +332,25 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 break;
         }
     }
+    #region Additional Effects
+    public void AreaExplosion(float radius, float expDamage, Transform hitEnemy) {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log(enemies);
+        float projectileDistance;
+        int i = 0;
+        foreach (GameObject enemy in enemies) {
+            projectileDistance = Vector3.Distance(gameObject.transform.position, hitEnemy.position);
+            if (projectileDistance <= radius && enemy != hitEnemy.gameObject) {
+                enemy.GetComponent<BasicEn_Manager>().health -= expDamage;
+            }
+            i++;
+        }
+    }
 
+    public void ApplyBurn(BasicEn_Manager Enemy, float damage) {
+
+    }
+    #endregion
     public enum RFX4_SimulationSpace
     {
         Local,
