@@ -132,6 +132,7 @@ public class RFX4_TransformMotion : MonoBehaviour {
                                     Enemy.burn = true;
                                     Enemy.tiempoDeArdor = 5;
                                     Enemy.damagePerBurn = 1f;
+
                                 }
                                 break;
                             case ActiveSpell.WaterBall:
