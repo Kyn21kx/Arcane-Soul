@@ -173,7 +173,9 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                     damage = 0;
                                 }
                                 else {
-                                    ApplyBurn();
+                                    Enemy.burn = true;
+                                    Enemy.tiempoDeArdor = 5;
+                                    Enemy.damagePerBurn = 1f;
                                 }
                                 break;
                             case ActiveSpell.WaterBall:
@@ -345,10 +347,6 @@ public class RFX1_TransformMotion : MonoBehaviour {
             }
             i++;
         }
-    }
-
-    public void ApplyBurn () {
-        Enemy.burn = true;
     }
     #endregion
     public enum RFX4_SimulationSpace
