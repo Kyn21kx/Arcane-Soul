@@ -39,6 +39,8 @@ public class BasicEn_Manager : MonoBehaviour {
     public bool wet, burn, stunned;
     public int selectedSpell = 0;
     bool ready = true;
+    int tiempoDeArdor;
+    float damagePerBurn;
     #endregion
 
     private void Start() {
@@ -167,6 +169,10 @@ public class BasicEn_Manager : MonoBehaviour {
         if (cntr <= 0f) {
             wet = false;
         }
+    }
+
+    private void Burn () {
+        for (float i = 0; i < tiempoDeArdor * Time.deltaTime; i += Time.deltaTime) health -= damagePerBurn;
     }
 
     private IEnumerator BasicCD () {
