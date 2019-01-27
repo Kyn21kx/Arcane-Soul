@@ -173,7 +173,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                     damage = 0;
                                 }
                                 else {
-                                    fireEffects.ApplyBurn(Enemy, 1f);
+                                    ApplyBurn(Enemy, 1f);
                                 }
                                 break;
                             case ActiveSpell.WaterBall:
