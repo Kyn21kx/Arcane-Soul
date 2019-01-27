@@ -128,6 +128,9 @@ public class RFX4_TransformMotion : MonoBehaviour {
                                 if (Enemy.wet) {
                                     damage = 0;
                                 }
+                                else {
+                                    ApplyBurn(5, 1f, Enemy);
+                                }
                                 break;
                             case ActiveSpell.WaterBall:
                                 #region Evaluate Level
@@ -240,8 +243,8 @@ public class RFX4_TransformMotion : MonoBehaviour {
         }
     }
 
-    public void ApplyBurn(BasicEn_Manager Enemy, float damage) {
-
+    public void ApplyBurn(int tiempo, float damage, BasicEn_Manager en_Manager) {
+        for (float i = 0; i < tiempo * Time.deltaTime; i += Time.deltaTime) en_Manager.health -= damage;
     }
     #endregion
     public enum RFX4_SimulationSpace
