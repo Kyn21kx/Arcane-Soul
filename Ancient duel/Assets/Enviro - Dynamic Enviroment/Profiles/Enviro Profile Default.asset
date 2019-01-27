@@ -150,7 +150,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-    directLightAngleOffset: 0
+    directLightAngleOffset: 154
     ambientMode: 3
     ambientIntensity:
       serializedVersion: 2
@@ -264,9 +264,9 @@ MonoBehaviour:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     globalReflections: 1
-    globalReflectionsIntensity: 0.75
+    globalReflectionsIntensity: 5.4
     globalReflectionsUpdate: 0.025
-    globalReflectionsScale: 1
+    globalReflectionsScale: 1.55
   volumeLightSettings:
     Resolution: 1
     dirVolumeLighting: 1
@@ -398,7 +398,7 @@ MonoBehaviour:
     moonPhaseMode: 1
     moonTexture: {fileID: 2800000, guid: a1ecb87143451c742941779d0eb2e32f, type: 3}
     moonColor: {r: 0.8014706, g: 0.8014706, b: 0.8014706, a: 1}
-    moonBrightness: 3.68
+    moonBrightness: 5
     moonSize: 13.8
     moonGlow:
       serializedVersion: 2
@@ -510,7 +510,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    skyExposure: 1.5
+    skyExposure: 5.27
     starsCubeMap: {fileID: 8900000, guid: 39b57397df78c0c44a8f13e715e91a6a, type: 3}
     starsIntensity:
       serializedVersion: 2
@@ -1034,4 +1034,4 @@ MonoBehaviour:
   showWeatherUI: 1
   showAudioUI: 0
   showEffectsUI: 0
-  modified: 1
+  modified: 0
