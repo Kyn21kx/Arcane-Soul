@@ -61,8 +61,7 @@ public class aim : MonoBehaviour {
         RaycastHit hit;
         float distance = 60f;
         if ((aiming && Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out hit, distance)) && hit.transform.CompareTag("Enemy")) {
-            Properties.xMouseSensitivity = 0.6f;
-            Properties.yMouseSensitivity = 0.6f;
+            
         }
         else {
             Properties.xMouseSensitivity = 3.5f;

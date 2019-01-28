@@ -90,8 +90,8 @@ public class Spells : MonoBehaviour {
                             Instantiate(fball, GameObject.Find("Fireball Holder").transform.position, GameObject.Find("Fireball Holder").transform.rotation);
                         break;
                     case Types.Water:
-                            fireball.Casted();
-                            Instantiate(waterAttack, GameObject.Find("Fireball Holder").transform.position, GameObject.Find("Fireball Holder").transform.rotation);
+                        fireball.Casted();
+                        Instantiate(waterAttack, GameObject.Find("Fireball Holder").transform.position, GameObject.Find("Fireball Holder").transform.rotation);
                         break;
                     case Types.Magnetic:
                             fireball.Casted();
