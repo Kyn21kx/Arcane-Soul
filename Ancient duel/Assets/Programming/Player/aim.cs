@@ -13,7 +13,7 @@ public class aim : MonoBehaviour {
     vThirdPersonCamera Properties;
     public bool aiming;
     float autoAimSpeed = 5f;
-    //Canvas crosshair;
+    Canvas crosshair;
     #endregion
     //Instead of Set active do camera.enabled
     private void Start() {
@@ -21,8 +21,8 @@ public class aim : MonoBehaviour {
         thirdPersonController = Player.GetComponent<vThirdPersonController>();
         mainCam = Camera.main;
         Properties = mainCam.GetComponent<vThirdPersonCamera>();
-        //crosshair = GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Canvas>();
-        //crosshair.enabled = false;
+        crosshair = GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Canvas>();
+        crosshair.enabled = false;
     }
 
     void AimMode() {
@@ -33,8 +33,8 @@ public class aim : MonoBehaviour {
             mainCam.fieldOfView -= 20f;
             Properties.rightOffset += 0.1f;
             Properties.defaultDistance += 3.5f;
-            Properties.height += 0.3f;
-            //crosshair.enabled = true;
+            //Properties.height += 0.3f;
+            crosshair.enabled = true;
             thirdPersonController.freeRunningSpeed = thirdPersonController.freeRunningSpeed * (0.45f);
             thirdPersonController.freeSprintSpeed = thirdPersonController.freeSprintSpeed * (0.45f);
             aiming = true;
@@ -43,8 +43,8 @@ public class aim : MonoBehaviour {
         else if (Input.GetKeyUp(KeyCode.Q) && aiming) {
             mainCam.fieldOfView = 47f;
             mainCam.GetComponent<vThirdPersonCamera>().rightOffset = 0f;
-            Properties.defaultDistance = 4.6f;
-            Properties.height = 2.73f;
+            Properties.defaultDistance = 7.53f;
+            Properties.height = 7.53f;
             thirdPersonController.freeRunningSpeed = 7f;
             thirdPersonController.freeSprintSpeed = 8f;
             aiming = false;
