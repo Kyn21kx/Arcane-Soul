@@ -44,7 +44,7 @@ public class aim : MonoBehaviour {
             mainCam.fieldOfView = 47f;
             mainCam.GetComponent<vThirdPersonCamera>().rightOffset = 0f;
             Properties.defaultDistance = 7.53f;
-            Properties.height = 7.53f;
+            Properties.height = 3.73f;
             thirdPersonController.freeRunningSpeed = 7f;
             thirdPersonController.freeSprintSpeed = 8f;
             aiming = false;
