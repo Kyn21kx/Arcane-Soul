@@ -7,7 +7,7 @@ public class ManaManager : MonoBehaviour {
     #region Variables
     Image manaBar;
     Spells spells;
-    public int fball = 20, enWhip = 20, electShield = 20, magneticBasic = 20, waterAttack = 20, electricHeavy = 30;
+    public int fball = 20, enWhip = 20, electShield = 20, magneticBasic = 20, waterAttack = 20, electricHeavy = 30, heavyFire = 30, heavyWater = 30;
     public float manaAmount = 150f;
     public float manaAux;
     public int regenerationAmount = 20;
@@ -81,6 +81,18 @@ public class ManaManager : MonoBehaviour {
                     }
                     break;
                 case Spells.Types.Water:
+                    switch (spells.abilitySelector) {
+                        case Spells.Abilities.Heavy1:
+                            manaAmount -= heavyWater;
+                            cntr = 1.5f;
+                            break;
+                        case Spells.Abilities.Heavy2:
+                            break;
+                        case Spells.Abilities.Heavy3:
+                            break;
+                        case Spells.Abilities.Heavy4:
+                            break;
+                    }
                     break;
                 case Spells.Types.Magnetic:
                     break;
