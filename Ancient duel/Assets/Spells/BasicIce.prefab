@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4853646619568682}
   - component: {fileID: 114308131798747072}
   m_Layer: 0
-  m_Name: HeavyIce1
+  m_Name: BasicIce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

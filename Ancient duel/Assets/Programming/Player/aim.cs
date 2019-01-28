@@ -31,12 +31,12 @@ public class aim : MonoBehaviour {
         //Opción de apuntar en izquierda o derecha
         if (Input.GetKeyUp(KeyCode.Q) && !aiming) {
             mainCam.fieldOfView -= 20f;
-            Properties.rightOffset = 0.1f;
-            Properties.defaultDistance = 6.5f;
+            Properties.rightOffset = 0.4f;
+            Properties.defaultDistance = 5f;
             Properties.height = 3.78f;
             crosshair.enabled = true;
-            thirdPersonController.freeRunningSpeed = thirdPersonController.freeRunningSpeed * (0.45f);
-            thirdPersonController.freeSprintSpeed = thirdPersonController.freeSprintSpeed * (0.45f);
+            thirdPersonController.freeRunningSpeed = thirdPersonController.freeRunningSpeed * (0.5f);
+            thirdPersonController.freeSprintSpeed = thirdPersonController.freeSprintSpeed * (0.5f);
             aiming = true;
             //StartCoroutine(Stick());
         }
