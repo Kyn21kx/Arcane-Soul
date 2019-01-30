@@ -156,14 +156,14 @@ public class Spells : MonoBehaviour {
                             case Abilities.Heavy1:
                                 if (rangedAbility.readyToCast) {
                                     rangedAbility.readyToCast = false;
-                                    pulse = GetComponent<Pulse>();
+                                    //pulse = GetComponent<Pulse>();
                                     #region Camera Effects
                                    /* cameraProperties.defaultDistance = 12f;
                                     cameraProperties.height = 5f;
                                     cameraProperties.rightOffset = 0f;*/
                                     #endregion
                                     HeavyMagnetic1.SetActive(true);
-                                    pulse.Pulsate();
+                                    //pulse.Pulsate();
                                     StartCoroutine(rangedAbility.CoolDown(3f, true, HeavyMagnetic1));
                                     
                                 }

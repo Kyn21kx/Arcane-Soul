@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RFX1_RealtimeReflection : MonoBehaviour
+public class ME_RealtimeReflection : MonoBehaviour
 {
     ReflectionProbe probe;
     private Transform camT;
+    public bool CanUpdate = true;
 
     void Awake()
     {
@@ -20,6 +21,6 @@ public class RFX1_RealtimeReflection : MonoBehaviour
             pos.y * -1,
             pos.z
         );
-        probe.RenderProbe();
+        if(CanUpdate) probe.RenderProbe();
     }
 }

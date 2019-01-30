@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: a83fad88765f54f4b8c03ce4317b87d0
+timeCreated: 1521219589
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone002
+    100004: Bone003
+    100006: Bone004
+    100008: Bone005
+    100010: Bone006
+    100012: Bone007
+    100014: Bone008
+    100016: Bone009
+    100018: Bone010
+    100020: Bone011
+    100022: Bone012
+    100024: Bone013
+    100026: Bone014
+    100028: Bone015
+    100030: Bone016
+    100032: Box001
+    100034: Curve001
+    100036: //RootNode
+    100038: Dummy001
+    100040: Helix001
+    100042: objlong1_long_Object04
+    100044: objloutou2_long
+    100046: objloutou2_long_MeshPart0
+    100048: objloutou2_long_MeshPart1
+    100050: objpCylinder3
+    100052: objpCylinder4
+    100054: objpolySurface10
+    100056: objpolySurface11
+    100058: Dragon
+    100060: Dragon_MeshPart0
+    100062: Dragon_MeshPart1
+    100064: Cone001
+    100066: Cone002
+    400000: Bone001
+    400002: Bone002
+    400004: Bone003
+    400006: Bone004
+    400008: Bone005
+    400010: Bone006
+    400012: Bone007
+    400014: Bone008
+    400016: Bone009
+    400018: Bone010
+    400020: Bone011
+    400022: Bone012
+    400024: Bone013
+    400026: Bone014
+    400028: Bone015
+    400030: Bone016
+    400032: Box001
+    400034: Curve001
+    400036: //RootNode
+    400038: Dummy001
+    400040: Helix001
+    400042: objlong1_long_Object04
+    400044: objloutou2_long
+    400046: objloutou2_long_MeshPart0
+    400048: objloutou2_long_MeshPart1
+    400050: objpCylinder3
+    400052: objpCylinder4
+    400054: objpolySurface10
+    400056: objpolySurface11
+    400058: Dragon
+    400060: Dragon_MeshPart0
+    400062: Dragon_MeshPart1
+    400064: Cone001
+    400066: Cone002
+    2300000: Box001
+    2300002: objlong1_long_Object04
+    2300004: objpCylinder3
+    2300006: objpCylinder4
+    2300008: objpolySurface10
+    2300010: objpolySurface11
+    2300012: Cone001
+    2300014: Cone002
+    3300000: Box001
+    3300002: objlong1_long_Object04
+    3300004: objpCylinder3
+    3300006: objpCylinder4
+    3300008: objpolySurface10
+    3300010: objpolySurface11
+    3300012: Cone001
+    3300014: Cone002
+    4300000: objloutou2_long_MeshPart0
+    4300002: objloutou2_long_MeshPart1
+    4300004: objpolySurface10
+    4300006: objpolySurface11
+    4300008: objpCylinder3
+    4300010: objpCylinder4
+    4300012: objlong1_long_Object04
+    4300014: Box001
+    4300016: Dragon_MeshPart0
+    4300018: Dragon_MeshPart1
+    4300020: Dragon
+    4300022: Cone001
+    4300024: Cone002
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: objloutou2_long_MeshPart0
+    13700002: objloutou2_long_MeshPart1
+    13700004: Dragon_MeshPart0
+    13700006: Dragon_MeshPart1
+    13700008: Dragon
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 80
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 2800000, guid: ac683a853bf98f7468bcf35c563f4cec, type: 3}
-        m_Scale: {x: 12.38, y: 4.75}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 2800000, guid: c686a7468d60fe143b632b005b4fe2b8, type: 3}
@@ -71,7 +71,7 @@ Material:
     - _GlossyReflections: 1
     - _Lightmapping: 1
     - _Mode: 0
-    - _OcclusionStrength: 1
+    - _OcclusionStrength: 0.8
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
