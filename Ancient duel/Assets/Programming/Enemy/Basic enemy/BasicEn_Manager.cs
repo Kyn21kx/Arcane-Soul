@@ -51,9 +51,9 @@ public class BasicEn_Manager : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-    //    Detect_Player();
+        Detect_Player();
         Die();
-    //    CompareCoverDistance();
+        CompareCoverDistance();
         if (wet) {
             wetTimer();
         }

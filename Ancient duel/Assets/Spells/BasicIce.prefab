@@ -806,14 +806,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 50
-  Speed: 20
+  Speed: 25
   enemySpellType: 0
   selectedSpell: 1
   TimeDelay: 0
   isEnemySpell: 0
   RandomMoveRadius: 0.01
   RandomMoveSpeedScale: 0
-  damage: 0
+  damage: 10
   Target: {fileID: 0}
   CollidesWith:
     serializedVersion: 2

@@ -42,6 +42,9 @@ GameObject:
   - component: {fileID: 114984947311032202}
   - component: {fileID: 114024907863603004}
   - component: {fileID: 114358320043915542}
+  - component: {fileID: 114034228258663634}
+  - component: {fileID: 114923847967525618}
+  - component: {fileID: 114054994302238108}
   m_Layer: 0
   m_Name: CameraPref
   m_TagString: MainCamera
@@ -594,7 +597,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -853,6 +856,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camRotationY: 0
   transformCam: {fileID: 0}
+--- !u!114 &114034228258663634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111636132307936}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc2158365ed6fb429515bc7eb6f8cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolution: 1
+  screenBlendMode: 0
+  sunTransform: {fileID: 0}
+  radialBlurIterations: 2
+  sunColor: {r: 1, g: 0.5007427, b: 0.20090201, a: 1}
+  sunThreshold: {r: 0.51103157, g: 0.51103157, b: 0.51103157, a: 1}
+  sunShaftBlurRadius: 6
+  sunShaftIntensity: 0.6
+  maxRadius: 10
+  useDepthTexture: 1
+  sunShaftsShader: {fileID: 4800000, guid: 2721eac037fc4544abddca473138e9f1, type: 3}
+  sunShaftsMaterial: {fileID: 0}
+  simpleClearShader: {fileID: 4800000, guid: ca46cc6d87e05cb4993352de483e4370, type: 3}
+  simpleClearMaterial: {fileID: 0}
+--- !u!114 &114054994302238108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111636132307936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25662192fc626eb47a5e9eb586e7fd50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAddionalCamera: 0
+  currentReprojectionPixelSize: 0
+  _volumeRenderingMaterial: {fileID: 0}
+  Resolution: 1
+  DefaultSpotCookie: {fileID: 2800000, guid: d569327f9e6a94841835e2f701795322, type: 3}
+  simpleFog: 0
+  volumeLighting: 1
+  dirVolumeLighting: 1
+  distanceFog: 1
+  useRadialDistance: 1
+  heightFog: 1
+  height: 25
+  heightDensity: 1
+  startDistance: 0
 --- !u!114 &114095023943282652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1292,6 +1345,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActivatedGameObject: {fileID: 1239192386290926}
   Delay: 2.93
+--- !u!114 &114923847967525618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111636132307936}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc2158365ed6fb429515bc7eb6f8cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolution: 1
+  screenBlendMode: 0
+  sunTransform: {fileID: 0}
+  radialBlurIterations: 2
+  sunColor: {r: 0.5803922, g: 0.65882355, b: 0.8980392, a: 1}
+  sunThreshold: {r: 0.15288843, g: 0.15288843, b: 0.15288843, a: 1}
+  sunShaftBlurRadius: 6
+  sunShaftIntensity: 0.08865285
+  maxRadius: 10
+  useDepthTexture: 1
+  sunShaftsShader: {fileID: 4800000, guid: 2721eac037fc4544abddca473138e9f1, type: 3}
+  sunShaftsMaterial: {fileID: 0}
+  simpleClearShader: {fileID: 4800000, guid: ca46cc6d87e05cb4993352de483e4370, type: 3}
+  simpleClearMaterial: {fileID: 0}
 --- !u!114 &114984947311032202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1310,11 +1388,11 @@ MonoBehaviour:
     m_Bits: 1
   lockCamera: 0
   rightOffset: 0
-  defaultDistance: 4.6
-  height: 2.73
+  defaultDistance: 7.53
+  height: 3.73
   smoothFollow: 15
-  xMouseSensitivity: 3
-  yMouseSensitivity: 3
+  xMouseSensitivity: 3.5
+  yMouseSensitivity: 3.5
   yMinLimit: -40
   yMaxLimit: 80
   indexList: 0

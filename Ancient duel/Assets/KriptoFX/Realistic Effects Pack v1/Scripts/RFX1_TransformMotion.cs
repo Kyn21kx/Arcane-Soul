@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AI;
+
 using Random = UnityEngine.Random;
 
 public class RFX1_TransformMotion : MonoBehaviour {
@@ -182,7 +184,8 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                 #region Evaluate Level
                                 level = levelManager.waterBall;
                                 #endregion
-                                Enemy.wet = true;
+                                //Enemy.wet = true;
+                                SlowDown();
                                 Enemy.cntr = 5f;
                                 break;
                             case ActiveSpell.MagneticBasic:
@@ -347,6 +350,10 @@ public class RFX1_TransformMotion : MonoBehaviour {
             }
             i++;
         }
+    }
+    private void SlowDown () {
+        //Timer
+        Enemy.gameObject.GetComponent<NavMeshAgent>().speed--;
     }
     #endregion
     public enum RFX4_SimulationSpace
