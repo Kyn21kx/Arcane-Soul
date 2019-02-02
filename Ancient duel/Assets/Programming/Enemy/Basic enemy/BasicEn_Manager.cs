@@ -36,6 +36,7 @@ public class BasicEn_Manager : MonoBehaviour {
     public int coverIndex;
     //Spell effects variables
     public float cntr;
+    EffectsOnHit onHit;
     public bool wet, burn, stunned;
     public int selectedSpell = 0;
     bool ready = true;
@@ -46,6 +47,7 @@ public class BasicEn_Manager : MonoBehaviour {
     private void Start() {
         ai = GetComponent<NavMeshAgent>();
         healthAux = health;
+        onHit = GetComponent<EffectsOnHit>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         covers = GameObject.FindGameObjectsWithTag("Cover");
     }
@@ -57,7 +59,7 @@ public class BasicEn_Manager : MonoBehaviour {
         if (wet) {
             wetTimer();
         }
-    //    Burn();
+        EffectsOnHit();
     }
 
     private void EvaluateHealth () {
@@ -172,12 +174,8 @@ public class BasicEn_Manager : MonoBehaviour {
         }
     }
 
-    private void Burn () {
-        if (burn) {
-            for (float i = 0; i < tiempoDeArdor * Time.deltaTime; i += Time.deltaTime) {
-                health -= damagePerBurn;
-            }
-        }
+    private void EffectsOnHit () {
+        
     }
 
     private IEnumerator BasicCD () {
