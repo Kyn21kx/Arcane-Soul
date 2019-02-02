@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class RFX4_TransformMotion : MonoBehaviour {
-    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, FireMeteor, ElectricHeavy1};
+    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, FireMeteor, ElectricHeavy1, HeavyIce1};
     public ActiveSpell selectedSpell;
     public float Distance = 30;
     public float Speed = 1;
@@ -40,6 +40,7 @@ public class RFX4_TransformMotion : MonoBehaviour {
 
     void Start()
     {
+        
         t = transform;
         startQuaternion = t.rotation;
         startPositionLocal = t.localPosition;
@@ -129,9 +130,7 @@ public class RFX4_TransformMotion : MonoBehaviour {
                                     damage = 0;
                                 }
                                 else {
-                                    Enemy.burn = true;
-                                    Enemy.tiempoDeArdor = 5;
-                                    Enemy.damagePerBurn = 1f;
+                                    
                                 }
                                 break;
                             case ActiveSpell.WaterBall:
@@ -168,6 +167,9 @@ public class RFX4_TransformMotion : MonoBehaviour {
                                 #region Evaluate Level
 
                                 #endregion
+                                break;
+                            case ActiveSpell.HeavyIce1:
+                                //Evaluate
                                 break;
                         }
                         hit.transform.GetComponent<BasicEn_Manager>().health -= damage;

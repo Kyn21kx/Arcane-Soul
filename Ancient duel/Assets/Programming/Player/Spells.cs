@@ -120,9 +120,7 @@ public class Spells : MonoBehaviour {
                                 break;
                             case Abilities.Heavy2:
                                 if (rangedAbility.readyToCast) {
-                                    rangedAbility.readyToCast = false;
-                                    FireShield.SetActive(true);
-                                    StartCoroutine(rangedAbility.CoolDown(10f, true, FireShield));
+                                    
                                 }
                                 break;
                             case Abilities.Heavy3:

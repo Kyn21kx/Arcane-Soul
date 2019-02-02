@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class RFX1_TransformMotion : MonoBehaviour {
     public float Distance = 30;
     public float Speed = 1;
-    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, FireMeteor, ElectricHeavy1};
+    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, FireMeteor, ElectricHeavy1, HeavyIce1};
     public enum EnemySpellType { None, Follower, Fixed };
     public EnemySpellType enemySpellType;
     public ActiveSpell selectedSpell;
@@ -163,7 +163,6 @@ public class RFX1_TransformMotion : MonoBehaviour {
                     if (hit.transform.CompareTag("Enemy")) {
                         #region Initialize variables
                         Enemy = hit.transform.GetComponent<BasicEn_Manager>();
-                        FireEffects fireEffects = gameObject.GetComponent<FireEffects>();
                         LevelManager levelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelManager>();
                         #endregion
                         switch (selectedSpell) {
@@ -175,9 +174,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                     damage = 0;
                                 }
                                 else {
-                                    Enemy.burn = true;
-                                    Enemy.tiempoDeArdor = 5;
-                                    Enemy.damagePerBurn = 1f;
+
                                 }
                                 break;
                             case ActiveSpell.WaterBall:
@@ -209,7 +206,6 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                 if (Enemy.wet) {
                                     damage = 0;
                                 }
-                                AreaExplosion(5f, 5f, hit.transform);
                                 break;
                             case ActiveSpell.ElectricHeavy1:
                                 #region Evaluate Level
@@ -220,9 +216,13 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                     damage += damage;
                                 }
                                 break;
+                            case ActiveSpell.HeavyIce1:
+                                //Evaluate level
+                                break;
                         }
                         hit.transform.GetComponent<BasicEn_Manager>().health -= damage;
                     }
+                    AreaExplosion(3f, 5f, hit.transform);
                 }
                 #endregion
                 return;
@@ -339,17 +339,23 @@ public class RFX1_TransformMotion : MonoBehaviour {
     }
     #region Additional Effects
     public void AreaExplosion(float radius, float expDamage, Transform hitEnemy) {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies);
-        float projectileDistance;
-        int i = 0;
-        foreach (GameObject enemy in enemies) {
-            projectileDistance = Vector3.Distance(gameObject.transform.position, hitEnemy.position);
-            if (projectileDistance <= radius && enemy != hitEnemy.gameObject) {
-                enemy.GetComponent<BasicEn_Manager>().health -= expDamage;
+        if (selectedSpell == ActiveSpell.FireMeteor) {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            Debug.Log(enemies);
+            float projectileDistance;
+            int i = 0;
+            foreach (GameObject enemy in enemies) {
+                projectileDistance = Vector3.Distance(gameObject.transform.position, hitEnemy.position);
+                if (hitEnemy.CompareTag("Enemy") && projectileDistance <= radius && enemy != hitEnemy.gameObject) {
+                    enemy.GetComponent<BasicEn_Manager>().health -= expDamage;
+                }
+                else if (projectileDistance <= radius) {
+                    enemy.GetComponent<BasicEn_Manager>().health -= expDamage;
+                }
+                i++;
             }
-            i++;
         }
+        
     }
     private void SlowDown () {
         //Timer
