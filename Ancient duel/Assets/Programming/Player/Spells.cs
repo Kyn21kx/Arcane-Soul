@@ -18,7 +18,7 @@ public class Spells : MonoBehaviour {
     Pulse pulse;
     vThirdPersonCamera cameraProperties;
     RangedAbility rangedAbility;
-    public GameObject fball, waterAttack, electricAttack, magneticAttack, fireTornado, HeavyElectric1, HeavyElectric2, HeavyFire1, FireShield, HeavyMagnetic1, HeavyIce1;
+    public GameObject fball, waterAttack, electricAttack, magneticAttack, fireTornado, HeavyElectric1, HeavyElectric2, HeavyFire1, FireShield, HeavyMagnetic1, HeavyIce1, HeavyFire2;
     GameObject Player;
     public TextMeshProUGUI txt;
     public GameObject AbilitySelectorGUI;
@@ -120,7 +120,9 @@ public class Spells : MonoBehaviour {
                                 break;
                             case Abilities.Heavy2:
                                 if (rangedAbility.readyToCast) {
-                                    
+                                    rangedAbility.readyToCast = false;
+                                    Instantiate(HeavyFire2, rangedAbility.gameObject.transform.transform.position, rangedAbility.gameObject.transform.rotation);
+                                    StartCoroutine(rangedAbility.CoolDown(1f, false, null));
                                 }
                                 break;
                             case Abilities.Heavy3:

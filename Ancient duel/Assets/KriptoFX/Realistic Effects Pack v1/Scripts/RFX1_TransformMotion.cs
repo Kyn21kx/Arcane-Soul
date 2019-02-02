@@ -162,6 +162,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 else {
                     if (hit.transform.CompareTag("Enemy")) {
                         #region Initialize variables
+                        EffectsOnHit onHit = hit.transform.GetComponent<EffectsOnHit>();
                         Enemy = hit.transform.GetComponent<BasicEn_Manager>();
                         LevelManager levelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelManager>();
                         #endregion
@@ -174,7 +175,9 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                     damage = 0;
                                 }
                                 else {
-
+                                    onHit.burnTicks += 5;
+                                    onHit.seconds1 = 1;
+                                    Enemy.burn = true;
                                 }
                                 break;
                             case ActiveSpell.WaterBall:
@@ -218,7 +221,6 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                 break;
                             case ActiveSpell.HeavyIce1:
                                 //Evaluate level
-                                EffectsOnHit onHit = hit.transform.GetComponent<EffectsOnHit>();
                                 onHit.bleedTicks += 5;
                                 onHit.seconds = 1;
                                 Enemy.bleeding = true;

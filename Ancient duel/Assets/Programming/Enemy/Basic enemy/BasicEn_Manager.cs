@@ -41,6 +41,7 @@ public class BasicEn_Manager : MonoBehaviour {
     public int selectedSpell = 0;
     bool ready = true;
     public int tiempoDeArdor;
+    public TextMeshPro textMesh;
     public float damagePerBurn;
     #endregion
 
@@ -60,6 +61,7 @@ public class BasicEn_Manager : MonoBehaviour {
             wetTimer();
         }
         EffectsOnHit();
+        DamageTaken();
     }
 
     private void EvaluateHealth () {
@@ -117,7 +119,7 @@ public class BasicEn_Manager : MonoBehaviour {
     }
 
     private void DamageTaken () {
-        
+        textMesh.text = health.ToString();
     }
 
     //Get an array of the objects near the AI, compare each one's distance and go to the closest one
@@ -179,6 +181,12 @@ public class BasicEn_Manager : MonoBehaviour {
             onHit.Bleed(this);
             if (onHit.bleedTicks <= 0) {
                 bleeding = false;
+            }
+        }
+        if (burn) {
+            onHit.Burn(this);
+            if (onHit.burnTicks <= 0) {
+                burn = false;
             }
         }
     }

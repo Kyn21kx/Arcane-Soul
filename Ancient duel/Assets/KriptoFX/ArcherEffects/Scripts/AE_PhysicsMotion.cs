@@ -13,6 +13,7 @@ public class AE_PhysicsMotion : MonoBehaviour
     public float AirDrag = 0.1f;
     public bool UseGravity = true;
     public ForceMode ForceMode = ForceMode.Impulse;
+    public bool CollidesWithPlayer = false;
     public float ColliderRadius = 0.05f;
     public bool FreezeRotation;
 
