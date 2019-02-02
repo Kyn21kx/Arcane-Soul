@@ -37,7 +37,7 @@ public class BasicEn_Manager : MonoBehaviour {
     //Spell effects variables
     public float cntr;
     EffectsOnHit onHit;
-    public bool wet, burn, stunned;
+    public bool wet, burn, stunned, bleeding;
     public int selectedSpell = 0;
     bool ready = true;
     public int tiempoDeArdor;
@@ -175,7 +175,12 @@ public class BasicEn_Manager : MonoBehaviour {
     }
 
     private void EffectsOnHit () {
-        
+        if (bleeding) {
+            onHit.Bleed(this);
+            if (onHit.bleedTicks <= 0) {
+                bleeding = false;
+            }
+        }
     }
 
     private IEnumerator BasicCD () {

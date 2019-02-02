@@ -8,14 +8,14 @@ public class EffectsOnHit : MonoBehaviour {
     public float bleedDamage = 10f, burnDamage = 10f, slowAmount = 0.2f;
     //Bleeding variables
     float seconds = 1f;
-    int bleedTicks = 5;
+    public int bleedTicks = 5;
     #endregion
     
     public void Bleed(BasicEn_Manager enemy) {
         //Set seconds to 1
         if (seconds <= 0f && bleedTicks > 0) {
             bleedTicks--;
-            enemy.health -= (burnDamage / bleedTicks);
+            enemy.health -= (burnDamage / 5);
             Debug.Log("One second passed");
             seconds = 1f;
         }

@@ -171,7 +171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4699350340050830}
   - component: {fileID: 114180454840314968}
-  - component: {fileID: 114250563075578176}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -842,7 +841,7 @@ MonoBehaviour:
   Distance: 30
   Speed: 20
   enemySpellType: 0
-  selectedSpell: 1
+  selectedSpell: 6
   TimeDelay: 0
   isEnemySpell: 0
   RandomMoveRadius: 0
@@ -868,20 +867,6 @@ MonoBehaviour:
   isFollowing: 0
   distanceToPlayer: 0
   level: 0
---- !u!114 &114250563075578176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1500267939054650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ac73feadd5a3f47be1c1aae4c3aedb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bleedDamage: 10
-  burnDamage: 10
-  slowAmount: 0.2
 --- !u!114 &114295605556474058
 MonoBehaviour:
   m_ObjectHideFlags: 1
