@@ -218,6 +218,10 @@ public class RFX1_TransformMotion : MonoBehaviour {
                                 break;
                             case ActiveSpell.HeavyIce1:
                                 //Evaluate level
+                                EffectsOnHit onHit = hit.transform.GetComponent<EffectsOnHit>();
+                                onHit.bleedTicks += 5;
+                                onHit.seconds = 1;
+                                Enemy.bleeding = true;
                                 break;
                         }
                         hit.transform.GetComponent<BasicEn_Manager>().health -= damage;

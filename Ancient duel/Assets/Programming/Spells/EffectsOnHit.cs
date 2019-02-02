@@ -7,15 +7,15 @@ public class EffectsOnHit : MonoBehaviour {
     #region Variables
     public float bleedDamage = 10f, burnDamage = 10f, slowAmount = 0.2f;
     //Bleeding variables
-    float seconds = 1f;
-    public int bleedTicks = 5;
+    public float seconds;
+    public int bleedTicks;
     #endregion
     
     public void Bleed(BasicEn_Manager enemy) {
         //Set seconds to 1
         if (seconds <= 0f && bleedTicks > 0) {
             bleedTicks--;
-            enemy.health -= (burnDamage / 5);
+            enemy.health -= (bleedDamage / 5);
             Debug.Log("One second passed");
             seconds = 1f;
         }
