@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151e5fb4355af6c4ab88423606b59ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Distance: 30
+  Distance: 50
   Speed: 20
   enemySpellType: 0
   selectedSpell: 6

@@ -316,7 +316,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
     void SetTarget () {
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
         float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         switch (enemySpellType) {
             case EnemySpellType.None:
                 break;
@@ -347,7 +347,6 @@ public class RFX1_TransformMotion : MonoBehaviour {
     public void AreaExplosion(float radius, float expDamage, Transform hitEnemy) {
         if (selectedSpell == ActiveSpell.FireMeteor) {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            Debug.Log(enemies);
             float projectileDistance;
             int i = 0;
             foreach (GameObject enemy in enemies) {

@@ -59,9 +59,15 @@ public class aim : MonoBehaviour {
 
     void AutoAim() {
         RaycastHit hit;
+        Transform origin, to;
+        origin = mainCam.transform;
         float distance = 60f;
         if ((aiming && Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out hit, distance)) && hit.transform.CompareTag("Enemy")) {
-            
+            to = hit.transform;
+            Debug.Log("Hit");
+            float time = 0f;
+            Quaternion.Slerp(origin.rotation, to.rotation, time);
+            time += Time.fixedDeltaTime;
         }
         else {
             Properties.xMouseSensitivity = 3.5f;

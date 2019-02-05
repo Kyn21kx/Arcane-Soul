@@ -18,7 +18,7 @@ public class BasicEn_Manager : MonoBehaviour {
     public float healthAux;
     private Transform player;
     private NavMeshAgent ai;
-    public GameObject UISpawner;
+    public Canvas UISpawner;
     public int level = 0;
     public bool ranged = false;
     bool Detect;
@@ -41,7 +41,7 @@ public class BasicEn_Manager : MonoBehaviour {
     public int selectedSpell = 0;
     bool ready = true;
     public int tiempoDeArdor;
-    public TextMeshPro textMesh;
+    public GameObject textMesh;
     public float damagePerBurn;
     #endregion
 
@@ -62,16 +62,6 @@ public class BasicEn_Manager : MonoBehaviour {
         }
         EffectsOnHit();
         DamageTaken();
-    }
-
-    private void EvaluateHealth () {
-        if (health < healthAux) {
-            Instantiate(DamageTxt, UISpawner.transform);
-            //DamageTxt.GetComponent<TextMeshProUGUI>().SetText((healthAux - health).ToString());
-            //DamageTxt.GetComponent<Animation>().Play();
-            //txt.SetText((healthAux - health).ToString());
-            healthAux = health;
-        }
     }
 
     private void OnDrawGizmosSelected() {
@@ -119,7 +109,19 @@ public class BasicEn_Manager : MonoBehaviour {
     }
 
     private void DamageTaken () {
-        textMesh.text = health.ToString();
+        if (health < healthAux) {
+            var instance = Instantiate(textMesh);
+            //            textMesh.GetComponent<TextMeshProUGUI>().text = (healthAux - healthAux).ToString();
+            instance.GetComponentInChildren<TextProperties>().Text = (healthAux - health).ToString();
+            instance.transform.SetParent(UISpawner.transform, false);
+            Vector2 positionInScreen = Camera.main.WorldToScreenPoint(transform.position);
+            instance.transform.position = positionInScreen;
+            
+            //float Offset = Random.Range(0.5f, 0.6f);
+            //instance.transform.position *= Offset;
+            healthAux = health;
+        }
+        
     }
 
     //Get an array of the objects near the AI, compare each one's distance and go to the closest one

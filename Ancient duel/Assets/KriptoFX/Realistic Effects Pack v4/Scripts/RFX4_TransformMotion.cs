@@ -241,7 +241,6 @@ public class RFX4_TransformMotion : MonoBehaviour {
     #region Additional Effects
     public void AreaExplosion(float radius, float expDamage, Transform hitEnemy) {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies);
         float projectileDistance;
         int i = 0;
         foreach (GameObject enemy in enemies) {
