@@ -2,7 +2,62 @@ fileFormatVersion: 2
 guid: 562a986765113d74d8a24a1c78ecb8d8
 ModelImporter:
   serializedVersion: 23
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: Cinema4D_Editor
+    100002: cit
+    100004: cop_kutusu
+    100006: degirmen
+    100008: halat
+    100010: kovalar
+    100012: kulube
+    100014: MILL_1
+    100016: paletler
+    100018: //RootNode
+    100020: zemin
+    400000: Cinema4D_Editor
+    400002: cit
+    400004: cop_kutusu
+    400006: degirmen
+    400008: halat
+    400010: kovalar
+    400012: kulube
+    400014: MILL_1
+    400016: paletler
+    400018: //RootNode
+    400020: zemin
+    2100000: kovalar
+    2100002: cop kutusu
+    2100004: halat
+    2100006: cit
+    2100008: paletler
+    2100010: zemin
+    2100012: kulube
+    2100014: degirmen
+    2300000: cit
+    2300002: cop_kutusu
+    2300004: degirmen
+    2300006: halat
+    2300008: kovalar
+    2300010: kulube
+    2300012: paletler
+    2300014: zemin
+    3300000: cit
+    3300002: cop_kutusu
+    3300004: degirmen
+    3300006: halat
+    3300008: kovalar
+    3300010: kulube
+    3300012: paletler
+    3300014: zemin
+    4300000: kovalar
+    4300002: cop_kutusu
+    4300004: halat
+    4300006: cit
+    4300008: paletler
+    4300010: zemin
+    4300012: kulube
+    4300014: degirmen
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -54,8 +109,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -75,7 +130,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

@@ -16,6 +16,21 @@ TagManager:
   - Cover
   - EnemySpellHolder
   - Spot
+  - target
+  - block
+  - goal
+  - agent
+  - wall
+  - stone
+  - walkableSurface
+  - blueGoal
+  - redGoal
+  - iWall
+  - switchOff
+  - badBanana
+  - pit
+  - SpellHolder
+  - AutoAimArea
   layers:
   - Default
   - TransparentFX

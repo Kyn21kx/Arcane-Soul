@@ -11,6 +11,7 @@ public class aim : MonoBehaviour {
     GameObject Player;
     vThirdPersonController thirdPersonController;
     vThirdPersonCamera Properties;
+    public GameObject holder;
     public bool aiming;
     float autoAimSpeed = 5f;
     Canvas crosshair;
@@ -49,12 +50,14 @@ public class aim : MonoBehaviour {
             thirdPersonController.freeSprintSpeed = 8f;
             aiming = false;
             //StartCoroutine(Stick());
-            //crosshair.enabled = false;
+            crosshair.enabled = false;
+            
         }
     }
 
     private void Update() {
         AimMode();
+        //FixCrosshairPosition();
     }
 
     void AutoAim() {
@@ -64,19 +67,24 @@ public class aim : MonoBehaviour {
         float distance = 60f;
         if ((aiming && Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out hit, distance)) && hit.transform.CompareTag("Enemy")) {
             to = hit.transform;
-            Debug.Log("Hit");
-            float time = 0f;
-            Quaternion.Slerp(origin.rotation, to.rotation, time);
-            time += Time.fixedDeltaTime;
+           /* Vector3 dir = hit.transform.position - mainCam.transform.position;
+            Quaternion rot = Quaternion.LookRotation(dir);
+            mainCam.transform.rotation = Quaternion.Lerp(mainCam.transform.rotation, rot, 10f * Time.fixedDeltaTime);
+            */
+            //Get position of the enemy
+            //Adjust the spell holder to it
+            
         }
         else {
+            
             Properties.xMouseSensitivity = 3.5f;
             Properties.yMouseSensitivity = 3.5f;
         }
     }
 
-    IEnumerator Stick () {
-        yield return new WaitForFixedUpdate();
+    private void FixCrosshairPosition () {
+        var crossPosition = crosshair.GetComponentInChildren<RectTransform>();
+        crossPosition.transform.position = mainCam.WorldToScreenPoint(holder.transform.position);
     }
 
 }
