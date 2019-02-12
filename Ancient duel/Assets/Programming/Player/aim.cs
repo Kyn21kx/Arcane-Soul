@@ -27,7 +27,7 @@ public class aim : MonoBehaviour {
     }
 
     void AimMode() {
-        AutoAim();
+       AutoAim();
         //Si se conecta un control cambiar el Input
         //Opción de apuntar en izquierda o derecha
         if (Input.GetKeyUp(KeyCode.Q) && !aiming) {
@@ -67,9 +67,9 @@ public class aim : MonoBehaviour {
         float distance = 60f;
         if ((aiming && Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out hit, distance)) && hit.transform.CompareTag("Enemy")) {
             to = hit.transform;
-           /* Vector3 dir = hit.transform.position - mainCam.transform.position;
+            /*Vector3 dir = hit.transform.position - mainCam.transform.position;
             Quaternion rot = Quaternion.LookRotation(dir);
-            mainCam.transform.rotation = Quaternion.Lerp(mainCam.transform.rotation, rot, 10f * Time.fixedDeltaTime);
+            mainCam.transform.rotation = Quaternion.Lerp(mainCam.transform.rotation, rot, 50f * Time.fixedDeltaTime);
             */
             //Get position of the enemy
             //Adjust the spell holder to it
