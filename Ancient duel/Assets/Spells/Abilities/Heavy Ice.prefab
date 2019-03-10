@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4896302144079990}
   m_Layer: 0
   m_Name: Heavy Ice
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

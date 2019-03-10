@@ -98,11 +98,11 @@ public class RFX1_TransformMotion : MonoBehaviour {
         if (!dropFirstFrameForFixUnityBugWithParticles)
         {
             UpdateWorldPosition();
-            //SetTarget();
+            SetTarget();
         }
         else dropFirstFrameForFixUnityBugWithParticles = false;
     }
-
+    float cntr = 0f;
     void UpdateWorldPosition()
     {
         currentDelay += Time.deltaTime;
@@ -132,10 +132,13 @@ public class RFX1_TransformMotion : MonoBehaviour {
             frameMoveOffset = t.localRotation * currentForwardVector;
             frameMoveOffsetWorld = startQuaternion * currentForwardVector;
             if (Target != null) {
-                var forwardVec = (targetT.position - t.position).normalized; currentForwardVector = (forwardVec + randomOffset) * Speed * Time.deltaTime;
-                frameMoveOffset = currentForwardVector;
-                frameMoveOffsetWorld = currentForwardVector;
-                VectorAux = forwardVec;
+                //cntr += Time.fixedDeltaTime;
+                //if (cntr > 0.2f) {
+                    var forwardVec = (targetT.position - t.position).normalized; currentForwardVector = (forwardVec + randomOffset) * Speed * Time.deltaTime;
+                    frameMoveOffset = currentForwardVector;
+                    frameMoveOffsetWorld = currentForwardVector;
+                    VectorAux = forwardVec;
+                //}
             }
         }
 
@@ -234,20 +237,20 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 return;
             }
         }
-      
-        if (!isOutDistance && currentDistance + RayCastTolerance > Distance)
-        {
+        bool once = false;
+        if (!isOutDistance && currentDistance + RayCastTolerance > Distance) {
             isOutDistance = true;
             OnCollisionDeactivateBehaviour(false);
 
-            if (Target == null)
-                t.localPosition = startPositionLocal + t.localRotation*(Vector3.forward + randomOffset)*Distance;
-            else
-            {
+            if (Target == null && !once) {
+                t.localPosition = startPositionLocal + t.localRotation * (Vector3.forward + randomOffset) * Distance;
+                once = true;
+            }
+            if (Target != null) {
                 var forwardVec = (targetT.position - t.position).normalized;
                 t.position = startPosition + forwardVec * Distance;
             }
-            oldPos = t.position;
+            //oldPos = t.position;
             return;
         }
       
@@ -314,8 +317,8 @@ public class RFX1_TransformMotion : MonoBehaviour {
     bool Following;
     bool OneTimeFollow = false;
     void SetTarget () {
-        GameObject Player = GameObject.FindGameObjectWithTag("Player");
-        float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
+        GameObject Player = GameObject.FindGameObjectWithTag("Spot");
+        /*float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
         //Debug.Log(distance);
         switch (enemySpellType) {
             case EnemySpellType.None:
@@ -341,7 +344,8 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 break;
             default:
                 break;
-        }
+        }*/
+        
     }
     #region Additional Effects
     public void AreaExplosion(float radius, float expDamage, Transform hitEnemy) {

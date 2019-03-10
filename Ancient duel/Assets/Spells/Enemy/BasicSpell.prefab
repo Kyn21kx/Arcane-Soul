@@ -817,7 +817,7 @@ MonoBehaviour:
   selectedSpell: 0
   TimeDelay: 0
   isEnemySpell: 1
-  RandomMoveRadius: 0.00001
+  RandomMoveRadius: 0
   RandomMoveSpeedScale: 0
   damage: 5
   Target: {fileID: 0}

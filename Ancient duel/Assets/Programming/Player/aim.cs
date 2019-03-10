@@ -13,8 +13,11 @@ public class aim : MonoBehaviour {
     vThirdPersonCamera Properties;
     public GameObject holder;
     public bool aiming;
+    public bool locked;
+    float fieldOfView = 27f;
     float autoAimSpeed = 5f;
     Canvas crosshair;
+    Transform to;
     #endregion
     //Instead of Set active do camera.enabled
     private void Start() {
@@ -24,14 +27,15 @@ public class aim : MonoBehaviour {
         Properties = mainCam.GetComponent<vThirdPersonCamera>();
         crosshair = GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Canvas>();
         crosshair.enabled = false;
+        locked = false;
     }
 
     void AimMode() {
-       AutoAim();
+        //LockAim();
         //Si se conecta un control cambiar el Input
         //Opción de apuntar en izquierda o derecha
         if (Input.GetKeyUp(KeyCode.Q) && !aiming) {
-            mainCam.fieldOfView -= 20f;
+            mainCam.fieldOfView = fieldOfView;
             Properties.rightOffset = 0.1f;
             Properties.defaultDistance = 7f;
             Properties.height = 3.78f;
@@ -51,7 +55,7 @@ public class aim : MonoBehaviour {
             aiming = false;
             //StartCoroutine(Stick());
             crosshair.enabled = false;
-            
+
         }
     }
 
@@ -59,26 +63,50 @@ public class aim : MonoBehaviour {
         AimMode();
         //FixCrosshairPosition();
     }
-
-    void AutoAim() {
+    #region Provisional global variables
+    Vector2 viewportTarget;
+    #endregion
+    void LockAim() {
         RaycastHit hit;
-        Transform origin, to;
-        origin = mainCam.transform;
         float distance = 60f;
+        Vector2 viewportPlayer = mainCam.WorldToViewportPoint(Player.transform.position);
+        
         if ((aiming && Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out hit, distance)) && hit.transform.CompareTag("Enemy")) {
-            to = hit.transform;
-            /*Vector3 dir = hit.transform.position - mainCam.transform.position;
-            Quaternion rot = Quaternion.LookRotation(dir);
-            mainCam.transform.rotation = Quaternion.Lerp(mainCam.transform.rotation, rot, 50f * Time.fixedDeltaTime);
-            */
-            //Get position of the enemy
-            //Adjust the spell holder to it
-            
+
+            if (Input.GetKeyUp(KeyCode.R) && !locked) {
+                to = hit.transform;
+                viewportTarget = mainCam.WorldToViewportPoint(hit.transform.position);
+                locked = true;
+            }
+            else if (Input.GetKeyUp(KeyCode.R) && locked) {
+                to = null;
+                viewportTarget = new Vector2(0, 0);
+                locked = false;
+            }
         }
         else {
-            
             Properties.xMouseSensitivity = 3.5f;
             Properties.yMouseSensitivity = 3.5f;
+        }
+        switch (locked) {
+
+            case true:
+                viewportPlayer = Camera.main.WorldToViewportPoint(Player.transform.position);
+                Vector2 viewportTarget = Camera.main.WorldToViewportPoint(to.position);
+                float viewportDistance = Vector2.Distance(viewportPlayer, viewportTarget);
+                Debug.LogFormat(viewportDistance.ToString(), Color.blue);
+                Vector3 dir = to.position - Camera.main.transform.position;
+                Quaternion rot = Quaternion.LookRotation(dir * 0.5f);
+                Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, rot, 50f * Time.fixedDeltaTime);
+                if (viewportDistance >= 0.9f) {
+                    Properties.defaultDistance += 20f * Time.fixedDeltaTime;
+                    Properties.defaultDistance = Mathf.Clamp(Properties.defaultDistance, Properties.defaultDistance, 100f);
+                }
+                else if (viewportDistance < 0.8) {
+                    Properties.defaultDistance -= 20f * Time.fixedDeltaTime;
+                }
+                
+                break;
         }
     }
 

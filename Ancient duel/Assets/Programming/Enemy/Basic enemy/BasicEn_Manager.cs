@@ -21,13 +21,10 @@ public class BasicEn_Manager : MonoBehaviour {
     public Canvas UISpawner;
     public int level = 0;
     public bool ranged = false;
-    bool Detect;
     float distanceToCheckPoint;
     public bool detected = false;
     public int positionIndex = 0;
     public GameObject DamageTxt;
-    public GameObject[] covers;
-    public Transform[] checkPoints;
     public GameObject[] SpellsAvailable;
     public float radius = 8f;
     public GameObject Pivot;
@@ -43,6 +40,11 @@ public class BasicEn_Manager : MonoBehaviour {
     public int tiempoDeArdor;
     public GameObject textMesh;
     public float damagePerBurn;
+    private float randMoveAroundPlayerX, randMoveAroundPlayerZ;
+    float xDistance;
+    //Variable when seen or heard something, but not quite detected the enemy
+    public bool alert = false;
+    bool arrivedToPosAux = false;
     #endregion
 
     private void Start() {
@@ -50,18 +52,17 @@ public class BasicEn_Manager : MonoBehaviour {
         healthAux = health;
         onHit = GetComponent<EffectsOnHit>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        covers = GameObject.FindGameObjectsWithTag("Cover");
     }
 
     private void FixedUpdate() {
-        Detect_Player();
         Die();
-        CompareCoverDistance();
+        DetectPlayer();
         if (wet) {
             wetTimer();
         }
         EffectsOnHit();
         DamageTaken();
+        Attack();
     }
 
     private void OnDrawGizmosSelected() {
@@ -77,35 +78,6 @@ public class BasicEn_Manager : MonoBehaviour {
             ai.gameObject.SetActive(false);
         }
 
-    }
-    //Once detected, expand the radius and enter alert mode
-    private void Detect_Player () {
-        float Distance = Vector3.Distance(player.transform.position, ai.transform.position);
-        //Detects the player
-        if (Distance <= radius) {
-            detected = true;
-            if (ranged) {
-                ai.SetDestination(covers[coverIndex].transform.position);
-                Attack();
-            }
-            //If the player is running, the speed will increase
-        }
-        //Patrullar
-        else {
-            detected = false;   
-        }
-
-        if (!detected) {
-            ai.SetDestination(checkPoints[positionIndex].transform.position);
-            distanceToCheckPoint = Vector3.Distance(checkPoints[positionIndex].transform.position, ai.transform.position);
-            if (distanceToCheckPoint < 5) {
-                positionIndex++;
-                Debug.Log("Llegado");
-            }
-            if (positionIndex >= checkPoints.Length) {
-                positionIndex = 0;
-            }
-        }
     }
 
     private void DamageTaken () {
@@ -124,33 +96,16 @@ public class BasicEn_Manager : MonoBehaviour {
         
     }
 
-    //Get an array of the objects near the AI, compare each one's distance and go to the closest one
-    private void CompareCoverDistance () {
-        float distanceToCover;
-        float minorDistance = float.MaxValue;
-        for (int i = 0; i < covers.Length; i++) {
-            distanceToCover = Vector3.Distance(ai.transform.position, covers[i].transform.position);
-            if (distanceToCover < minorDistance) {
-                minorDistance = distanceToCover;
-                //Debug.Log(minorDistance);
-                coverIndex = i;
-            }
-        }
-        
-    }
-
     private void Attack () {
         //Add mana to the enemy and CD for the shot
         if (ranged && detected) {
             //Switch enemyType
-            
-
             switch (enemyType) {
                 case EnemyType.PatrolOn4:
                     if (ready) {
                         Vector3 direction = PlayerReference[0].transform.position - Pivot.transform.position;
                         Quaternion rotation = Quaternion.LookRotation(direction);
-                        Pivot.transform.rotation = Quaternion.Lerp(Pivot.transform.rotation, rotation, 100f);
+                        Pivot.transform.rotation = Quaternion.Lerp(Pivot.transform.rotation, rotation, 10000 * Time.fixedDeltaTime);
                         Instantiate(SpellsAvailable[selectedSpell], Pivot.transform.position, Pivot.transform.rotation);
                         StartCoroutine(BasicCD());
                     }
@@ -192,11 +147,93 @@ public class BasicEn_Manager : MonoBehaviour {
             }
         }
     }
+    //Variable para controlar el tiempo en el que el enemigo permanece en una posición antes de cambiar a otra, sin importar la distancia del jugador
+    public float stayTime = 0f;
+    private void DetectPlayer () {
+        #region Evaluate distance and set boolean
+        float disToPlayer = Vector3.Distance(player.transform.position, transform.position);
+        //Evaluar la distancia de detección
+        if (disToPlayer < radius) {
+            detected = true;
+        }
+        #endregion
+        if (detected) {
+            //Expand radius
+            #region Provisional variables
+            float rangedMeleeDistance = 10f;
+            #endregion
+            xDistance = transform.position.x - player.position.x;
+            switch (ranged) {
+                case true:
+                    //Evaluate Shooting Position
+                    MovingWaitTime();
+                    #region Melee section for ranged enemy
+                    //Different interactions can be controlled by enums
+                    if (disToPlayer < rangedMeleeDistance) {
+
+                    }
+                    #endregion
+                    break;
+
+                case false:
+                    //Debug.Log("xDistance is: " + xDistance);
+                    if (xDistance < -4) {
+                        randMoveAroundPlayerX = -8f;
+                        randMoveAroundPlayerZ = -8f;
+                    }
+                    else {
+                        randMoveAroundPlayerX = 8f;
+                        randMoveAroundPlayerZ = 8f;
+                    }
+                    //MoveAroundPlayer();
+                    //If the AI finds a wall, then it'll move in the other direction
+                    Vector3 newPos = new Vector3(player.position.x + randMoveAroundPlayerX, player.position.y, player.position.z + randMoveAroundPlayerZ);
+                    ai.SetDestination(newPos);
+                    break;
+            }
+            
+        }
+        else {
+
+        }
+    }
 
     private IEnumerator BasicCD () {
         ready = false;
         yield return new WaitForSeconds(2f);
         ready = true;
+    }
+
+    private void MovingWaitTime () {
+        GameObject[] positionsAvailable = GameObject.FindGameObjectsWithTag("ShootingPosition");
+        float minDis = float.MaxValue;
+        Vector3 finalPositionAux = new Vector3(0, 0, 0);
+        foreach (GameObject position in positionsAvailable) {
+            float distance = Vector3.Distance(player.position, position.transform.position);
+            if (distance < minDis) {
+                minDis = distance;
+                finalPositionAux = position.transform.position;
+            }
+        }
+        //stayTime += Time.fixedDeltaTime;
+        //if (stayTime > 1f) {
+            ai.SetDestination(finalPositionAux);
+        //}
+    }
+
+    #region Provisional Variables
+    float timeDown = 0f;
+    #endregion
+
+    private void MoveAroundPlayer () {
+        //Set parameters to define destinations
+        //Set Time
+        timeDown += Time.fixedDeltaTime;
+        if (timeDown >= 2f) {
+            randMoveAroundPlayerX = Random.Range(-30f, 30f);
+            randMoveAroundPlayerZ = Random.Range(15f, 18f);
+            timeDown = 0f;
+        }
     }
 
 }

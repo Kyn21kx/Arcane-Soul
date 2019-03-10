@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 114095023943282652}
   m_Layer: 0
   m_Name: RangedAbilityHolder
-  m_TagString: Spell
+  m_TagString: SpellHolder
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 114868483913423384}
   m_Layer: 0
   m_Name: Fireball Holder
-  m_TagString: Spell
+  m_TagString: SpellHolder
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -871,8 +871,8 @@ MonoBehaviour:
   screenBlendMode: 0
   sunTransform: {fileID: 0}
   radialBlurIterations: 2
-  sunColor: {r: 1, g: 0.5007427, b: 0.20090201, a: 1}
-  sunThreshold: {r: 0.51103157, g: 0.51103157, b: 0.51103157, a: 1}
+  sunColor: {r: 1, g: 0.4459974, b: 0.12005299, a: 1}
+  sunThreshold: {r: 0.42975092, g: 0.42975092, b: 0.42975092, a: 1}
   sunShaftBlurRadius: 6
   sunShaftIntensity: 0.6
   maxRadius: 10
@@ -1361,9 +1361,9 @@ MonoBehaviour:
   sunTransform: {fileID: 0}
   radialBlurIterations: 2
   sunColor: {r: 0.5803922, g: 0.65882355, b: 0.8980392, a: 1}
-  sunThreshold: {r: 0.15288843, g: 0.15288843, b: 0.15288843, a: 1}
+  sunThreshold: {r: 0.15143088, g: 0.15143088, b: 0.15143088, a: 1}
   sunShaftBlurRadius: 6
-  sunShaftIntensity: 0.08865285
+  sunShaftIntensity: 0.10529497
   maxRadius: 10
   useDepthTexture: 1
   sunShaftsShader: {fileID: 4800000, guid: 2721eac037fc4544abddca473138e9f1, type: 3}

@@ -80,10 +80,10 @@ namespace Invector.CharacterController
 
             if (!cc.lockMovement)
             {
-                MoveCharacter();
-                SprintInput();
-                StrafeInput();
-                DodgeInput();
+                //MoveCharacter();
+                //SprintInput();
+                //StrafeInput();
+                //DodgeInput();
             }
         }
 
@@ -95,26 +95,7 @@ namespace Invector.CharacterController
             cc.input.y = Input.GetAxis(verticallInput);
         }
 
-        protected virtual void StrafeInput()
-        {
-            if (Input.GetKeyDown(strafeInput))
-                cc.Strafe();
-        }
-
-        protected virtual void SprintInput()
-        {
-            if (Input.GetKeyDown(sprintInput) || Input.GetButtonDown("Run"))
-                cc.Sprint(true);
-            else if(Input.GetKeyUp(sprintInput) || Input.GetButtonUp("Run"))
-                cc.Sprint(false);
-        }
-
-        protected virtual void DodgeInput()
-        {
-            if (Input.GetKey(dodgeInput)) {
-                cc.Jump();
-            }
-        }
+       
 
         protected virtual void ExitGameInput()
         {
@@ -170,7 +151,7 @@ namespace Invector.CharacterController
         {
             if (cc.isStrafing && !cc.lockMovement && !cc.lockMovement)
             {                
-                cc.RotateWithAnotherTransform(cameraTransform);                
+                //cc.RotateWithAnotherTransform(cameraTransform);                
             }
         }
 

@@ -134,25 +134,26 @@ public class ManaManager : MonoBehaviour {
                 if (manaAmount <= manaAux) {
                     manaAmount += (20f * Time.fixedDeltaTime);
                     manaAmount = Mathf.Clamp(manaAmount, 0f, manaAux);
-                    
+
                 }
             }
-            
+
         }
         //manaBar.fillAmount = 
     }
 
-    private IEnumerator AdjustElectricHeavy1 () {
+    private IEnumerator AdjustElectricHeavy1() {
         //Disable the regeneration by going higher than 1.5
         cntr = 2;
         yield return new WaitForSeconds(0.2f);
         manaAmount -= electricHeavy;
-        
+
     }
 
-    private IEnumerator AuxTimer (float time) {
+    private IEnumerator AuxTimer(float time) {
         yield return new WaitForSeconds(time);
         cntr = 1.5f;
     }
 
 }
+
