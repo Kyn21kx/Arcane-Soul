@@ -22,13 +22,11 @@ public class SmoothMovement : MonoBehaviour {
 
     private void Start() {
         speed = walkSpeed;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate() {
         MovePlayer();
-        Speed();
-        Animate();
     }
 
     private void MovePlayer () {
@@ -42,29 +40,16 @@ public class SmoothMovement : MonoBehaviour {
             float target = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref smoothVel, turnTime);
             transform.Translate(transform.forward * speed * Time.fixedDeltaTime, Space.World);
+            anim.SetBool("Walk", true);
+        }
+        else {
+            anim.SetBool("Walk", false);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) || (Input.GetButtonDown("Run"))) {
+            anim.SetBool("Run", true);
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) || (Input.GetButtonUp("Run"))) {
+            anim.SetBool("Run", false);
         }
     }
-
-    void Speed () {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            speed = runSpeed;
-            anim.SetBool("Running", true);
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift)) {
-            speed = walkSpeed;
-            anim.SetBool("Running", false);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftControl)) {
-            speed = stealthSpeed;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftControl)) {
-            speed = walkSpeed;
-        }
-    }
-
-    private void Animate () {
-        anim.SetFloat("X", xAnim);
-        anim.SetFloat("Y", yAnim);
-    }
-
 }
