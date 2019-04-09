@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class ComboManager : MonoBehaviour {
 
-    //Combos by enum
-    //Light combos controlled by different spacing time between the X button
-    public enum LightCombos {A, B, C};
-    //Heavy combos controlled by different spacing time between the Y button
-    public enum HeavyCombos {_A, _B, _C };
-    //Complex powerful combos controlled by different spacintg time between both X and Y buttons
-    public enum MixedCombos { __A, __B, __C };
-
     #region Variables
     public float spacingTime = 0;
     [SerializeField]
     private bool startTime;
     [SerializeField]
     int btnCntrX = 0, btnCntrY = 0;
-    LightCombos lightCombos;
-    HeavyCombos heavyCombos;
-    MixedCombos mixedCombos;
+    //Light combos controlled by different spacing time between the X button
+    public bool a, b, c;
     #endregion
 
     private void FixedUpdate() {
@@ -52,20 +43,18 @@ public class ComboManager : MonoBehaviour {
             btnCntrX = 0;
             btnCntrY = 0;
         }
-        if (btnCntrX > 6 || btnCntrY > 6) {
+        if (btnCntrX > 6) {
             btnCntrX = 1;
+        }
+        if (btnCntrY > 6) {
             btnCntrY = 1;
         }
     }
 
     private void ComboSelector () {
-        if (btnCntrX >= 1 && spacingTime < 0.5 && (lightCombos != LightCombos.B || lightCombos != LightCombos.C)) {
-            lightCombos = LightCombos.A;
+        if ((spacingTime > 0.5 && spacingTime < 1.5) && btnCntrX >= 2) {
+            a = true;
         }
-        if (btnCntrX >= 2 && spacingTime > 0.5 && spacingTime < 1) {
-            lightCombos = LightCombos.B;
-        }
-        
     }
 
 }
