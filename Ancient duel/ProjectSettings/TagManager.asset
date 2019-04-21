@@ -18,14 +18,11 @@ TagManager:
   - Spot
   - target
   - block
-  - goal
-  - agent
   - wall
-  - stone
-  - pit
   - SpellHolder
   - AutoAimArea
   - ShootingPosition
+  - EnemySpell
   layers:
   - Default
   - TransparentFX

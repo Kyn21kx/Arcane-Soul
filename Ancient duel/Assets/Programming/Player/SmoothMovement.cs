@@ -10,7 +10,7 @@ public class SmoothMovement : MonoBehaviour {
     public float walkSpeed = 5f;
     public float runSpeed = 7f;
     float speed;
-    Vector2 input;
+    public Vector2 input;
     float smoothVel = 2f;
     float turnTime = 0.2f;
     #endregion

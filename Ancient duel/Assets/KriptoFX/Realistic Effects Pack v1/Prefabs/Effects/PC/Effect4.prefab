@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4623533060374522}
   - component: {fileID: 114321906428678634}
+  - component: {fileID: 114039156984654824}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -203,7 +204,7 @@ GameObject:
   - component: {fileID: 4246329152489364}
   m_Layer: 0
   m_Name: Effect4
-  m_TagString: Untagged
+  m_TagString: EnemySpell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -670,6 +671,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114039156984654824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124285667701862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2641603185492489e5691c9841df44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0.8301887, g: 0.11356357, b: 0.23075353, a: 1}
 --- !u!114 &114068223669816080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -760,10 +773,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 30
-  Speed: 4
+  Speed: 8
+  enemySpellType: 0
+  selectedSpell: 0
   TimeDelay: 0
+  isEnemySpell: 0
   RandomMoveRadius: 0
   RandomMoveSpeedScale: 0
+  damage: 0
   Target: {fileID: 0}
   CollidesWith:
     serializedVersion: 2
@@ -782,6 +799,9 @@ MonoBehaviour:
   - {fileID: 1698863591467164}
   HUE: -1
   CollidedInstances: []
+  isFollowing: 0
+  distanceToPlayer: 0
+  level: 0
 --- !u!114 &114341329114077038
 MonoBehaviour:
   m_ObjectHideFlags: 1
