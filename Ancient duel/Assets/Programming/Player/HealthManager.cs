@@ -12,7 +12,7 @@ public class HealthManager : MonoBehaviour {
         
     }
 
-    private void Update() {
+    private void LateUpdate() {
         Die();
     }
 
@@ -22,5 +22,4 @@ public class HealthManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
 }
