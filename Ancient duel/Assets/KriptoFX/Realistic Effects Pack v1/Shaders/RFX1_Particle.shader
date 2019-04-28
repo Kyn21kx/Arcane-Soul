@@ -13,14 +13,12 @@ Shader "KriptoFX/RFX1/Particle" {
 Category {
 	Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "RFX1"="Particle"}
 				Blend [SrcMode] [DstMode]
-				Lighting On
 				Cull [CullMode] 
 				ZWrite Off
 				
 	SubShader {
 		Pass {
 				
-			//ColorMask RGB
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -28,8 +26,8 @@ Category {
 			#pragma multi_compile_fog
 			#pragma multi_compile BlendAdd BlendAlpha BlendMul BlendMul2
 			#pragma multi_compile VertLight_OFF VertLight4_ON VertLight4Normal_ON
-			#pragma multi_compile FrameBlend_OFF FrameBlend_ON
-			#pragma multi_compile SoftParticles_OFF SoftParticles_ON
+			#pragma shader_feature FrameBlend_OFF
+
 			#pragma multi_compile Clip_OFF Clip_ON Clip_ON_Alpha
 			#pragma multi_compile FresnelFade_OFF FresnelFade_ON
 			#pragma multi_compile _ _MOBILEDEPTH_ON
@@ -71,9 +69,9 @@ Category {
 				fixed blend : TEXCOORD1;
 #endif
 				UNITY_FOG_COORDS(2)
-				//#ifdef SOFTPARTICLES_ON
+
 				float4 projPos : TEXCOORD3;
-				//#endif
+
 #ifdef FresnelFade_ON
 				float fresnel : TEXCOORD4;
 #endif
@@ -81,43 +79,18 @@ Category {
 			};
 
 			
-			float3 VertexLight4 (float4 vertex)
-			{
-				float3 viewpos = UnityObjectToViewPos(vertex).xyz;
-				float3 light = 0;
-				//[unroll(4)]
-				for (int i = 0; i < 4; i++) {
-					float3 toLight = unity_LightPosition[i].xyz - viewpos.xyz * unity_LightPosition[i].w;
-					float lengthSq = dot(toLight, toLight);
-					float atten = 1.0 / (1.0 + lengthSq * unity_LightAtten[i].z);
-					light += unity_LightColor[i].rgb * atten;
-				}
-				return light + unity_AmbientSky + unity_AmbientEquator / 10 + unity_AmbientGround / 10;
-			}
-
-			float3 ComputeVertexLight(float4 vert, float4 norm)
-			{
-				float3 light = 1;
-				#ifdef VertLight4_ON
-					light = VertexLight4(vert);
-				#endif
-				#ifdef VertLight4Normal_ON
-					light = ShadeVertexLights(vert, norm);;
-				#endif
-				return light;
-			}
-
+			
 
 			v2f vert (appdata_t v)
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
-			//#ifdef SOFTPARTICLES_ON
+
 				o.projPos = ComputeScreenPos (o.vertex);
 				COMPUTE_EYEDEPTH(o.projPos.z);
-			//#endif
+
 				o.color = v.color;
-				o.color.rgb *= ComputeVertexLight(v.vertex, v.normal);
+				//o.color.rgb *= ComputeVertexLight(v.vertex, v.normal);
 
 #ifdef FrameBlend_OFF
 				o.texcoord = TRANSFORM_TEX(v.texcoord,_MainTex);
@@ -144,16 +117,15 @@ Category {
 			
 			half4 frag (v2f i) : SV_Target
 			{
-			#ifdef SoftParticles_ON
-				#if defined (SOFTPARTICLES_ON) || defined (_MOBILEDEPTH_ON)
+	
+			#if  SOFTPARTICLES_ON
 					float z = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos)).r;
 					float sceneZ = LinearEyeDepth (UNITY_SAMPLE_DEPTH(z));
 					float partZ = i.projPos.z;
 					float fade = saturate (_InvFade * (sceneZ-partZ));
-					i.color.a *= fade;
-				#else 
-				#endif
+					i.color.a *= fade;			
 			#endif
+	
 			#ifdef FrameBlend_OFF
 				half4 tex = tex2D(_MainTex, i.texcoord);
 			#else

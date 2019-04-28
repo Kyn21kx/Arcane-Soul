@@ -17,6 +17,7 @@ public class RFX1_ParticleCollisionDecal : MonoBehaviour
 
     ParticleSystem initiatorPS;
     List<GameObject> collidedGameObjects = new List<GameObject>();
+    private bool needUpdateCollisionDetect;
 
     void OnEnable()
     {
@@ -24,13 +25,22 @@ public class RFX1_ParticleCollisionDecal : MonoBehaviour
         collidedGameObjects.Clear();
         initiatorPS = GetComponent<ParticleSystem>();
         particles = new ParticleSystem.Particle[DecalParticles.main.maxParticles];
-        if (InstantiateWhenZeroSpeed) InvokeRepeating("CollisionDetect", 0, 0.1f);
+        //if (InstantiateWhenZeroSpeed) InvokeRepeating("CollisionDetect", 0, 0.1f);
+        if (InstantiateWhenZeroSpeed) needUpdateCollisionDetect = true;
     }
 
     void OnDisable()
     {
-        if (InstantiateWhenZeroSpeed) CancelInvoke("CollisionDetect");
+       // if (InstantiateWhenZeroSpeed) CancelInvoke("CollisionDetect");
+        if (InstantiateWhenZeroSpeed) needUpdateCollisionDetect = false;
     }
+
+
+    void Update()
+    {
+        if(needUpdateCollisionDetect) CollisionDetect();
+    }
+
 
     void CollisionDetect()
     {

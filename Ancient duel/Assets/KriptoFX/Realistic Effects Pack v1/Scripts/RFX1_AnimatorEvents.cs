@@ -84,9 +84,9 @@ public class RFX1_AnimatorEvents : MonoBehaviour
     private void UpdateSpeed(RFX1_EffectAnimatorProperty effect)
     {
         oldSpeed = Speed;
-        var projectile = effect.CurrentInstance.GetComponent<RFX1_EffectSettingProjectile>();
-        if (projectile == null) projectile = effect.CurrentInstance.AddComponent<RFX1_EffectSettingProjectile>();
-        projectile.SpeedMultiplier *= Speed;
+        //var projectile = effect.CurrentInstance.GetComponent<RFX1_EffectSettingProjectile>();
+        //if (projectile == null) projectile = effect.CurrentInstance.AddComponent<RFX1_EffectSettingProjectile>();
+        //projectile.SpeedMultiplier *= Speed;
     }
 
     private void UpdateColor(RFX1_EffectAnimatorProperty effect)

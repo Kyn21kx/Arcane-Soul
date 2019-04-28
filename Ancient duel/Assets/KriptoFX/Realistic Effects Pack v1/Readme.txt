@@ -14,7 +14,7 @@ If you want to use posteffect for PC like in the demo:
 1) Download unity free posteffects 
 https://assetstore.unity.com/packages/essentials/post-processing-stack-83912
 2) Add "PostProcessingBehaviour.cs" on main Camera.
-3) Set the "PostEffects" profile. (path "Assets\KriptoFX\Realistic Effects Pack v1\PostEffects.asset")
+3) Set the "PostEffects" profile. (path "\Assets\KriptoFX\Realistic Effects Pack v1\ImagePostEffects\PostEffectsProfile.asset")
 4) You should turn on "HDR" on main camera for correct posteffects. 
 If you have forward rendering path (by default in Unity), you need disable antialiasing "edit->project settings->quality->antialiasing"
 or turn of "MSAA" on main camera, because HDR does not works with msaa. If you want to use HDR and MSAA then use "post effect msaa". 

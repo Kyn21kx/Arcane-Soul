@@ -1,4 +1,4 @@
-﻿Shader "KriptoFX/RFX1/Metall" {
+Shader "KriptoFX/RFX1/Metall" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		[HDR]_TintColor ("Tint Color", Color) = (0,0,0,1)

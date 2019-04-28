@@ -2,31 +2,24 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.AI;
-
 using Random = UnityEngine.Random;
 
-public class RFX1_TransformMotion : MonoBehaviour {
+public class RFX1_TransformMotion : MonoBehaviour
+{
     public float Distance = 30;
     public float Speed = 1;
-    public enum ActiveSpell { Fireball, WaterBall, MagneticBasic, ElectricBasic, FireMeteor, ElectricHeavy1, HeavyIce1};
-    public enum EnemySpellType { None, Follower, Fixed };
-    public EnemySpellType enemySpellType;
-    public ActiveSpell selectedSpell;
+    public float damage = 1f;
     //public float Dampeen = 0;
     //public float MinSpeed = 1;
     public float TimeDelay = 0;
-    public bool isEnemySpell = false;
     public float RandomMoveRadius = 0;
     public float RandomMoveSpeedScale = 0;
-    public float damage;
     public GameObject Target;
-
+ 
     public LayerMask CollidesWith = ~0;
-
-
+   
+   
     public GameObject[] EffectsOnCollision;
-    BasicEn_Manager Enemy;
     public float CollisionOffset = 0;
     public float DestroyTimeDelay = 5;
     public bool CollisionEffectInWorldSpace = true;
@@ -41,15 +34,10 @@ public class RFX1_TransformMotion : MonoBehaviour {
     private Vector3 oldPos;
     private bool isCollided;
     private bool isOutDistance;
-    public bool isFollowing = false;
     private Quaternion startQuaternion;
-    [SerializeField]
-    private float distanceToPlayer;
     //private float currentSpeed;
     private float currentDelay;
-    public int level;
     private const float RayCastTolerance = 0.15f;
-    Vector3 VectorAux;
     private bool isInitialized;
     private bool dropFirstFrameForFixUnityBugWithParticles;
     public event EventHandler<RFX1_CollisionInfo> CollisionEnter;
@@ -57,8 +45,6 @@ public class RFX1_TransformMotion : MonoBehaviour {
 
     void Start()
     {
-        //if (isEnemySpell)
-        //Target = GameObject.FindGameObjectWithTag("Player");
         t = transform;
         if (Target != null) targetT = Target.transform;
         startQuaternion = t.rotation;
@@ -98,11 +84,10 @@ public class RFX1_TransformMotion : MonoBehaviour {
         if (!dropFirstFrameForFixUnityBugWithParticles)
         {
             UpdateWorldPosition();
-            SetTarget();
         }
         else dropFirstFrameForFixUnityBugWithParticles = false;
     }
-    float cntr = 0f;
+
     void UpdateWorldPosition()
     {
         currentDelay += Time.deltaTime;
@@ -127,18 +112,18 @@ public class RFX1_TransformMotion : MonoBehaviour {
         if (!isCollided && !isOutDistance)
         {
             //currentSpeed = Mathf.Clamp(currentSpeed - Speed*Dampeen*Time.deltaTime, MinSpeed, Speed);
-
-            var currentForwardVector = (Vector3.forward + randomOffset) * Speed * Time.deltaTime;
-            frameMoveOffset = t.localRotation * currentForwardVector;
-            frameMoveOffsetWorld = startQuaternion * currentForwardVector;
-            if (Target != null) {
-                //cntr += Time.fixedDeltaTime;
-                //if (cntr > 0.2f) {
-                    var forwardVec = (targetT.position - t.position).normalized; currentForwardVector = (forwardVec + randomOffset) * Speed * Time.deltaTime;
-                    frameMoveOffset = currentForwardVector;
-                    frameMoveOffsetWorld = currentForwardVector;
-                    VectorAux = forwardVec;
-                //}
+            if (Target == null)
+            {
+                var currentForwardVector = (Vector3.forward + randomOffset)* Speed * Time.deltaTime;
+                frameMoveOffset = t.localRotation*currentForwardVector;
+                frameMoveOffsetWorld = startQuaternion*currentForwardVector;
+            }
+            else
+            {
+                var forwardVec = (targetT.position - t.position).normalized;
+                var currentForwardVector = (forwardVec + randomOffset) * Speed * Time.deltaTime;
+                frameMoveOffset = currentForwardVector;
+                frameMoveOffsetWorld = currentForwardVector;
             }
         }
 
@@ -154,103 +139,26 @@ public class RFX1_TransformMotion : MonoBehaviour {
                 oldPos = t.position;
                 OnCollisionBehaviour(hit);
                 OnCollisionDeactivateBehaviour(false);
-                //Applied only with water attack
-                #region Effects On collision with Player
-                if (isEnemySpell && hit.transform.CompareTag("Player")) {
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>().Health -= damage;
+                if (hit.transform.CompareTag("Player")) {
+                    hit.transform.GetComponent<HealthManager>().Health -= damage;
                 }
-                #endregion
-
-                #region Effects on collision with enemy
-                else {
-                    if (hit.transform.CompareTag("Enemy")) {
-                        #region Initialize variables
-                        EffectsOnHit onHit = hit.transform.GetComponent<EffectsOnHit>();
-                        Enemy = hit.transform.GetComponent<BasicEn_Manager>();
-                        LevelManager levelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelManager>();
-                        #endregion
-                        switch (selectedSpell) {
-                            case ActiveSpell.Fireball:
-                                #region Evaluate Level
-                                level = levelManager.fireBall;
-                                #endregion
-                                if (Enemy.wet) {
-                                    damage = 0;
-                                }
-                                else {
-                                    onHit.burnTicks += 5;
-                                    onHit.seconds1 = 1;
-                                    Enemy.burn = true;
-                                }
-                                break;
-                            case ActiveSpell.WaterBall:
-                                #region Evaluate Level
-                                level = levelManager.waterBall;
-                                #endregion
-                                //Enemy.wet = true;
-                                SlowDown();
-                                Enemy.cntr = 5f;
-                                break;
-                            case ActiveSpell.MagneticBasic:
-                                #region Evaluate Level
-                                level = levelManager.magneticBasic;
-                                #endregion
-                                break;
-                            case ActiveSpell.ElectricBasic:
-                                #region Evaluate Level
-                                level = levelManager.electricBasic;
-                                #endregion
-                                if (Enemy.wet) {
-                                    //Increase damage multipler with level
-                                    damage += damage;
-                                }
-                                break;
-                            case ActiveSpell.FireMeteor:
-                                #region Evaluate Level
-                                
-                                #endregion
-                                if (Enemy.wet) {
-                                    damage = 0;
-                                }
-                                break;
-                            case ActiveSpell.ElectricHeavy1:
-                                #region Evaluate Level
-
-                                #endregion
-                                if (Enemy.wet) {
-                                    //Increase damage multipler with level
-                                    damage += damage;
-                                }
-                                break;
-                            case ActiveSpell.HeavyIce1:
-                                //Evaluate level
-                                onHit.bleedTicks += 5;
-                                onHit.seconds = 1;
-                                Enemy.bleeding = true;
-                                break;
-                        }
-                        hit.transform.GetComponent<BasicEn_Manager>().health -= damage;
-                    }
-                    AreaExplosion(3f, 5f, hit.transform);
-                }
-                #endregion
                 return;
             }
         }
-        bool once = false;
-        if (!isOutDistance && currentDistance + RayCastTolerance > Distance) {
+      
+        if (!isOutDistance && currentDistance + RayCastTolerance > Distance)
+        {
             isOutDistance = true;
             OnCollisionDeactivateBehaviour(false);
 
-            if (Target == null && !once) {
-                t.localPosition = startPositionLocal + t.localRotation * (Vector3.forward + randomOffset) * Distance;
-                once = true;
-            }
-            if (Target != null) {
+            if (Target == null)
+                t.localPosition = startPositionLocal + t.localRotation*(Vector3.forward + randomOffset)*Distance;
+            else
+            {
                 var forwardVec = (targetT.position - t.position).normalized;
                 t.position = startPosition + forwardVec * Distance;
             }
-            //oldPos = t.position;
+            oldPos = t.position;
             return;
         }
       
@@ -314,63 +222,7 @@ public class RFX1_TransformMotion : MonoBehaviour {
         Gizmos.DrawLine(t.position, t.position + t.forward*Distance);
 
     }
-    bool Following;
-    bool OneTimeFollow = false;
-    void SetTarget () {
-        GameObject Player = GameObject.FindGameObjectWithTag("Spot");
-        /*float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
-        //Debug.Log(distance);
-        switch (enemySpellType) {
-            case EnemySpellType.None:
-                break;
-            case EnemySpellType.Follower:
-                if (Player.layer == 8 && !OneTimeFollow) {
-                    Following = true;
-                }
-                else if (Player.layer == 11) {
-                    Following = false;
-                    OneTimeFollow = true;
-                }
 
-                if (Following) {
-                    Target = GameObject.FindGameObjectWithTag("Spot");
-                }
-                else {
-                    Target = null;
-                }
-                
-                break;
-            case EnemySpellType.Fixed:
-                break;
-            default:
-                break;
-        }*/
-        
-    }
-    #region Additional Effects
-    public void AreaExplosion(float radius, float expDamage, Transform hitEnemy) {
-        if (selectedSpell == ActiveSpell.FireMeteor) {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            float projectileDistance;
-            int i = 0;
-            foreach (GameObject enemy in enemies) {
-                projectileDistance = Vector3.Distance(gameObject.transform.position, hitEnemy.position);
-                if (hitEnemy.CompareTag("Enemy") && projectileDistance <= radius && enemy != hitEnemy.gameObject) {
-                    enemy.GetComponent<BasicEn_Manager>().health -= expDamage;
-                }
-                else if (projectileDistance <= radius) {
-                    enemy.GetComponent<BasicEn_Manager>().health -= expDamage;
-                }
-                i++;
-            }
-        }
-        
-    }
-    private void SlowDown () {
-        //Timer
-        Enemy.gameObject.GetComponent<NavMeshAgent>().speed--;
-    }
-    #endregion
     public enum RFX4_SimulationSpace
     {
         Local,

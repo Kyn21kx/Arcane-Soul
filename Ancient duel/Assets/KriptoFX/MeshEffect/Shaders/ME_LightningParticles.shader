@@ -12,7 +12,9 @@ Properties {
 Category {
 	Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
 	Blend SrcAlpha One
-	Cull Off Lighting Off ZWrite Off
+	Cull Off 
+	
+	ZWrite Off
 
 	SubShader {
 		Pass {

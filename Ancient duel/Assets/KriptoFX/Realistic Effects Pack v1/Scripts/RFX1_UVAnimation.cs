@@ -189,6 +189,7 @@ public class RFX1_UVAnimation : MonoBehaviour
         {
             instanceMaterial.SetVector("_Tex_NextFrame", new Vector4(size.x, size.y, offset.x, offset.y));
             instanceMaterial.SetFloat("InterpolationValue", Mathf.Clamp01(currentInterpolatedTime*FPS));
+            instanceMaterial.SetVector("_MainTex_NextFrame", new Vector4(size.x, size.y, offset.x, offset.y));
         }
     }
 }

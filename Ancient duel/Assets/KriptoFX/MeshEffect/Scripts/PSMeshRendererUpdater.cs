@@ -6,6 +6,7 @@ using System.Linq;
 public class PSMeshRendererUpdater : MonoBehaviour
 {
     public GameObject MeshObject;
+    public float StartScaleMultiplier = 1;
     public Color Color = Color.black;
     const string materialName = "MeshEffect";
     List<Material[]> rendererMaterials = new List<Material[]>();
@@ -19,10 +20,52 @@ public class PSMeshRendererUpdater : MonoBehaviour
     Color oldColor = Color.black;
     private float currentAlphaTime;
 
+    string[] colorProperties =
+   {
+        "_TintColor", "_Color", "_EmissionColor", "_BorderColor", "_ReflectColor", "_RimColor",
+        "_MainColor", "_CoreColor", "_FresnelColor"
+    };
+
+    void OnEnable()
+    {
+        alpha = 0;
+        prevAlpha = 0;
+        IsActive = true;
+    }
+
+    float alpha;
+    float prevAlpha;
+    Dictionary<string, float> startAlphaColors;
+    private bool previousActiveStatus;
+    bool needUpdate;
+    bool needLastUpdate;
+    Dictionary<ParticleSystem, ParticleStartInfo> startParticleParameters;
+
     void Update()
     {
-        if (Application.isPlaying) CheckFading();
-       
+        if (!Application.isPlaying) return;
+        if (startAlphaColors == null)
+        {
+            InitStartAlphaColors();
+        }
+
+        if (IsActive && alpha < 1) alpha += Time.deltaTime / FadeTime;
+        if (!IsActive && alpha > 0) alpha -= Time.deltaTime / FadeTime;
+
+        if (alpha > 0 && alpha < 1)
+        {
+            needUpdate = true;
+        }
+        else
+        {
+            needUpdate = false;
+            alpha = Mathf.Clamp01(alpha);
+            if (Mathf.Abs(prevAlpha - alpha) >= Mathf.Epsilon) UpdateVisibleStatus();
+        }
+        prevAlpha = alpha;
+
+        if (needUpdate) UpdateVisibleStatus();
+
 
         if (Color != oldColor)
         {
@@ -31,98 +74,171 @@ public class PSMeshRendererUpdater : MonoBehaviour
         }
     }
 
-    public void CheckFading()
+    void InitStartAlphaColors()
     {
-        if (currentActiveStatus != IsActive)
+        startAlphaColors = new Dictionary<string, float>();
+
+        var renderers = GetComponentsInChildren<Renderer>(true);
+        foreach (var rend in renderers)
         {
-            currentActiveStatus = IsActive;
-            needUpdateAlpha = true;
-
-            var currentParticles = GetComponentsInChildren<ParticleSystem>();
-            foreach (var ps in currentParticles)
+            var mats = rend.materials;
+            for (int i = 0; i < mats.Length; i++)
             {
-                if (currentActiveStatus)
-                {
-                    ps.Clear();
-                    ps.Play();
-                }
-                else
-                {
-                    ps.Stop();
-                }
+                if(mats[i].name.Contains(materialName))  GetStartAlphaByProperties(rend.GetHashCode().ToString(), i, mats[i]);
             }
-
-            var currentTrails = GetComponentsInChildren<ME_TrailRendererNoise>();
-            foreach (var trail in currentTrails)
-            {
-                trail.IsActive = currentActiveStatus;
-            }
-           
         }
 
-        if (needUpdateAlpha)
+        var skinRenderers = GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        foreach (var rend in skinRenderers)
         {
-            if (currentActiveStatus) currentAlphaTime += Time.deltaTime;
-            else currentAlphaTime -= Time.deltaTime;
-
-            if (currentAlphaTime < 0 || currentAlphaTime > FadeTime)
+            var mats = rend.materials;
+            for (int i = 0; i < mats.Length; i++)
             {
-                needUpdateAlpha = false;
+                if (mats[i].name.Contains(materialName)) GetStartAlphaByProperties(rend.GetHashCode().ToString(), i, mats[i]);
             }
+        }
 
-            SetAlpha(Mathf.Clamp01(currentAlphaTime / FadeTime));
+        var lights = GetComponentsInChildren<Light>(true);
+        for (int i = 0; i < lights.Length; i++)
+        {
+            var lightCurve = lights[i].GetComponent<ME_LightCurves>();
+            float intencity = 1;
+            if (lightCurve != null) intencity = lightCurve.GraphIntensityMultiplier;
+            startAlphaColors.Add(lights[i].GetHashCode().ToString() + i, intencity);
+        }
 
+
+        renderers = MeshObject.GetComponentsInChildren<Renderer>(true);
+        foreach (var rend in renderers)
+        {
+            var mats = rend.materials;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                if (mats[i].name.Contains(materialName)) GetStartAlphaByProperties(rend.GetHashCode().ToString(), i, mats[i]);
+            }
+        }
+
+        skinRenderers = MeshObject.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        foreach (var rend in skinRenderers)
+        {
+            var mats = rend.materials;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                if (mats[i].name.Contains(materialName)) GetStartAlphaByProperties(rend.GetHashCode().ToString(), i, mats[i]);
+            }
+        }
+    }
+
+    void InitStartParticleParameters()
+    {
+        startParticleParameters = new Dictionary<ParticleSystem, ParticleStartInfo>();
+        var particles = MeshObject.GetComponentsInChildren<ParticleSystem>(true);
+        foreach (var ps in particles)
+        {
+             startParticleParameters.Add(ps, new ParticleStartInfo {StartSize = ps.main.startSize, StartSpeed = ps.main.startSpeed});
+        }
+    }
+
+    void UpdateVisibleStatus()
+    {
+        var renderers = GetComponentsInChildren<Renderer>(true);
+        foreach (var rend in renderers)
+        {
+            var mats = rend.materials;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                if (mats[i].name.Contains(materialName)) UpdateAlphaByProperties(rend.GetHashCode().ToString(), i, mats[i], alpha);
+            }
+        }
+
+        var skinRenderers = GetComponentsInChildren<Renderer>(true);
+        foreach (var rend in skinRenderers)
+        {
+            var mats = rend.materials;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                if (mats[i].name.Contains(materialName)) UpdateAlphaByProperties(rend.GetHashCode().ToString(), i, mats[i], alpha);
+            }
+        }
+
+        renderers = MeshObject.GetComponentsInChildren<Renderer>(true);
+        foreach (var rend in renderers)
+        {
+            var mats = rend.materials;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                if (mats[i].name.Contains(materialName)) UpdateAlphaByProperties(rend.GetHashCode().ToString(), i, mats[i], alpha);
+            }
+        }
+
+        skinRenderers = MeshObject.GetComponentsInChildren<Renderer>(true);
+        foreach (var rend in skinRenderers)
+        {
+            var mats = rend.materials;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                if (mats[i].name.Contains(materialName)) UpdateAlphaByProperties(rend.GetHashCode().ToString(), i, mats[i], alpha);
+            }
+        }
+
+        var lightCurves = GetComponentsInChildren<ME_LightCurves>(true);
+        foreach (var lightCurve in lightCurves)
+        {
+            lightCurve.enabled = IsActive;
+        }
+
+        var lights = GetComponentsInChildren<Light>(true);
+        for (int i = 0; i < lights.Length; i++)
+        {
+            if (!IsActive)
+            {
+                var startAlpha = startAlphaColors[lights[i].GetHashCode().ToString() + i];
+                lights[i].intensity = alpha * startAlpha;
+            }
         }
         
-    }
-
-    public void SetAlpha(float alpha)
-    {
-        if (MeshObject == null) return;
-
-        var currentLight = MeshObject.GetComponentInChildren<Light>();
-        if (currentLight != null) currentLight.intensity = alpha;
-
-        var meshRend = MeshObject.GetComponentInChildren<MeshRenderer>();
-        if (meshRend != null)
+        var particleSystems = GetComponentsInChildren<ParticleSystem>(true);
+        foreach (var ps in particleSystems)
         {
-            var materials = meshRend.materials;
-            foreach (var mat in materials)
-            {
-                if (mat.name.Contains(materialName))
-                {
-                    UpdateAlphaByPropertyName(mat, "_TintColor", alpha);
-                    UpdateAlphaByPropertyName(mat, "_MainColor", alpha);
-                }
-            }
+            if (!IsActive && !ps.isStopped) ps.Stop();
+            if (IsActive && ps.isStopped) ps.Play();
         }
 
-
-        var skinnedMeshRend = MeshObject.GetComponentInChildren<SkinnedMeshRenderer>();
-        if (skinnedMeshRend != null)
+        var currentTrails = GetComponentsInChildren<ME_TrailRendererNoise>();
+        foreach (var trail in currentTrails)
         {
-            var materials = skinnedMeshRend.materials;
-            foreach (var mat in materials)
+            trail.IsActive = IsActive;
+        }
+    }
+
+
+    void UpdateAlphaByProperties(string rendName, int materialNumber, Material mat, float alpha)
+    {
+        foreach (var prop in colorProperties)
+        {
+            if (mat.HasProperty(prop))
             {
-                if (mat.name.Contains(materialName))
-                {
-                    UpdateAlphaByPropertyName(mat, "_TintColor", alpha);
-                    UpdateAlphaByPropertyName(mat, "_MainColor", alpha);
-                }
+                var startAlpha = startAlphaColors[rendName + materialNumber + prop.ToString()];
+                var color = mat.GetColor(prop);
+                color.a = alpha * startAlpha;
+                mat.SetColor(prop, color);
             }
         }
     }
 
-    void UpdateAlphaByPropertyName(Material mat, string name, float alpha)
+    void GetStartAlphaByProperties(string rendName, int materialNumber, Material mat)
     {
-        if (mat.HasProperty(name))
+        foreach (var prop in colorProperties)
         {
-            var color = mat.GetColor(name);
-            color.a = alpha;
-            mat.SetColor(name, color);
+            if (mat.HasProperty(prop))
+            {
+                var key = rendName + materialNumber + prop.ToString();
+                if (!startAlphaColors.ContainsKey(key))                startAlphaColors.Add(rendName + materialNumber + prop.ToString(), mat.GetColor(prop).a);
+            }
         }
     }
 
+    
     public void UpdateColor(Color color)
     {
         if (MeshObject == null) return;
@@ -168,6 +284,8 @@ public class PSMeshRendererUpdater : MonoBehaviour
 
     private void UpdatePSMesh(GameObject go)
     {
+        if (startParticleParameters == null) InitStartParticleParameters();
+
         var ps = GetComponentsInChildren<ParticleSystem>();
         var meshRend = go.GetComponentInChildren<MeshRenderer>();
         var skinMeshRend = go.GetComponentInChildren<SkinnedMeshRenderer>();
@@ -176,11 +294,16 @@ public class PSMeshRendererUpdater : MonoBehaviour
         float realBound = 1;
         float transformMax = 1;
         if (meshRend != null)
+        {
             realBound = meshRend.bounds.size.magnitude;
-        if(skinMeshRend !=null)
+            transformMax = meshRend.transform.lossyScale.magnitude;
+        }
+        if (skinMeshRend != null)
+        {
             realBound = skinMeshRend.bounds.size.magnitude;
+            transformMax = skinMeshRend.transform.lossyScale.magnitude;
+        }
 
-        transformMax = go.transform.lossyScale.magnitude;
        
         foreach (var particleSys in ps)
         {
@@ -201,14 +324,49 @@ public class PSMeshRendererUpdater : MonoBehaviour
                    
                 }
             }
+
             var mainPS = particleSys.main;
-            
-            mainPS.startSizeMultiplier *= realBound / transformMax;
+            var startParticleInfo = startParticleParameters[particleSys];
+            mainPS.startSize = UpdateParticleParam(startParticleInfo.StartSize, mainPS.startSize, (realBound / transformMax) * StartScaleMultiplier);
+            mainPS.startSpeed = UpdateParticleParam(startParticleInfo.StartSpeed, mainPS.startSpeed, (realBound / transformMax) * StartScaleMultiplier);
+           
+            //var startSize = mainPS.startSize;
+            //if (startSize.mode == ParticleSystemCurveMode.TwoConstants)
+            //{
+            //    startSize.constantMin *= realBound / transformMax;
+            //    startSize.constantMax *= realBound / transformMax;
+            //}
+            //if (startSize.mode == ParticleSystemCurveMode.Constant)
+            //    startSize.constant *= realBound / transformMax;
+            //else mainPS.startSizeMultiplier *= realBound / transformMax;
+            //mainPS.startSize = startSize;
+
+
+
             particleSys.transform.gameObject.SetActive(true);
         }
         if (meshRend != null) foreach (var light1 in lights) light1.transform.position = meshRend.bounds.center;
         if (skinMeshRend != null) foreach (var light1 in lights) light1.transform.position = skinMeshRend.bounds.center;
 
+    }
+
+    class ParticleStartInfo
+    {
+        public ParticleSystem.MinMaxCurve StartSize;
+        public ParticleSystem.MinMaxCurve StartSpeed;
+    }
+
+    ParticleSystem.MinMaxCurve UpdateParticleParam(ParticleSystem.MinMaxCurve startParam, ParticleSystem.MinMaxCurve currentParam, float scale)
+    {
+        if (currentParam.mode == ParticleSystemCurveMode.TwoConstants)
+        {
+            
+            currentParam.constantMin = startParam.constantMin * scale;
+            currentParam.constantMax = startParam.constantMax * scale;
+        }
+        else if (currentParam.mode == ParticleSystemCurveMode.Constant)
+            currentParam.constant = startParam.constant * scale;
+        return currentParam;
     }
 
     private void AddMaterialToMesh(GameObject go)

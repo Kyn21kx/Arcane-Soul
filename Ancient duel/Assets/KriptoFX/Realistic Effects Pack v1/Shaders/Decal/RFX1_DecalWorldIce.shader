@@ -19,7 +19,7 @@ Category {
 	Offset -1, -1
 
 	SubShader {
-		GrabPass{ "_GrabTexture2" }
+		GrabPass{ }
 		Pass {
 		
 			CGPROGRAM
@@ -37,8 +37,8 @@ Category {
 			half _AlphaPow;
 			float4x4 unity_Projector;
 			float4x4 unity_ProjectorClip;
-			sampler2D _GrabTexture2;
-			float4 _GrabTexture2_TexelSize;
+			sampler2D _GrabTexture;
+			float4 _GrabTexture_TexelSize;
 			float _BumpAmt;
 			float _BumpAmtTex;
 			sampler2D _BumpMap;
@@ -112,9 +112,9 @@ Category {
 			half4 frag (v2f i) : SV_Target
 			{
 				half3 bump = UnpackNormal(tex2DTriplanar(_BumpMap, i.worldPos / 10, i.normal, _BumpMap_ST.xy, 0));
-				half2 offset = bump.rg * _BumpAmt * _GrabTexture2_TexelSize.xy;
+				half2 offset = bump.rg * _BumpAmt * _GrabTexture_TexelSize.xy;
 				i.uvgrab.xy = offset * i.uvgrab.z + i.uvgrab.xy;
-				half4 grabCol = saturate(tex2Dproj(_GrabTexture2, UNITY_PROJ_COORD(i.uvgrab)));
+				half4 grabCol = saturate(tex2Dproj(_GrabTexture, UNITY_PROJ_COORD(i.uvgrab)));
 				
 				half4 tex = tex2DTriplanar(_MainTex, i.worldPos / 10, i.normal, _MainTex_ST.xy, offset/_BumpAmtTex);
 				half mask = 1-tex2D(_Mask, i.uvMask).a;
