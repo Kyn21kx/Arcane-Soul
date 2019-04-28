@@ -58,6 +58,7 @@ public class Parry : MonoBehaviour {
         if (startTime) {
             timeDown += Time.fixedDeltaTime;
         }
+        //Collided
         if (health < auxHealth) {
             timeDifference = timeDown;
             auxHealth = health;

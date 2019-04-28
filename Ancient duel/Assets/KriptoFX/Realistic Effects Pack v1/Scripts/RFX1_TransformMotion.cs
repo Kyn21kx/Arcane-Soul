@@ -9,12 +9,15 @@ public class RFX1_TransformMotion : MonoBehaviour
     public float Distance = 30;
     public float Speed = 1;
     public float damage = 1f;
+    public bool dealt;
+    GameObject player;
     //public float Dampeen = 0;
     //public float MinSpeed = 1;
     public float TimeDelay = 0;
     public float RandomMoveRadius = 0;
     public float RandomMoveSpeedScale = 0;
     public GameObject Target;
+    private bool auxColl;
  
     public LayerMask CollidesWith = ~0;
    
@@ -140,7 +143,9 @@ public class RFX1_TransformMotion : MonoBehaviour
                 OnCollisionBehaviour(hit);
                 OnCollisionDeactivateBehaviour(false);
                 if (hit.transform.CompareTag("Player")) {
-                    hit.transform.GetComponent<HealthManager>().Health -= damage;
+                    //hit.transform.GetComponent<HealthManager>().Health -= damage;
+                    player = hit.transform.gameObject;
+                    dealt = true;
                 }
                 return;
             }
@@ -211,7 +216,13 @@ public class RFX1_TransformMotion : MonoBehaviour
            if(effect!=null) effect.SetActive(active);
         }
     }
-
+    //Deal damage
+    private void LateUpdate() {
+        if (dealt) {
+            player.GetComponent<HealthManager>().TakeDamage(damage);
+            dealt = false;
+        }
+    }
     void OnDrawGizmosSelected()
     {
         if (Application.isPlaying)
