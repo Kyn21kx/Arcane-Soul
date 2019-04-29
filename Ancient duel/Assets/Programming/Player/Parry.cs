@@ -22,8 +22,10 @@ public class Parry : MonoBehaviour {
     bool startTime;
     public bool perfect;
     public bool blocking;
+    public bool collided;
     #endregion
     //Testing vars
+    [SerializeField]
     int cntr = 0;
     
     private void Start() {
@@ -36,7 +38,6 @@ public class Parry : MonoBehaviour {
         health = GetComponent<HealthManager>().Health;
         perfect = PerfectParry();
         if (Input.GetButtonDown("B")) {
-            //timeDifference = 0;
             blocking = true;
             timeDown = 0;
             startTime = true;
@@ -49,9 +50,11 @@ public class Parry : MonoBehaviour {
         CountDown();
     }
     //After getting a successful parry, we call Late update to set the perfect parry bool to false;
-    private void LateUpdate() {
+    private void Update() {
         if (perfect) {
+            cntr++;
             perfect = false;
+            timeDifference = 0f;
         }
     }
     private void CountDown () {
@@ -59,15 +62,14 @@ public class Parry : MonoBehaviour {
             timeDown += Time.fixedDeltaTime;
         }
         //Collided
-        if (health < auxHealth) {
+        if (collided) {
             timeDifference = timeDown;
-            auxHealth = health;
+            collided = false;
         }
     }
 
     private bool PerfectParry () {
-        if (timeDifference <= 0.3 && timeDifference != 0) {
-            cntr++;
+        if (timeDifference <= 0.16 && timeDifference != 0) {
             return true;
         }
         else {

@@ -9,19 +9,12 @@ public class HealthManager : MonoBehaviour {
     public float Health = 100f;
     #endregion
 
-    private void Start() {
-        
-    }
-
     private void LateUpdate() {
         Die();
     }
 
     public void TakeDamage (float damage) {
-        if (GetComponent<Parry>().blocking && !GetComponent<Parry>().perfect) {
-            damage *= 0.5f;
-        }
-        else if (GetComponent<Parry>().perfect) {
+        if (GetComponent<Parry>().perfect) {
             damage = 0f;
         }
         Health -= damage;
