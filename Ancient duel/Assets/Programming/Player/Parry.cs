@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
+
 [RequireComponent(typeof (HealthManager))]
 public class Parry : MonoBehaviour {
 
@@ -22,7 +24,7 @@ public class Parry : MonoBehaviour {
     bool startTime;
     public bool perfect;
     public bool blocking;
-    public bool collided;
+    public float healthDifference;
     #endregion
     //Testing vars
     [SerializeField]
@@ -31,12 +33,14 @@ public class Parry : MonoBehaviour {
     private void Start() {
         health = GetComponent<HealthManager>().Health;
         auxHealth = health;
+        
     }
 
 
     private void FixedUpdate() {
         health = GetComponent<HealthManager>().Health;
         perfect = PerfectParry();
+        
         if (Input.GetButtonDown("B")) {
             blocking = true;
             timeDown = 0;
@@ -53,28 +57,50 @@ public class Parry : MonoBehaviour {
     private void Update() {
         if (perfect) {
             cntr++;
+            vib = true;
+            GetComponent<HealthManager>().Health += healthDifference;
+            auxHealth = GetComponent<HealthManager>().Health;
             perfect = false;
             timeDifference = 0f;
         }
+        VibDown();
     }
     private void CountDown () {
         if (startTime) {
             timeDown += Time.fixedDeltaTime;
         }
         //Collided
-        if (collided) {
+        if (auxHealth > health) {
             timeDifference = timeDown;
-            collided = false;
+            healthDifference = auxHealth - health;
+            auxHealth = health;
         }
     }
 
     private bool PerfectParry () {
-        if (timeDifference <= 0.16 && timeDifference != 0) {
+        if (timeDifference <= 0.4 && timeDifference != 0) {
             return true;
         }
         else {
             return false;
         }
     }
-
+    #region Global Aux variables
+    float vibrationTimer = 0f;
+    bool vib = false;
+    #endregion
+    
+    private void VibDown () {
+        if (vib) {
+            GamePad.SetVibration(PlayerIndex.One, 0.3f, 0.3f);
+            vibrationTimer += Time.fixedDeltaTime;
+            if (vibrationTimer > 0.5f) {
+                GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
+                vibrationTimer = 0;
+                vib = false;
+            }
+            
+        }
+        
+    }
 }

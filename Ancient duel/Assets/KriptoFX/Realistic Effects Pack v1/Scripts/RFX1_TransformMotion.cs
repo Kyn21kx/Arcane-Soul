@@ -149,7 +149,6 @@ public class RFX1_TransformMotion : MonoBehaviour
                 if (hit.transform.CompareTag("Player")) {
                     //hit.transform.GetComponent<HealthManager>().Health -= damage;
                     player = hit.transform.gameObject;
-                    player.GetComponent<Parry>().collided = true;
                     dealt = true;
                 }
                 return;

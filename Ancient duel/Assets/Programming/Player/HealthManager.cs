@@ -14,8 +14,8 @@ public class HealthManager : MonoBehaviour {
     }
 
     public void TakeDamage (float damage) {
-        if (GetComponent<Parry>().perfect) {
-            damage = 0f;
+        if (GetComponent<Parry>().blocking) {
+            damage *= 0.5f;
         }
         Health -= damage;
     }
