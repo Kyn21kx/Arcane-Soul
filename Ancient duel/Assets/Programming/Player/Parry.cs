@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
+using TMPro;
 
 [RequireComponent(typeof (HealthManager))]
 public class Parry : MonoBehaviour {
@@ -29,14 +30,17 @@ public class Parry : MonoBehaviour {
     //Testing vars
     [SerializeField]
     int cntr = 0;
+    public TextMeshProUGUI text;
     
     private void Start() {
         health = GetComponent<HealthManager>().Health;
         auxHealth = health;
         
     }
-
-
+    //Test for UI
+    private void LateUpdate() {
+        text.text = health.ToString();
+    }
     private void FixedUpdate() {
         health = GetComponent<HealthManager>().Health;
         perfect = PerfectParry();
@@ -78,7 +82,7 @@ public class Parry : MonoBehaviour {
     }
 
     private bool PerfectParry () {
-        if (timeDifference <= 0.4 && timeDifference != 0) {
+        if (timeDifference <= 0.3 && timeDifference != 0) {
             return true;
         }
         else {
