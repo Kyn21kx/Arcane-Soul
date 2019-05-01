@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 114321906428678634}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: EnAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 30
-  Speed: 15
+  Speed: 30
   damage: 2
   dealt: 0
   TimeDelay: 0
@@ -14398,7 +14398,7 @@ GameObject:
   - component: {fileID: 4246329152489364}
   m_Layer: 0
   m_Name: Effect4
-  m_TagString: Untagged
+  m_TagString: EnAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

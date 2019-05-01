@@ -7,22 +7,19 @@ public class HealthManager : MonoBehaviour {
     
     #region Variables
     public float Health = 100f;
+    private float auxHealth;
     #endregion
 
-    private void LateUpdate() {
-        Die();
+    private void Start() {
+        auxHealth = Health;
     }
 
-    public void TakeDamage (float damage) {
-        if (GetComponent<Parry>().blocking) {
-            damage *= 0.5f;
-        }
-        Health -= damage;
+    private void LateUpdate() {
+        //Die();
     }
 
     private void Die () {
-        Debug.Log(Health);
-        if (Health <= 0f) {
+        if (Health <= 0) {
             Destroy(gameObject);
         }
     }

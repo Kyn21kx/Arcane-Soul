@@ -19,6 +19,7 @@ TagManager:
   - AutoAimArea
   - ShootingPosition
   - EnemySpell
+  - EnAttack
   layers:
   - Default
   - TransparentFX

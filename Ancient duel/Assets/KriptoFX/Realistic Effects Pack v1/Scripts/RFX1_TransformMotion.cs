@@ -84,10 +84,10 @@ public class RFX1_TransformMotion : MonoBehaviour
 
     void Update()
     {
-        if (dealt) {
+        /*if (dealt) {
             player.GetComponent<HealthManager>().TakeDamage(damage);
             dealt = false;
-        }
+        }*/
         if (!dropFirstFrameForFixUnityBugWithParticles)
         {
             UpdateWorldPosition();
@@ -149,6 +149,8 @@ public class RFX1_TransformMotion : MonoBehaviour
                 if (hit.transform.CompareTag("Player")) {
                     //hit.transform.GetComponent<HealthManager>().Health -= damage;
                     player = hit.transform.gameObject;
+                    player.GetComponent<Parry>().collided = true;
+                    player.GetComponent<Parry>().dmg = damage;
                     dealt = true;
                 }
                 return;

@@ -19,8 +19,10 @@ public class Parry : MonoBehaviour {
     [SerializeField]
     float auxHealth;
     float health;
+    public bool collided;
     [SerializeField]
     float timeDown;
+    public float dmg;
     [SerializeField]
     bool startTime;
     public bool perfect;
@@ -41,6 +43,8 @@ public class Parry : MonoBehaviour {
     private void LateUpdate() {
         text.text = health.ToString();
     }
+
+
     private void FixedUpdate() {
         health = GetComponent<HealthManager>().Health;
         perfect = PerfectParry();
@@ -59,14 +63,7 @@ public class Parry : MonoBehaviour {
     }
     //After getting a successful parry, we call Late update to set the perfect parry bool to false;
     private void Update() {
-        if (perfect) {
-            cntr++;
-            vib = true;
-            GetComponent<HealthManager>().Health += healthDifference;
-            auxHealth = GetComponent<HealthManager>().Health;
-            perfect = false;
-            timeDifference = 0f;
-        }
+        
         VibDown();
     }
     private void CountDown () {
@@ -74,15 +71,28 @@ public class Parry : MonoBehaviour {
             timeDown += Time.fixedDeltaTime;
         }
         //Collided
-        if (auxHealth > health) {
+        if (collided) {
             timeDifference = timeDown;
-            healthDifference = auxHealth - health;
-            auxHealth = health;
+            if (perfect) {
+                cntr++;
+                vib = true;
+                dmg = 0f;
+                perfect = false;
+                timeDifference = 0f;
+            }
+            if (blocking) {
+                dmg *= 0.5f;
+            }
+            GetComponent<HealthManager>().Health -= dmg;
+            collided = false;
         }
     }
 
+    
+
     private bool PerfectParry () {
-        if (timeDifference <= 0.3 && timeDifference != 0) {
+        //0.16f
+        if (timeDifference <= 0.16f && timeDifference != 0f) {
             return true;
         }
         else {
