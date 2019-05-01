@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Distance: 30
   Speed: 15
-  damage: 20
+  damage: 200
   dealt: 0
   TimeDelay: 0
   RandomMoveRadius: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent (typeof(Parry))]
 public class HealthManager : MonoBehaviour {
@@ -15,12 +16,13 @@ public class HealthManager : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        //Die();
+        Die();
     }
 
     private void Die () {
         if (Health <= 0) {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
+            SceneManager.LoadScene(0);
         }
     }
 }
