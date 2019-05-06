@@ -1,0 +1,16 @@
+Parry consumes mana;
+
+Adapt spell system to one button;
+
+Lock on target;
+
+Enemy AI {
+*Shooting
+*Movement
+*Stealth patterns (Patrol and detection system)
+*Health System
+};
+
+Study acceleration of an object (dx/dy);
+
+Sword Tests and collision;

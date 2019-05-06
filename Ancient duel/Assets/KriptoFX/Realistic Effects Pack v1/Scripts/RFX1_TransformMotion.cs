@@ -11,6 +11,8 @@ public class RFX1_TransformMotion : MonoBehaviour
     public float damage = 1f;
     public bool dealt;
     GameObject player;
+    [Header("If this is an enemy, mark it")]
+    public bool enemySpell;
     //public float Dampeen = 0;
     //public float MinSpeed = 1;
     public float TimeDelay = 0;
@@ -146,12 +148,14 @@ public class RFX1_TransformMotion : MonoBehaviour
                 oldPos = t.position;
                 OnCollisionBehaviour(hit);
                 OnCollisionDeactivateBehaviour(false);
-                if (hit.transform.CompareTag("Player")) {
-                    //hit.transform.GetComponent<HealthManager>().Health -= damage;
-                    player = hit.transform.gameObject;
-                    player.GetComponent<Parry>().collided = true;
-                    player.GetComponent<Parry>().dmg = damage;
-                    dealt = true;
+                if (enemySpell) {
+                    if (hit.transform.CompareTag("Player")) {
+                        //hit.transform.GetComponent<HealthManager>().Health -= damage;
+                        player = hit.transform.gameObject;
+                        player.GetComponent<Parry>().collided = true;
+                        player.GetComponent<Parry>().dmg = damage;
+                        dealt = true;
+                    }
                 }
                 return;
             }
@@ -222,10 +226,6 @@ public class RFX1_TransformMotion : MonoBehaviour
            if(effect!=null) effect.SetActive(active);
         }
     }
-    //Deal damage
-    private void FixedUpdate() {
-        
-    }
     void OnDrawGizmosSelected()
     {
         if (Application.isPlaying)
@@ -236,6 +236,7 @@ public class RFX1_TransformMotion : MonoBehaviour
         Gizmos.DrawLine(t.position, t.position + t.forward*Distance);
 
     }
+    
 
     public enum RFX4_SimulationSpace
     {

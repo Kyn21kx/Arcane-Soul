@@ -47,8 +47,6 @@ public class Parry : MonoBehaviour {
 
     private void FixedUpdate() {
         health = GetComponent<HealthManager>().Health;
-        perfect = PerfectParry();
-        Debug.Log(timeDown);
         if (Input.GetButtonDown("B")) {
             blocking = true;
             timeDown = 0;
@@ -72,6 +70,7 @@ public class Parry : MonoBehaviour {
         //Collided
         if (collided) {
             timeDifference = timeDown;
+            perfect = PerfectParry();
             if (perfect) {
                 cntr++;
                 vib = true;

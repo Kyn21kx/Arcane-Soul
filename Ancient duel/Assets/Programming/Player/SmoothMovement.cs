@@ -11,8 +11,8 @@ public class SmoothMovement : MonoBehaviour {
     public float runSpeed = 7f;
     float speed;
     public Vector2 input;
-    float smoothVel = 2f;
-    float turnTime = 0.2f;
+    float smoothVel = 1f;
+    float turnTime = 0.04f;
     #endregion
 
     #region Animation variables

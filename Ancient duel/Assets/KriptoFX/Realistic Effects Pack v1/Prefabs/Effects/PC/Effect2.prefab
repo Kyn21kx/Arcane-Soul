@@ -9677,6 +9677,7 @@ MonoBehaviour:
   Speed: 20
   damage: 6
   dealt: 0
+  enemySpell: 1
   TimeDelay: 0
   RandomMoveRadius: 0
   RandomMoveSpeedScale: 0
