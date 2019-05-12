@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 30
-  Speed: 30
+  Speed: 60
   damage: 2
   dealt: 0
   enemySpell: 1

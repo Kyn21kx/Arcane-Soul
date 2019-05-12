@@ -6,153 +6,42 @@ using UnityEngine.UI;
 public class ManaManager : MonoBehaviour {
     #region Variables
     Image manaBar;
-    Spells spells;
-    public int fball = 20, enWhip = 20, electShield = 20, magneticBasic = 20, waterAttack = 20, electricHeavy = 30, heavyFire = 30, heavyWater = 30;
-    public float manaAmount = 150f;
-    public float manaAux;
-    public int regenerationAmount = 20;
+    public float maxMana;
     public bool reduced = false;
     public bool outOfMana;
-    public bool AbilityOutOfMana;
-    float cntr = 1.5f;
+    float cntr = 0f;
     private float proportion;
+    #endregion
+    #region Stats variables
+    public float manaAmount = 150f;
+    public float regenerationAmount = 10f;
     #endregion
 
     private void Start() {
         manaBar = GameObject.FindGameObjectWithTag("Mana").GetComponent<Image>();
-        spells = GameObject.FindGameObjectWithTag("Player").GetComponent<Spells>();
-        manaAux = manaAmount;
+        maxMana = manaAmount;
     }
 
-    private void Update() {
-        EvaluateSpells();
-        proportion = manaAmount / manaAux;
+    private void FixedUpdate() {
+        proportion = manaAmount / maxMana;
         manaBar.fillAmount = proportion;
+        Regenerate();
     }
 
-    private void EvaluateSpells() {
+    public void Reduce (float cost) {
+        manaAmount -= cost;
+        cntr = 0f;
+        reduced = true;
+    }
 
-        #region Drenar Maná para los ataques básicos
-        if (Input.GetMouseButtonUp(0) && manaAmount >= fball && GameObject.Find("Fireball Holder").GetComponent<Fireball>().readytoCast && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming) { //Continuar añadiendo todos los hechizos
-            cntr = 1.5f;
-            switch (spells.typeSelector) {
-                case Spells.Types.Fire:
-                    manaAmount -= fball;
-                    break;
-                case Spells.Types.Water:
-                    manaAmount -= waterAttack;
-                    break;
-                case Spells.Types.Magnetic:
-                    manaAmount -= magneticBasic;
-                    break;
-                case Spells.Types.Electric:
-                    manaAmount -= enWhip;
-                    break;
-            }
-            reduced = true;
-            outOfMana = false;
-        }
-
-        else if (manaAmount <= fball) { // Add the other spells here
-            outOfMana = true;
-        }
-
-        #endregion
-
-        #region Drenar Maná para ataques fuertes
-        if (GameObject.Find("RangedAbilityHolder").GetComponent<RangedAbility>().readyToCast && GameObject.FindGameObjectWithTag("Player").GetComponent<aim>().aiming && Input.GetMouseButtonUp(1) && manaAmount >= 30f) { //Continuar añadiendo todos los hechizos
-            switch (spells.typeSelector) {
-                case Spells.Types.Fire:
-                    switch (spells.abilitySelector) {
-                        case Spells.Abilities.Heavy1:
-                            manaAmount -= electricHeavy;
-                            cntr = 1.5f;
-                            break;
-                        case Spells.Abilities.Heavy2:
-
-                            break;
-                        case Spells.Abilities.Heavy3:
-
-                            break;
-                        case Spells.Abilities.Heavy4:
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                case Spells.Types.Water:
-                    switch (spells.abilitySelector) {
-                        case Spells.Abilities.Heavy1:
-                            manaAmount -= heavyWater;
-                            cntr = 1.5f;
-                            break;
-                        case Spells.Abilities.Heavy2:
-                            break;
-                        case Spells.Abilities.Heavy3:
-                            break;
-                        case Spells.Abilities.Heavy4:
-                            break;
-                    }
-                    break;
-                case Spells.Types.Magnetic:
-                    break;
-                case Spells.Types.Electric:
-                    switch (spells.abilitySelector) {
-                        case Spells.Abilities.Heavy1:
-                            manaAmount -= electricHeavy;
-                            cntr = 1.5f;
-                            break;
-                        case Spells.Abilities.Heavy2:
-
-                            break;
-                        case Spells.Abilities.Heavy3:
-
-                            break;
-                        case Spells.Abilities.Heavy4:
-                            StartCoroutine(AdjustElectricHeavy1());
-                            StartCoroutine(AuxTimer(3f));
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-            }
-            reduced = true;
-            AbilityOutOfMana = false;
-        }
-        else if (manaAmount <= 30) { // Add the other spells here
-            AbilityOutOfMana = true;
-        }
-        #endregion
-
+    public void Regenerate () {
         if (reduced) {
-            if (cntr <= 1.5f && cntr > 0f) {
-                cntr -= Time.fixedDeltaTime;
-                cntr = Mathf.Clamp(cntr, 0f, 1.5f);
+            cntr += Time.fixedDeltaTime;
+            if (cntr >= 1.5f) {
+                manaAmount += regenerationAmount * Time.fixedDeltaTime;
+                manaAmount = Mathf.Clamp(manaAmount, 0f, maxMana);
             }
-            if (cntr <= 0f) {
-                if (manaAmount <= manaAux) {
-                    manaAmount += (20f * Time.fixedDeltaTime);
-                    manaAmount = Mathf.Clamp(manaAmount, 0f, manaAux);
-
-                }
-            }
-
         }
-        //manaBar.fillAmount = 
-    }
-
-    private IEnumerator AdjustElectricHeavy1() {
-        //Disable the regeneration by going higher than 1.5
-        cntr = 2;
-        yield return new WaitForSeconds(0.2f);
-        manaAmount -= electricHeavy;
-
-    }
-
-    private IEnumerator AuxTimer(float time) {
-        yield return new WaitForSeconds(time);
-        cntr = 1.5f;
     }
 
 }

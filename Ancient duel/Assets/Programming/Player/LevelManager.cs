@@ -12,5 +12,4 @@ public class LevelManager : MonoBehaviour {
     //Ability points to upgrade ALL spells
     public int abilityPoints = 0;
     #endregion
-
 }

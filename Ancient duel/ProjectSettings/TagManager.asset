@@ -20,6 +20,7 @@ TagManager:
   - ShootingPosition
   - EnemySpell
   - EnAttack
+  - Stamina
   layers:
   - Default
   - TransparentFX

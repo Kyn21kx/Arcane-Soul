@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
-using TMPro;
 
 [RequireComponent(typeof (HealthManager))]
+[RequireComponent(typeof (ManaManager))]
+[RequireComponent (typeof(SmoothMovement))]
 public class Parry : MonoBehaviour {
 
     /*TODO:
@@ -29,31 +30,35 @@ public class Parry : MonoBehaviour {
     public bool blocking;
     public float healthDifference;
     #endregion
+    #region Stats Variables
+    public float block_amount = 0.4f;
+    public float manaCost = 30f;
+    #endregion
     //Testing vars
     [SerializeField]
     int cntr = 0;
-    public TextMeshProUGUI text;
     
     private void Start() {
         health = GetComponent<HealthManager>().Health;
         auxHealth = health;
         
     }
-    //Test for UI
-    private void LateUpdate() {
-        text.text = health.ToString();
-    }
-
-
     private void FixedUpdate() {
         health = GetComponent<HealthManager>().Health;
+        //Disable attack when blocking
         if (Input.GetButtonDown("B")) {
             blocking = true;
+            GetComponent<SmoothMovement>().walkSpeed = 2f;
+            GetComponent<SmoothMovement>().runSpeed = 2f;
+            //GetComponent<SmoothMovement>().stealthSpeed *= 0.5f;
             timeDown = 0;
             startTime = true;
         }
         else if (Input.GetButtonUp("B")) {
             blocking = false;
+            GetComponent<SmoothMovement>().walkSpeed = 8f;
+            GetComponent<SmoothMovement>().runSpeed = 15;
+            //GetComponent<SmoothMovement>().stealthSpeed /= 0.5f;
             timeDown = 0;
             startTime = false;
         }
@@ -78,8 +83,9 @@ public class Parry : MonoBehaviour {
                 perfect = false;
                 timeDifference = 0f;
             }
-            else if (blocking) {
-                dmg *= 0.5f;
+            else if (blocking && GetComponent<StaminaManager>().staminaAmount >= manaCost) {
+                dmg *= block_amount;
+                GetComponent<StaminaManager>().Reduce(manaCost);
             }
             GetComponent<HealthManager>().Health -= dmg;
             collided = false;
@@ -90,7 +96,7 @@ public class Parry : MonoBehaviour {
 
     private bool PerfectParry () {
         //0.16f
-        if (timeDifference <= 0.16f && timeDifference != 0f) {
+        if (timeDifference <= 0.1f && timeDifference != 0f) {
             return true;
         }
         else {

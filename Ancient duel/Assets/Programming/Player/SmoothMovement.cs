@@ -9,7 +9,6 @@ public class SmoothMovement : MonoBehaviour {
     public float stealthRun = 5.5f;
     public float walkSpeed = 5f;
     public float runSpeed = 7f;
-    float speed;
     public Vector2 input;
     float smoothVel = 1f;
     float turnTime = 0.04f;
@@ -21,7 +20,6 @@ public class SmoothMovement : MonoBehaviour {
     #endregion
 
     private void Start() {
-        speed = walkSpeed;
         anim = GetComponentInChildren<Animator>();
     }
 
@@ -39,7 +37,8 @@ public class SmoothMovement : MonoBehaviour {
         if (inputDir != Vector2.zero) {
             float target = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref smoothVel, turnTime);
-            transform.Translate(transform.forward * speed * Time.fixedDeltaTime, Space.World);
+            //Change walk speed for speed and set the variable depending on the input
+            transform.Translate(transform.forward * walkSpeed * Time.fixedDeltaTime, Space.World);
             anim.SetBool("Walk", true);
         }
         else {
