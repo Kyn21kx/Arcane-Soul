@@ -63,14 +63,14 @@ namespace Invector.CharacterController
 
         protected virtual void FixedUpdate()
         {
-            cc.AirControl();
+            //cc.AirControl();
             CameraInput();
         }
 
         protected virtual void Update()
         {
-            cc.UpdateMotor();                   // call ThirdPersonMotor methods               
-            cc.UpdateAnimator();                // call ThirdPersonAnimator methods		               
+            //cc.UpdateMotor();                   // call ThirdPersonMotor methods               
+            //cc.UpdateAnimator();                // call ThirdPersonAnimator methods		               
         }
         //Disable all the inputs excepting for the camera one
         protected virtual void InputHandle()

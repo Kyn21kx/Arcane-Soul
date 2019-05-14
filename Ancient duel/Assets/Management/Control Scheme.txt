@@ -1,0 +1,9 @@
+Break defense
+***************
+*Ataque básico = X
+*Ataque fuerte = Y
+*Disparo = RB
+*Habilidades = RT
+*Dash = B
+*Apuntar = LT
+*

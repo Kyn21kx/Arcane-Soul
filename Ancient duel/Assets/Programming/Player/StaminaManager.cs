@@ -13,8 +13,8 @@ public class StaminaManager : MonoBehaviour {
     private float proportion;
     #endregion
     #region Stats variables
-    public float staminaAmount = 150f;
-    public float regenerationAmount = 10f;
+    public float staminaAmount = 50f;
+    public float regenerationAmount = 5f;
     #endregion
 
     private void Start() {
@@ -37,7 +37,7 @@ public class StaminaManager : MonoBehaviour {
     public void Regenerate() {
         if (reduced) {
             cntr += Time.fixedDeltaTime;
-            if (cntr >= 1.5f) {
+            if (cntr >= 4f) {
                 staminaAmount += regenerationAmount * Time.fixedDeltaTime;
                 staminaAmount = Mathf.Clamp(staminaAmount, 0f, maxStamina);
             }

@@ -8,7 +8,6 @@ TagManager:
   - Crosshair
   - Spell
   - Mana
-  - NoiseEmitter
   - Water
   - CoverSpot
   - JumpPoint
@@ -16,11 +15,11 @@ TagManager:
   - EnemySpellHolder
   - Spot
   - SpellHolder
-  - AutoAimArea
   - ShootingPosition
   - EnemySpell
   - EnAttack
   - Stamina
+  - Terrain
   layers:
   - Default
   - TransparentFX

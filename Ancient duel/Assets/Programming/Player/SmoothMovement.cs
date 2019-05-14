@@ -10,8 +10,9 @@ public class SmoothMovement : MonoBehaviour {
     public float walkSpeed = 5f;
     public float runSpeed = 7f;
     public Vector2 input;
-    float smoothVel = 1f;
+    float smoothVel = 5f;
     float turnTime = 0.04f;
+    bool grounded;
     #endregion
 
     #region Animation variables
@@ -25,6 +26,8 @@ public class SmoothMovement : MonoBehaviour {
 
     private void FixedUpdate() {
         MovePlayer();
+        Jump();
+        grounded = Grounded();
     }
 
     private void MovePlayer () {
@@ -51,4 +54,24 @@ public class SmoothMovement : MonoBehaviour {
             anim.SetBool("Run", false);
         }
     }
+
+    private void Jump () {
+        if ((Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.Space)) && grounded) {
+                GetComponent<Rigidbody>().velocity = Vector3.up * (10f);
+        }
+    }
+
+    private bool Grounded () {
+        //Find the nearest ground to the player
+        //Find the distance in the y axis of that ground
+        float distance = transform.position.y - GameObject.FindGameObjectWithTag("Terrain").transform.position.y;
+        //Debug.Log(distance);
+        if (distance <= 0.5) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }

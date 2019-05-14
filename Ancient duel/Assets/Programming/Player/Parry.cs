@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof (HealthManager))]
 [RequireComponent(typeof (ManaManager))]
@@ -29,6 +30,9 @@ public class Parry : MonoBehaviour {
     public bool perfect;
     public bool blocking;
     public float healthDifference;
+    [SerializeField]
+    private AudioClip soundEffect;
+    public AudioSource camAudio;
     #endregion
     #region Stats Variables
     public float block_amount = 0.4f;
@@ -46,7 +50,7 @@ public class Parry : MonoBehaviour {
     private void FixedUpdate() {
         health = GetComponent<HealthManager>().Health;
         //Disable attack when blocking
-        if (Input.GetButtonDown("B")) {
+        if (Input.GetButtonDown("LB")) {
             blocking = true;
             GetComponent<SmoothMovement>().walkSpeed = 2f;
             GetComponent<SmoothMovement>().runSpeed = 2f;
@@ -54,7 +58,7 @@ public class Parry : MonoBehaviour {
             timeDown = 0;
             startTime = true;
         }
-        else if (Input.GetButtonUp("B")) {
+        else if (Input.GetButtonUp("LB")) {
             blocking = false;
             GetComponent<SmoothMovement>().walkSpeed = 8f;
             GetComponent<SmoothMovement>().runSpeed = 15;
@@ -80,6 +84,8 @@ public class Parry : MonoBehaviour {
                 cntr++;
                 vib = true;
                 dmg = 0f;
+                camAudio.volume = 0.3f;
+                camAudio.PlayOneShot(soundEffect);
                 perfect = false;
                 timeDifference = 0f;
             }
