@@ -12,14 +12,18 @@ public class SmoothMovement : MonoBehaviour {
     public Vector2 input;
     float smoothVel = 5f;
     float turnTime = 0.04f;
-    bool grounded;
+    public bool grounded;
+    public float jumpForce = 20f;
+    float distance;
     #endregion
 
     #region Animation variables
-    float xAnim, yAnim;
     Animator anim;
     #endregion
-
+    /* TODO:
+     * Decrease the movement speed when in the air
+     * When in the air, disable movement if parrying
+     */
     private void Start() {
         anim = GetComponentInChildren<Animator>();
     }
@@ -35,8 +39,6 @@ public class SmoothMovement : MonoBehaviour {
         //if controller input, then change
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         Vector2 inputDir = input.normalized;
-        xAnim = input.x;
-        yAnim = input.y;
         if (inputDir != Vector2.zero) {
             float target = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref smoothVel, turnTime);
@@ -56,17 +58,18 @@ public class SmoothMovement : MonoBehaviour {
     }
 
     private void Jump () {
+        var rb = GetComponent<Rigidbody>();
         if ((Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.Space)) && grounded) {
-                GetComponent<Rigidbody>().velocity = Vector3.up * (10f);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+        }
+        if (distance >= 5) {
+            rb.velocity += Vector3.down;
         }
     }
 
     private bool Grounded () {
-        //Find the nearest ground to the player
-        //Find the distance in the y axis of that ground
-        float distance = transform.position.y - GameObject.FindGameObjectWithTag("Terrain").transform.position.y;
-        //Debug.Log(distance);
-        if (distance <= 0.5) {
+        distance = transform.position.y - GameObject.FindGameObjectWithTag("Terrain").transform.position.y;
+        if (distance <= 0.5 && distance >= -1) {
             return true;
         }
         else {
