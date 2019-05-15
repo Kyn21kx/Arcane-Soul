@@ -60,9 +60,11 @@ public class SmoothMovement : MonoBehaviour {
     private void Jump () {
         var rb = GetComponent<Rigidbody>();
         if ((Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.Space)) && grounded) {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            //anim.SetBool("Jump", true);
+            rb.velocity += Vector3.up * jumpForce;
         }
         if (distance >= 5) {
+            //anim.SetBool("Jump", false);
             rb.velocity += Vector3.down;
         }
     }
